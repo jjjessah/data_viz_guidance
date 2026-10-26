@@ -3,7 +3,7 @@ layout: default
 title: Sankey Diagram
 permalink: sankeydiagram.html
 tags: [Distribution]
-description: "Short Description of Sankey Diagram"
+description: "Sankey diagrams for flows and transitions between categories."
 ---
 
 # Sankey Diagram

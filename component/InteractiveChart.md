@@ -2,7 +2,8 @@
 layout: default
 title: Interactive Chart 
 permalink: interactivechart.html
-description: "Short Description of Interactive Chart"
+description: "Practices for interactive charts that add analytical value while remaining keyboard-accessible."
+tags: [Accessibility]
 ---
 
 # Interactive Chart

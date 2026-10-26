@@ -2,7 +2,8 @@
 layout: default
 title: Mobile Design for Interactive Visualizations 
 permalink: mobiledesign.html
-description: "Short Description of Mobile Design for Interactive Visualizations"
+description: "Mobile-first layout and interaction guidance for interactive Census visualizations."
+tags: [Accessibility]
 ---
 
 # Mobile Design for Interactive Visualizations

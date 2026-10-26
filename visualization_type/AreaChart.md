@@ -3,7 +3,7 @@ layout: default
 title: Area Chart
 permalink: areachart.html
 tags: [Distribution]
-description: "Short Description of Area Chart"
+description: "Area charts for showing volume or composition of continuous series over time."
 ---
 
 # Area Chart 

@@ -3,7 +3,7 @@ layout: default
 title: Bubble Chart
 permalink: bubblechart.html
 tags: [Distribution, Correlation]
-description: "Short Description of Bubble Chart"
+description: "Bubble charts for three quantitative variables using position and size."
 ---
 
 # Bubble Chart

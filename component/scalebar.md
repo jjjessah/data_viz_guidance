@@ -2,7 +2,7 @@
 layout: default
 title: Scale Bar
 permalink: scalebar.html
-description: "Short Description of Area Chart"
+description: "Designing clear map scale bars that stay accurate when maps are resized."
 ---
 
 # Scale Bars  

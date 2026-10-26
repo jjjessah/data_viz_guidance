@@ -2,7 +2,8 @@
 layout: default
 title: Color 
 permalink: color.html
-description: "Short Description of Color"
+description: "Accessible color palette and encoding guidance for categorical and sequential Census visualizations."
+tags: [Accessibility]
 ---
 
 # Color 

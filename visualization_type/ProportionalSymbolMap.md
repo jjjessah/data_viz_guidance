@@ -2,8 +2,8 @@
 layout: default
 title: Proportional Symbol Map
 permalink: proportionalsymbolmap.html
-tags: [Comparison,Distribution,Geospatial]
-description: "Short Description of Proportional Symbol Map"
+tags: [Comparison, Distribution, Geospatial]
+description: "Proportional symbol maps for magnitudes at point or area locations."
 ---
 
 # Proportional Symbol Map

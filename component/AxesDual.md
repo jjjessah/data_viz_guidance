@@ -2,7 +2,7 @@
 layout: default
 title: Axes-Dual or Double-Y 
 permalink: axesdual.html
-description: "Short Description of Dual Axes or Double-Y"
+description: "When and how to use dual or double-Y axes without misleading readers of multi-series charts."
 ---
 
 This document discusses a special type of axes chart known as double-y or dual axes graphs. These should NEVER be used with two exceptions noted below. For more information on axes in general (e.g., scales, tick marks, etc.), see the Axes document. 

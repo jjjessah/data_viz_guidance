@@ -17,6 +17,10 @@ include: [_layouts]
 # Custom navigation data
 
 navigation:
+  - title: Getting Started
+    sub_pages:
+      - title: How to use this site
+        url: how-to-use
   - title: Visualization Types
     sub_pages:
       - title: Area Chart

@@ -3,7 +3,7 @@ layout: default
 title: Slope Diagram
 permalink: slopediagram.html
 tags: [Comparison]
-description: "Short Description of Slope Diagram"
+description: "Slope diagrams for highlighting change between two time points."
 ---
 
 # Slope Diagram

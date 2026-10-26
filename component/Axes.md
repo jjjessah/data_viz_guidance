@@ -2,7 +2,7 @@
 layout: default
 title: Axes 
 permalink: axes.html
-description: "Short Description of Axes"
+description: "Guidance for designing clear, readable chart axes that support accurate interpretation of Census data."
 ---
 
 # Axes

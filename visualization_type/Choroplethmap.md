@@ -2,8 +2,8 @@
 layout: default
 title: Choropleth Map
 permalink: choroplethmap.html
-tags: [Distribution]
-description: "Short Description of Choropleth Map"
+tags: [Distribution, Geospatial]
+description: "Choropleth maps for showing rates or intensities across geographic areas."
 ---
 
 # Choropleth Map

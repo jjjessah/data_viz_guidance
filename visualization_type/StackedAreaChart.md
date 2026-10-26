@@ -3,7 +3,7 @@ layout: default
 title: Stacked Area Chart
 permalink: stackedareachart.html
 tags: [Distribution]
-description: "Short Description of Stacked Area Chart"
+description: "Stacked area charts for composition of multiple series over time."
 ---
 
 # Stacked Area Chart

@@ -2,7 +2,7 @@
 layout: default
 title: Titles and subtitles 
 permalink: title.html
-description: "Short Description of Titles and subtitles"
+description: "Writing action-oriented titles and subtitles that communicate the main message of a visual."
 ---
 
 # Titles and subtitles

@@ -3,7 +3,7 @@ layout: default
 title: Stacked Bar Chart
 permalink: stackedbarchart.html
 tags: [Comparison]
-description: "Short Description of Stacked Bar Chart"
+description: "Stacked bar charts for part-to-whole comparisons across categories."
 ---
 
 

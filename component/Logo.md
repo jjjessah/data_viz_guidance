@@ -2,7 +2,7 @@
 layout: default
 title: Agency Logo 
 permalink: logo.html
-description: "Short Description of Agency Logo"
+description: "Placement and usage of the U.S. Census Bureau agency logo on visualization products."
 ---
 
 # Agency Logo 

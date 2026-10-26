@@ -3,7 +3,7 @@ layout: default
 title: Treemap
 permalink: treemap.html
 tags: [Distribution, Comparison]
-description: "Short Description of Treemap"
+description: "Treemaps for hierarchical part-to-whole relationships."
 ---
 
 # Treemap

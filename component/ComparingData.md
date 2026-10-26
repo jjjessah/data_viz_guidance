@@ -2,7 +2,7 @@
 layout: default
 title: Comparing Data and Values 
 permalink: comparison.html
-description: "Short Description of Comparing Data and Values"
+description: "Patterns for comparing values fairly across categories, groups, and time periods."
 ---
 
 # Comparing Data and Values

@@ -3,7 +3,7 @@ layout: default
 title: Bar Chart
 permalink: barchart.html
 tags: [Comparison]
-description: "Short Description of Bar Chart"
+description: "Bar and column charts for comparing magnitudes across categories."
 ---
 
 # Bar Chart 
@@ -52,4 +52,47 @@ The visual components that should be balanced in usage include: axis labels, dat
 ## Examples
 
 Page 24-28 figures 7-13
+
+## Developer implementation
+
+This repository includes a reproducible horizontal bar-chart recipe using a public ACS-style demo file.
+
+### Requirements
+
+- Python: `pandas`, `matplotlib`
+- R: `readr`, `dplyr`, `ggplot2`
+- Data file: [`data/median_household_income_by_state.csv`](../data/median_household_income_by_state.csv)
+
+### Python
+
+```bash
+pip install pandas matplotlib
+python scripts/python/bar_chart_median_income.py
+```
+
+Script: [`scripts/python/bar_chart_median_income.py`](../scripts/python/bar_chart_median_income.py)
+
+### R
+
+```r
+install.packages(c("readr", "dplyr", "ggplot2"))
+source("scripts/r/bar_chart_median_income.R")
+```
+
+Script: [`scripts/r/bar_chart_median_income.R`](../scripts/r/bar_chart_median_income.R)
+
+### Example output
+
+![Horizontal bar chart of the 15 states with the highest median household income from the repository ACS B19013 demo file](../assets/examples/bar_chart_median_income_top15.png)
+
+### Output and accessibility notes
+
+- Charts are written to `assets/examples/`.
+- When publishing, include alt text that states the chart type, metric, geography, and main finding.
+- Provide the CSV (or an HTML table) as an accessible fallback.
+- Refresh values from [data.census.gov](https://data.census.gov/) table **B19013** before using the figure in an official product.
+
+<div class="code-block-note" role="note">
+  The demo CSV is an illustrative teaching file for capstone workflows. Official releases must use current public Census estimates and full source citations.
+</div>
 

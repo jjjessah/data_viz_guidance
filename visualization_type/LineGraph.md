@@ -3,7 +3,7 @@ layout: default
 title: Line Graph
 permalink: linegraph.html
 tags: [Distribution]
-description: "Short Description of Line Graph"
+description: "Line graphs for trends and change over time."
 ---
 
 # Line Graph

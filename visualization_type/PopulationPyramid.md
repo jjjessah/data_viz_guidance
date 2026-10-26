@@ -3,7 +3,7 @@ layout: default
 title: Population Pyramid 
 permalink: populationpyramid.html
 tags: [Comparison]
-description: "Short Description of Population Pyramid"
+description: "Population pyramids for age-sex structure of a population."
 ---
 
 # Population Pyramid

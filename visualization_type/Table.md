@@ -2,8 +2,8 @@
 layout: default
 title: Tables
 permalink: table.html
-tags: [Comparison,Distribution]
-description: "Short Description of Tables"
+tags: [Comparison, Distribution]
+description: "Data tables as primary displays or accessible fallbacks for charts and maps."
 ---
 # Tables 
 Also known as:

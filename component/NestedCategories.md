@@ -2,8 +2,8 @@
 layout: default
 title: Nested or Non-Mutually Exclusive Categories 
 permalink: nested.html
-tags: [Comparison,Distribution]
-description: "Short Description of Nested or Non-Mutually Exclusive Categories"
+tags: [Comparison, Distribution]
+description: "Handling nested or overlapping categories without double-counting or confusing encodings."
 ---
 
 # Nested or Non-Mutually Exclusive Categories
