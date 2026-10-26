@@ -2,7 +2,7 @@
 layout: default
 title: Notes 
 permalink: note.html
-description: "Short Description of Notes"
+description: "Writing concise notes and annotations that help visuals stand alone."
 ---
 
 # Notes 

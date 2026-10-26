@@ -2,7 +2,7 @@
 layout: default
 title: Map Layout
 permalink: maplayout.html
-description: "Short Description of Map Layout"
+description: "Layout patterns for maps, including title, legend, scale, and inset placement."
 ---
 
 # Map Layout  

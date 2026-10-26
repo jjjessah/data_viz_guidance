@@ -2,7 +2,7 @@
 layout: default
 title: Typography 
 permalink: typography.html
-description: "Short Description of Typography"
+description: "Typography choices that improve readability and hierarchy in charts, maps, and tables."
 ---
 
 # Typography

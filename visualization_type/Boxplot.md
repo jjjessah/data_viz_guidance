@@ -2,8 +2,8 @@
 layout: default
 title: Boxplot
 permalink: boxplot.html
-tags: [Distribution,Comparison]
-description: "Short Description of Boxplot"
+tags: [Distribution, Comparison]
+description: "Boxplots for summarizing distribution, spread, and outliers across groups."
 ---
 
 # Boxplot

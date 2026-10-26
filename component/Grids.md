@@ -2,7 +2,7 @@
 layout: default
 title: Grids and Gridlines
 permalink: grid.html
-description: "Short Description of Grids and Gridlines"
+description: "How to use grids and gridlines to aid reading without cluttering charts or maps."
 ---
 
 # Grids

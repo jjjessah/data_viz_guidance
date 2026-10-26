@@ -2,7 +2,7 @@
 layout: default
 title: Small Multiples
 permalink: smallmultiples.html
-description: "Short Description of Small Multiples"
+description: "Using small multiples for consistent comparison across categories or geographies."
 ---
 
 # Small Multiples

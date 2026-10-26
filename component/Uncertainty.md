@@ -2,7 +2,7 @@
 layout: default
 title: Visualizing Uncertainty
 permalink: uncertainty.html
-description: "Short Description of Visualizing Uncertainty"
+description: "Methods for depicting margins of error and statistical uncertainty transparently."
 ---
 
 # Visualizing Uncertainty

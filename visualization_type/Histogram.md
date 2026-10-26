@@ -3,7 +3,7 @@ layout: default
 title: Histogram
 permalink: histogram.html
 tags: [Distribution]
-description: "Short Description of Histogram"
+description: "Histograms for displaying the distribution of a continuous variable."
 ---
 
 # Histogram

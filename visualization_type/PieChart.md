@@ -3,7 +3,7 @@ layout: default
 title: Pie Chart
 permalink: piechart.html
 tags: [Distribution]
-description: "Short Description of Pie Chart"
+description: "Pie charts for simple part-to-whole comparisons with few slices."
 ---
 
 # Pie Chart

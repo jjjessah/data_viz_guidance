@@ -3,7 +3,7 @@ layout: default
 title: Dot Plot Chart
 permalink: dotplotchart.html
 tags: [Distribution, Comparison]
-description: "Short Description of Dot Plot"
+description: "Dot plots for precise comparison of values across categories."
 ---
 
 # Dot Plot Chart

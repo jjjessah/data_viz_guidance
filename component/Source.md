@@ -2,7 +2,7 @@
 layout: default
 title: Sources 
 permalink: source.html
-description: "Short Description of Sources"
+description: "Citing data sources, vintages, and methodology so visualizations meet Census quality standards."
 ---
 
 # Sources

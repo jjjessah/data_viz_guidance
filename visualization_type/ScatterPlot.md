@@ -2,8 +2,8 @@
 layout: default
 title: Scatter Plot
 permalink: scatterplot.html
-tags: [Correlation,Distribution]
-description: "Short Description of Scatter Plot"
+tags: [Correlation, Distribution]
+description: "Scatter plots for relationships and correlation between two quantitative variables."
 ---
 
 # Scatter Plot

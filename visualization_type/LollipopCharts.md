@@ -3,7 +3,7 @@ layout: default
 title: Lollipop Charts 
 permalink: lollipopcharts.html
 tags: [Comparison]
-description: "Short Description of Lollipop Charts"
+description: "Lollipop charts as a space-efficient alternative to bar charts."
 ---
 
 # Lollipop Charts

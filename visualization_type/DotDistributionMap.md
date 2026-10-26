@@ -2,8 +2,8 @@
 layout: default
 title: Dot Distribution Map
 permalink: dotdistributionmap.html
-tags: [Distribution]
-description: "Short Description of Dot Distribution Map"
+tags: [Distribution, Geospatial]
+description: "Dot distribution maps for showing counts or density across geography."
 ---
 
 

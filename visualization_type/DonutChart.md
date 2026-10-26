@@ -3,7 +3,7 @@ layout: default
 title: Donut Chart
 permalink: donutchart.html
 tags: [Distribution]
-description: "Short Description of Donut chart"
+description: "Donut charts for part-to-whole relationships with limited categories."
 ---
 
 # Donut Chart

@@ -2,8 +2,8 @@
 layout: default
 title: Micromaps
 permalink: micromap.html
-tags: [Distribution,Geospatial]
-description: "Short Description of Micromaps"
+tags: [Distribution, Geospatial]
+description: "Micromaps for comparing geographic patterns across related indicators."
 ---
 
 # Micromaps

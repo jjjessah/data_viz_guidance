@@ -2,7 +2,7 @@
 layout: default
 title: Legends 
 permalink: legend.html
-description: "Short Description of Legends"
+description: "Designing legends that clearly explain encodings and remain usable for all readers."
 ---
 
 # Legends 
