@@ -4,54 +4,123 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>{% if page.title and page.title != site.title %}{{ page.title | escape }} | {% endif %}{{ site.title | escape }}</title>
-    
+
 <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
-    
+
     <style>
-      /* Sidebar styles that complement Cayman */
-      body { margin-left: 240px; background-color: #fff; }
-      
-      .custom-sidebar {
-        position: fixed;
-        left: 0;
-        top: 0;
-        width: 220px;
-        height: 100%;
-        background-color: #f4f7f6;
-        border-right: 1px solid #e5e5e5;
-        padding: 30px 20px;
-        z-index: 1000;
-        overflow-y: auto;
+      body { margin: 0; background-color: #fff; }
+
+      .skip-link {
+        position: absolute;
+        left: 1rem;
+        top: 0.75rem;
+        transform: translateY(-12rem);
+        background: #0c5a3c;
+        color: #fff;
+        font-weight: 700;
+        text-decoration: none;
+        padding: 0.65rem 1rem;
+        z-index: 3000;
+        border-radius: 4px;
+      }
+      .skip-link:focus {
+        transform: none;
+        outline: 3px solid #1e6bb8;
+        outline-offset: 3px;
       }
 
-      .custom-sidebar h3 { font-size: 1.1rem; color: #159957; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+      .page-header {
+        width: 100%;
+        margin: 0;
+        box-sizing: border-box;
+      }
+
+      .site-frame {
+        max-width: 1120px;
+        margin: 0 auto;
+        padding: 1.25rem 1.25rem 2rem;
+        box-sizing: border-box;
+      }
+
+      .site-columns {
+        display: flex;
+        align-items: stretch;
+        gap: 1.5rem;
+      }
+
+      .custom-sidebar {
+        position: static;
+        flex: 0 0 16rem;
+        width: 16rem;
+        height: auto;
+        max-height: none;
+        background-color: #f4f7f6;
+        border: 1px solid #e5e5e5;
+        border-radius: 4px;
+        padding: 1.25rem 1rem;
+        box-sizing: border-box;
+        overflow: visible;
+      }
+
+      .custom-sidebar h3 {
+        font-size: 1.1rem;
+        color: #137e55;
+        margin: 0 0 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+      }
       .custom-sidebar ul { list-style: none; margin: 0; padding: 0; }
-      .custom-sidebar li { margin-bottom: 15px; }
+      .custom-sidebar li { margin-bottom: 0.65rem; }
       .custom-sidebar a { text-decoration: none; color: #1e6bb8; font-size: 0.95rem; }
       .custom-sidebar a:hover { text-decoration: underline; }
-      
-      .category-title { color: #2e3532; font-weight: bold; display: block; margin-top: 25px; margin-bottom: 8px; font-size: 0.9rem; }
-      .sub-menu { margin-left: 15px !important; margin-top: 5px !important; }
+      .custom-sidebar a:focus,
+      .tag-link:focus {
+        outline: 3px solid #1e6bb8;
+        outline-offset: 2px;
+      }
+      .home-link { font-weight: 700; }
 
-      /* Horizontal Tag Bar Styles */
+      .category-title { color: #2e3532; font-weight: bold; display: block; margin-top: 1.25rem; margin-bottom: 0.4rem; font-size: 0.9rem; }
+      .sub-menu { margin-left: 0.75rem !important; margin-top: 0.25rem !important; }
+
+      .site-main {
+        flex: 1 1 auto;
+        min-width: 0;
+      }
+
+      .site-main .main-content {
+        max-width: none;
+        width: auto;
+        margin: 0;
+        padding: 1.25rem 0 2rem;
+      }
+
+      .main-content h3,
+      .main-content h4,
+      .main-content h5,
+      .main-content h6 {
+        color: #137e55;
+      }
+
       .tag-bar {
         background-color: #f9f9f9;
         border-bottom: 1px solid #eee;
-        padding: 10px 20px;
+        padding: 0.75rem 0;
         display: flex;
         align-items: center;
         flex-wrap: wrap;
+        gap: 0.4rem 0;
       }
       .tag-bar-label {
         font-size: 0.8rem;
         font-weight: bold;
         color: #606c71;
-        margin-right: 15px;
+        margin-right: 0.75rem;
         text-transform: uppercase;
       }
       .tag-link {
         display: inline-block;
-        background: #159957;
+        background: #137e55;
         color: #fff !important;
         padding: 4px 12px;
         border-radius: 3px;
@@ -60,89 +129,94 @@
         font-weight: bold;
         text-transform: uppercase;
         text-decoration: none !important;
-        transition: background 0.2s;
       }
       .tag-link:hover { background: #1e6bb8; }
 
-      /* Responsiveness for mobile */
+      .page-tags { margin-bottom: 20px; font-style: italic; font-size: 0.9rem; }
+
+      .main-content code,
+      .main-content pre,
+      .main-content pre code {
+        white-space: pre-wrap !important;
+        overflow-wrap: anywhere !important;
+        word-break: break-word;
+        max-width: 100%;
+        box-sizing: border-box;
+      }
+
       @media (max-width: 800px) {
-        body { margin-left: 0; }
-        .custom-sidebar { position: relative; width: 100%; height: auto; border-right: none; border-bottom: 1px solid #e5e5e5; }
-        .main-content { padding: 2rem 1rem; }
+        .site-frame { padding: 1rem; }
+        .site-columns { flex-direction: column; gap: 1rem; }
+        .custom-sidebar {
+          width: 100%;
+          flex-basis: auto;
+          border-right: 1px solid #e5e5e5;
+        }
         .tag-bar { justify-content: center; }
       }
     </style>
   </head>
   <body>
+    <a class="skip-link" href="#content">Skip to main content</a>
 
-    <div class="custom-sidebar">
-      <h3>Menu</h3>
-      <ul>
-        <li><a href="{{ site.baseurl }}/" style="font-weight: bold;">Home</a></li>
-        
-        {% for category in site.navigation %}
-          <li>
-            <span class="category-title">{{ category.title }}</span>
-            <ul class="sub-menu">
-              {% for link in category.sub_pages %}
-                <li>
-                  <a href="{{ site.baseurl }}/{{ link.url }}.html">{{ link.title }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
-
-    <header class="page-header" role="banner">
+    <header class="page-header">
       <h1 class="project-name">{{ site.title | default: site.github.repository_name }}</h1>
       <h2 class="project-tagline">{{ site.description | default: site.github.project_tagline }}</h2>
     </header>
 
-    <!-- STEP 3: Horizontal Tag Bar under Banner -->
-    <nav class="tag-bar">
-  <span class="tag-bar-label">Explore Tags:</span>
-  
-  {% comment %} 
-    Initialize an empty array and cleanly concatenate every page's tags to it.
-  {% endcomment %}
-  {% assign all_tags = "" | split: "" %}
-  
-  {% for p in site.pages %}
-    {% if p.tags %}
-      {% assign all_tags = all_tags | concat: p.tags %}
-    {% endif %}
-  {% endfor %}
-  
-  {% comment %} 
-    Now deduplicate and sort the cleanly flattened array.
-  {% endcomment %}
-  {% assign all_tags = all_tags | uniq | sort %}
-  
-  {% for tag_name in all_tags %}
-    {% if tag_name != "" and tag_name != nil %}
-      <a href="{{ site.baseurl }}/tags/{{ tag_name | slugify }}/" class="tag-link">
-        {{ tag_name }}
-      </a>
-    {% endif %}
-  {% endfor %}
-</nav>
+    <div class="site-frame">
+      <div class="site-columns">
+        <nav class="custom-sidebar" aria-label="Site menu">
+          <h3>Menu</h3>
+          <ul>
+            <li><a class="home-link" href="{{ site.baseurl }}/">Home</a></li>
+            {% for category in site.navigation %}
+              <li>
+                <span class="category-title">{{ category.title }}</span>
+                <ul class="sub-menu">
+                  {% for link in category.sub_pages %}
+                    <li>
+                      <a href="{{ site.baseurl }}/{{ link.url }}.html">{{ link.title }}</a>
+                    </li>
+                  {% endfor %}
+                </ul>
+              </li>
+            {% endfor %}
+          </ul>
+        </nav>
 
-    <main id="content" class="main-content" role="main">
-      
-      <!-- Individual Page Tags (Optional: shows tags specific to this page) -->
-      {% if page.tags %}
-        <div class="page-tags" style="margin-bottom: 20px; font-style: italic; font-size: 0.9rem;">
-          Tagged as: {{ page.tags | join: ", " }}
+        <div class="site-main">
+          <nav class="tag-bar" aria-label="Explore tags">
+            <span class="tag-bar-label">Explore Tags:</span>
+            {% assign all_tags = "" | split: "" %}
+            {% for p in site.pages %}
+              {% if p.tags %}
+                {% assign all_tags = all_tags | concat: p.tags %}
+              {% endif %}
+            {% endfor %}
+            {% assign all_tags = all_tags | uniq | sort %}
+            {% for tag_name in all_tags %}
+              {% if tag_name != "" and tag_name != nil %}
+                <a href="{{ site.baseurl }}/tags/{{ tag_name | slugify }}/" class="tag-link">{{ tag_name }}</a>
+              {% endif %}
+            {% endfor %}
+          </nav>
+
+          <main id="content" class="main-content" tabindex="-1">
+            {% if page.tags %}
+              <div class="page-tags">
+                Tagged as: {{ page.tags | join: ", " }}
+              </div>
+            {% endif %}
+
+            {{ content }}
+
+            <footer class="site-footer">
+              <span class="site-footer-owner">Site maintained by the Quality Program Staff</span>
+            </footer>
+          </main>
         </div>
-      {% endif %}
-
-      {{ content }}
-      
-      <footer class="site-footer">
-        <span class="site-footer-owner">Site maintained by the Quality Program Staff</span>
-      </footer>
-    </main>
+      </div>
+    </div>
   </body>
 </html>
