@@ -9,19 +9,51 @@
     
     <style>
       /* Sidebar styles that complement Cayman */
-      body { margin-left: 240px; background-color: #fff; }
-      
+      body { margin: 0; background-color: #fff; }
+
+      /* Full-width, thinner banner (overrides Cayman's large header padding) */
+      header.page-header {
+        padding: 1.75rem 2rem;
+        text-align: center;
+      }
+      header.page-header .project-name {
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 0;
+        color: #fff;
+      }
+      header.page-header .project-tagline {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.35;
+        margin: 0.4em 0 0;
+        color: #fff;
+        opacity: 0.85;
+      }
+
+      .page-body {
+        display: flex;
+        align-items: flex-start;
+      }
+      .page-content {
+        flex: 1 1 auto;
+        min-width: 0;
+      }
+
       .custom-sidebar {
-        position: fixed;
-        left: 0;
+        position: sticky;
         top: 0;
-        width: 220px;
-        height: 100%;
+        flex: 0 0 240px;
+        width: 240px;
+        max-height: 100vh;
+        overflow-y: auto;
         background-color: #f4f7f6;
         border-right: 1px solid #e5e5e5;
-        padding: 30px 20px;
-        z-index: 1000;
-        overflow-y: auto;
+        padding: 16px 16px 24px;
+        z-index: 100;
+        box-sizing: border-box;
+        align-self: flex-start;
       }
       .main-content table th {
   background-color: #f1f5f4;
@@ -38,7 +70,7 @@
 .main-content .task-list-item-checkbox {
   margin-right: 0.5rem;
 }
-            details.site-menu { margin: 0; }
+      details.site-menu { margin: 0; }
       .site-menu-toggle {
         list-style: none;
         box-sizing: border-box;
@@ -48,14 +80,14 @@
       .site-menu-toggle::marker { content: none; }
       @media (min-width: 801px) {
         details.site-menu > ul { display: block !important; }
-        .site-menu-toggle { 
+        .site-menu-toggle {
           display: block;
           font-size: 1.1rem;
           font-weight: 700;
           line-height: 1.5;
           color: #137e55;
-          margin-top: 1em;
-          margin-bottom: 20px;
+          margin-top: 0;
+          margin-bottom: 12px;
           padding: 0;
           background: transparent;
           border: 0;
@@ -67,12 +99,58 @@
         .site-menu-toggle::after { display: none; }
       }
       .custom-sidebar ul { list-style: none; margin: 0; padding: 0; }
-      .custom-sidebar li { margin-bottom: 15px; }
+      .custom-sidebar li { margin-bottom: 8px; }
       .custom-sidebar a { text-decoration: none; color: #1e6bb8; font-size: 0.95rem; }
       .custom-sidebar a:hover { text-decoration: underline; }
-      
-      .category-title { color: #2e3532; font-weight: bold; display: block; margin-top: 25px; margin-bottom: 8px; font-size: 0.9rem; }
-      .sub-menu { margin-left: 15px !important; margin-top: 5px !important; }
+      .custom-sidebar a[aria-current="page"] {
+        font-weight: 700;
+        color: #137e55;
+        text-decoration: underline;
+      }
+
+      details.menu-group { margin: 0; }
+      .menu-group-toggle {
+        list-style: none;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        min-height: 44px;
+        padding: 8px 4px;
+        margin: 4px 0 0;
+        background: transparent;
+        border: 0;
+        border-radius: 4px;
+        font-family: inherit;
+        font-size: 0.9rem;
+        font-weight: 700;
+        line-height: 1.3;
+        color: #2e3532;
+        text-align: left;
+        cursor: pointer;
+      }
+      .menu-group-toggle::-webkit-details-marker { display: none; }
+      .menu-group-toggle::marker { content: none; }
+      .menu-group-toggle:focus,
+      .menu-group-toggle:focus-visible {
+        outline: 3px solid #137e55;
+        outline-offset: 2px;
+      }
+      .menu-group-toggle::after {
+        content: "";
+        width: 0.4em;
+        height: 0.4em;
+        margin-left: 8px;
+        border-right: 2px solid #2e3532;
+        border-bottom: 2px solid #2e3532;
+        transform: rotate(45deg);
+        flex-shrink: 0;
+      }
+      details.menu-group[open] > .menu-group-toggle::after {
+        transform: rotate(-135deg);
+      }
+      .sub-menu { margin-left: 15px !important; margin-top: 4px !important; }
 
       /* Horizontal Tag Bar Styles */
       .tag-bar {
@@ -118,14 +196,15 @@
         text-decoration: underline;
       }
       .skip-link:focus { left: 10px; top: 10px; }
-            p.project-name { font-weight: bold; }
-      p.project-tagline { margin-top: 0.83em; }
+      p.project-name { font-weight: bold; }
 
       /* Responsiveness for mobile */
-            /* Responsiveness for mobile */
       @media (max-width: 800px) {
-        body { margin-left: 0; }
-        .custom-sidebar { position: relative; width: 100%; height: auto; border-right: none; border-bottom: 1px solid #e5e5e5; padding: 10px 12px; }
+        .page-body { display: block; }
+        header.page-header { padding: 1rem 1.25rem; }
+        header.page-header .project-name { font-size: 1.5rem; }
+        header.page-header .project-tagline { font-size: 0.95rem; }
+        .custom-sidebar { position: relative; top: auto; width: 100%; flex: none; max-height: none; height: auto; border-right: none; border-bottom: 1px solid #e5e5e5; padding: 10px 12px; }
         .main-content { padding: 2rem 1rem; }
         .tag-bar { justify-content: center; }
         .site-menu-toggle {
@@ -167,6 +246,7 @@
           transform: rotate(-135deg);
         }
         details[open] > .site-menu-toggle { margin-bottom: 12px; }
+        .menu-group-toggle { min-height: 44px; }
       }
     </style>
   </head>
@@ -174,25 +254,46 @@
   <body>
     <a class="skip-link" href="#content">Skip to main content</a>
 
-        <nav class="custom-sidebar" aria-label="Site menu">
+    <header class="page-header" role="banner">
+      <p class="project-name">{{ site.title | default: site.github.repository_name }}</p>
+      <p class="project-tagline">{{ site.description | default: site.github.project_tagline }}</p>
+    </header>
+
+    <div class="page-body">
+    <nav class="custom-sidebar" aria-label="Site menu">
       <details class="site-menu" open>
         <summary class="site-menu-toggle">Menu</summary>
         <ul>
-        <li><a href="{{ site.baseurl }}/" style="font-weight: bold;">Home</a></li>
+        {% assign page_slug = page.url | downcase | remove: '.html' | split: '/' | last %}
+        {% assign is_home = false %}
+        {% if page.url == '/' or page.url == '/index.html' or page_slug == 'index' or page_slug == '' %}
+          {% assign is_home = true %}
+        {% endif %}
+        <li><a href="{{ site.baseurl }}/"{% if is_home %} aria-current="page"{% endif %} style="font-weight: bold;">Home</a></li>
         
         {% for category in site.navigation %}
+          {% assign group_open = false %}
+          {% for link in category.sub_pages %}
+            {% assign link_slug = link.url | downcase | remove: '.html' %}
+            {% if page_slug == link_slug %}
+              {% assign group_open = true %}
+            {% endif %}
+          {% endfor %}
           <li>
-            <span class="category-title">{{ category.title }}</span>
-            <ul class="sub-menu">
-              {% for link in category.sub_pages %}
-                <li>
-                  <a href="{{ site.baseurl }}/{{ link.url }}.html">{{ link.title }}</a>
-                </li>
-              {% endfor %}
-            </ul>
+            <details class="menu-group"{% if group_open %} open{% endif %}>
+              <summary class="menu-group-toggle">{{ category.title }}</summary>
+              <ul class="sub-menu">
+                {% for link in category.sub_pages %}
+                  {% assign link_slug = link.url | downcase | remove: '.html' %}
+                  <li>
+                    <a href="{{ site.baseurl }}/{{ link.url }}.html"{% if page_slug == link_slug %} aria-current="page"{% endif %}>{{ link.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </details>
           </li>
         {% endfor %}
-              </ul>
+        </ul>
       </details>
     </nav>
     <script>
@@ -219,12 +320,8 @@
       })();
     </script>
 
-    <header class="page-header" role="banner">
-      <p class="project-name">{{ site.title | default: site.github.repository_name }}</p>
-      <p class="project-tagline">{{ site.description | default: site.github.project_tagline }}</p>
-    </header>
-
-    <!-- STEP 3: Horizontal Tag Bar under Banner -->
+    <div class="page-content">
+    <!-- Horizontal Tag Bar under Banner -->
   <nav class="tag-bar" aria-label="Tags">
   <span class="tag-bar-label">Explore Tags:</span>
   
@@ -268,5 +365,7 @@
         <span class="site-footer-owner">Site maintained by the Quality Program Staff</span>
       </footer>
     </main>
+    </div>
+    </div>
   </body>
 </html>
