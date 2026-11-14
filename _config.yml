@@ -35,6 +35,8 @@ navigation:
         url: dotdistributionmap
       - title: Dot Plot Chart
         url: dotplotchart
+      - title: Grids (Visualization Type)
+        url: grids-visualization-type
       - title: Histogram
         url: histogram
       - title: Interactive Chart
