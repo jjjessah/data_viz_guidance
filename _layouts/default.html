@@ -38,7 +38,34 @@
 .main-content .task-list-item-checkbox {
   margin-right: 0.5rem;
 }
-      .custom-sidebar h3 { font-size: 1.1rem; color: #159957; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+            details.site-menu { margin: 0; }
+      .site-menu-toggle {
+        list-style: none;
+        box-sizing: border-box;
+        font-family: inherit;
+      }
+      .site-menu-toggle::-webkit-details-marker { display: none; }
+      .site-menu-toggle::marker { content: none; }
+      @media (min-width: 801px) {
+        details.site-menu > ul { display: block !important; }
+        .site-menu-toggle { 
+          display: block;
+          font-size: 1.1rem;
+          font-weight: 700;
+          line-height: 1.5;
+          color: #137e55;
+          margin-top: 1em;
+          margin-bottom: 20px;
+          padding: 0;
+          background: transparent;
+          border: 0;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          cursor: default;
+          pointer-events: none;
+        }
+        .site-menu-toggle::after { display: none; }
+      }
       .custom-sidebar ul { list-style: none; margin: 0; padding: 0; }
       .custom-sidebar li { margin-bottom: 15px; }
       .custom-sidebar a { text-decoration: none; color: #1e6bb8; font-size: 0.95rem; }
@@ -91,14 +118,55 @@
         text-decoration: underline;
       }
       .skip-link:focus { left: 10px; top: 10px; }
-      p.project-name { font-weight: bold; }
+            p.project-name { font-weight: bold; }
+      p.project-tagline { margin-top: 0.83em; }
 
       /* Responsiveness for mobile */
+            /* Responsiveness for mobile */
       @media (max-width: 800px) {
         body { margin-left: 0; }
-        .custom-sidebar { position: relative; width: 100%; height: auto; border-right: none; border-bottom: 1px solid #e5e5e5; }
+        .custom-sidebar { position: relative; width: 100%; height: auto; border-right: none; border-bottom: 1px solid #e5e5e5; padding: 10px 12px; }
         .main-content { padding: 2rem 1rem; }
         .tag-bar { justify-content: center; }
+        .site-menu-toggle {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          min-height: 44px;
+          padding: 10px 14px;
+          margin: 0;
+          background: #1b1b1b;
+          color: #fff;
+          font-size: 1rem;
+          font-weight: 700;
+          line-height: 1.2;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          border: 0;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        .site-menu-toggle:focus,
+        .site-menu-toggle:focus-visible {
+          outline: 3px solid #1b1b1b;
+          outline-offset: 3px;
+        }
+        .site-menu-toggle::after {
+          content: "";
+          width: 0.5em;
+          height: 0.5em;
+          margin-left: 12px;
+          border-right: 2px solid #fff;
+          border-bottom: 2px solid #fff;
+          transform: rotate(45deg);
+          flex-shrink: 0;
+          transition: transform 0.15s ease;
+        }
+        details[open] > .site-menu-toggle::after {
+          transform: rotate(-135deg);
+        }
+        details[open] > .site-menu-toggle { margin-bottom: 12px; }
       }
     </style>
   </head>
@@ -106,9 +174,10 @@
   <body>
     <a class="skip-link" href="#content">Skip to main content</a>
 
-    <nav class="custom-sidebar" aria-label="Site menu">
-      <h3>Menu</h3>
-      <ul>
+        <nav class="custom-sidebar" aria-label="Site menu">
+      <details class="site-menu" open>
+        <summary class="site-menu-toggle">Menu</summary>
+        <ul>
         <li><a href="{{ site.baseurl }}/" style="font-weight: bold;">Home</a></li>
         
         {% for category in site.navigation %}
@@ -123,8 +192,32 @@
             </ul>
           </li>
         {% endfor %}
-      </ul>
+              </ul>
+      </details>
     </nav>
+    <script>
+      (function () {
+        var menu = document.querySelector("details.site-menu");
+        if (!menu) return;
+        var query = window.matchMedia("(max-width: 800px)");
+        var summary = menu.querySelector("summary");
+        function syncMenu(isNarrow) {
+          if (isNarrow) {
+            menu.removeAttribute("open");
+            if (summary) summary.tabIndex = 0;
+          } else {
+            menu.setAttribute("open", "");
+            if (summary) summary.tabIndex = -1;
+          }
+        }
+        syncMenu(query.matches);
+        if (query.addEventListener) query.addEventListener("change", function (e) { syncMenu(e.matches); });
+        else query.addListener(function (e) { syncMenu(e.matches); });
+        menu.addEventListener("toggle", function () {
+          if (!query.matches && !menu.open) menu.setAttribute("open", "");
+        });
+      })();
+    </script>
 
     <header class="page-header" role="banner">
       <p class="project-name">{{ site.title | default: site.github.repository_name }}</p>
