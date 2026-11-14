@@ -77,6 +77,21 @@
         transition: background 0.2s;
       }
       .tag-link:hover { background: #1e6bb8; }
+      
+      /* Skip link: hidden until reached with the Tab key */
+      .skip-link {
+        position: absolute;
+        left: -9999px;
+        top: 0;
+        z-index: 2000;
+        background: #1b1b1b;
+        color: #fff;
+        padding: 10px 16px;
+        font-weight: bold;
+        text-decoration: underline;
+      }
+      .skip-link:focus { left: 10px; top: 10px; }
+      p.project-name { font-weight: bold; }
 
       /* Responsiveness for mobile */
       @media (max-width: 800px) {
@@ -87,9 +102,11 @@
       }
     </style>
   </head>
+  
   <body>
+    <a class="skip-link" href="#content">Skip to main content</a>
 
-    <div class="custom-sidebar">
+    <nav class="custom-sidebar" aria-label="Site menu">
       <h3>Menu</h3>
       <ul>
         <li><a href="{{ site.baseurl }}/" style="font-weight: bold;">Home</a></li>
@@ -107,15 +124,15 @@
           </li>
         {% endfor %}
       </ul>
-    </div>
+    </nav>
 
     <header class="page-header" role="banner">
-      <h1 class="project-name">{{ site.title | default: site.github.repository_name }}</h1>
-      <h2 class="project-tagline">{{ site.description | default: site.github.project_tagline }}</h2>
+      <p class="project-name">{{ site.title | default: site.github.repository_name }}</p>
+      <p class="project-tagline">{{ site.description | default: site.github.project_tagline }}</p>
     </header>
 
     <!-- STEP 3: Horizontal Tag Bar under Banner -->
-    <nav class="tag-bar">
+  <nav class="tag-bar" aria-label="Tags">
   <span class="tag-bar-label">Explore Tags:</span>
   
   {% comment %} 
@@ -143,7 +160,7 @@
   {% endfor %}
 </nav>
 
-    <main id="content" class="main-content" role="main">
+  <main id="content" class="main-content" role="main" tabindex="-1">
       
       <!-- Individual Page Tags (Optional: shows tags specific to this page) -->
       {% if page.tags %}
