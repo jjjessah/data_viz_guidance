@@ -32,9 +32,16 @@
         opacity: 0.85;
       }
 
+      /* Center the menu and content as one block on wide screens */
       .page-body {
         display: flex;
         align-items: flex-start;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 75rem;
+        margin: 0 auto;
+        padding: 1rem 1.5rem 3rem;
+        gap: 2rem;
       }
       .page-content {
         flex: 1 1 auto;
@@ -49,11 +56,36 @@
         max-height: 100vh;
         overflow-y: auto;
         background-color: #f4f7f6;
-        border-right: 1px solid #e5e5e5;
+        border: 1px solid #e5e5e5;
+        border-radius: 8px;
         padding: 16px 16px 24px;
         z-index: 100;
         box-sizing: border-box;
         align-self: flex-start;
+      }
+
+      /* Sit content next to the menu; drop Cayman's centered 64rem column */
+      @media (min-width: 801px) {
+        main.main-content {
+          max-width: none;
+          margin: 0;
+          padding: 1.75rem 0 2.5rem;
+          font-size: 1.1rem;
+        }
+        .page-content .tag-bar {
+          padding-left: 0;
+          padding-right: 0;
+        }
+        main.main-content img {
+          max-width: 100%;
+          height: auto;
+        }
+        main.main-content table {
+          max-width: 100%;
+        }
+        main.main-content {
+          overflow-x: auto;
+        }
       }
       .main-content table th {
   background-color: #f1f5f4;
@@ -200,13 +232,14 @@
 
       /* Responsiveness for mobile */
       @media (max-width: 800px) {
-        .page-body { display: block; }
+        .page-body { display: block; max-width: none; margin: 0; padding: 0; gap: 0; }
         header.page-header { padding: 1rem 1.25rem; }
         header.page-header .project-name { font-size: 1.5rem; }
         header.page-header .project-tagline { font-size: 0.95rem; }
-        .custom-sidebar { position: relative; top: auto; width: 100%; flex: none; max-height: none; height: auto; border-right: none; border-bottom: 1px solid #e5e5e5; padding: 10px 12px; }
-        .main-content { padding: 2rem 1rem; }
+        .custom-sidebar { position: relative; top: auto; width: 100%; flex: none; max-height: none; height: auto; border: none; border-bottom: 1px solid #e5e5e5; border-radius: 0; padding: 10px 12px; }
+        main.main-content { padding: 2rem 1rem; max-width: none; margin: 0; overflow-x: visible; }
         .tag-bar { justify-content: center; }
+        .page-content .tag-bar { padding-left: 20px; padding-right: 20px; }
         .site-menu-toggle {
           display: flex;
           align-items: center;
