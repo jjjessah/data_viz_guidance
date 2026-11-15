@@ -45,7 +45,7 @@ import urllib.request
 from pathlib import Path
 
 import matplotlib.pyplot as plt
-from matplotlib.patches import FancyBboxPatch, PathPatch, Rectangle
+from matplotlib.patches import PathPatch, Rectangle
 from matplotlib.path import Path as MplPath
 
 HERE = Path(__file__).resolve().parent
@@ -73,21 +73,20 @@ PROGRAMS = (
 )
 CIP_LABELS = dict(PROGRAMS)
 
-# Program fills follow a color-blind-safe palette. Outcome fills match the
-# screenshot's contrast: a dark teal for employed and a medium gray for
-# no or very low earnings. Flow ribbons are a mid gray.
+# Layout follows Example 1: thin solid bars at each end with labels beside
+# them. Every bar color has at least 4.5:1 contrast against white. Flows use
+# their program's color at 75 percent opacity, which keeps each flow at least
+# 3:1 against white and makes crossings darker where flows overlap, so each
+# path can be followed from one side to the other.
 PROGRAM_COLORS = {
     "Engineering": "#0072B2",
-    "Social Sciences": "#56B4E9",
-    "Mathematics and Statistics": "#E69F00",
+    "Social Sciences": "#6A51A3",
+    "Mathematics and Statistics": "#B35900",
 }
-EMPLOYED_COLOR = "#117A65"
-NME_COLOR = "#5C5C5C"
-FLOW_COLORS = {
-    "Engineering": "#7AA8C4",
-    "Social Sciences": "#A9D0E8",
-    "Mathematics and Statistics": "#E6C36A",
-}
+EMPLOYED_COLOR = "#1E7B34"
+NME_COLOR = "#6B6B6B"
+FLOW_ALPHA = 0.75
+TEXT_COLOR = "#1b1b1b"
 
 
 def _comment_aware_rows(path: Path) -> list[dict[str, str]]:
@@ -301,148 +300,95 @@ def draw(rows: list[dict], source_note: str) -> None:
         employed = row["y1_grads_emp"]
         nme = row["y1_grads_nme"]
         programs.append(
-            {
-                "label": label,
-                "employed": employed,
-                "nme": nme,
-                "total": employed + nme,
-            }
+            {"label": label, "employed": employed, "nme": nme, "total": employed + nme}
         )
     grand_total = sum(item["total"] for item in programs)
     employed_total = sum(item["employed"] for item in programs)
     nme_total = sum(item["nme"] for item in programs)
 
-    fig, ax = plt.subplots(figsize=(11.2, 6.6))
+    fig = plt.figure(figsize=(11.2, 5.6))
     fig.patch.set_facecolor("white")
+    # The chart area ends just above the note, so no empty band is left.
+    ax = fig.add_axes([0.0, 0.17, 1.0, 0.66])
     ax.set_xlim(0, 1)
     ax.set_ylim(0, 1)
     ax.axis("off")
 
-    left_x, left_w = 0.02, 0.30
-    right_x, right_w = 0.68, 0.30
-    flow_x0 = left_x + left_w
+    bar_w = 0.014
+    left_x = 0.26
+    right_x = 0.74 - bar_w
+    flow_x0 = left_x + bar_w
     flow_x1 = right_x
-    top, bottom = 0.90, 0.08
-    gap = 0.035
-    usable = (top - bottom) - 2 * gap
-    scale = usable / grand_total
+    top, bottom = 1.0, 0.0
+    left_gap = 0.04
+    right_gap = 0.05
+    left_scale = (top - bottom - 2 * left_gap) / grand_total
+    right_scale = (top - bottom - right_gap) / grand_total
 
-    # Left nodes, top to bottom.
-    left_boxes = []
+    # Left bars, top to bottom.
+    left_bars = []
     y = top
     for item in programs:
-        height = item["total"] * scale
-        y0 = y - height
-        left_boxes.append((item, y0, y))
-        y = y0 - gap
+        y0 = y - item["total"] * left_scale
+        left_bars.append((item, y0, y))
+        y = y0 - left_gap
 
-    # Right nodes: Employed on top, NME below, same total height.
-    right_usable = usable + 2 * gap
-    right_gap = 0.045
-    right_scale = (right_usable - right_gap) / grand_total
-    emp_h = employed_total * right_scale
-    nme_h = nme_total * right_scale
+    # Right bars: Employed on top, no or very low earnings below.
     emp_top = top
-    emp_bot = emp_top - emp_h
+    emp_bot = emp_top - employed_total * right_scale
     nme_top = emp_bot - right_gap
-    nme_bot = nme_top - nme_h
+    nme_bot = nme_top - nme_total * right_scale
 
-    # Flows: consume each left node from the top (employed, then NME).
-    # Consume the right employed node from the top, then the NME node.
+    # Flows: each program sends its employed share to the top bar and the
+    # rest to the bottom bar. Widths are proportional to graduate counts.
     emp_cursor = emp_top
     nme_cursor = nme_top
-    for item, y0, y1 in left_boxes:
+    for item, y0, y1 in left_bars:
         cursor = y1
-        for kind, count, dest_cursor, dest_update in (
-            (
-                "employed",
-                item["employed"],
-                emp_cursor,
-                "emp",
-            ),
-            (
-                "nme",
-                item["nme"],
-                nme_cursor,
-                "nme",
-            ),
-        ):
-            height = count * scale
-            left_top = cursor
-            left_bot = cursor - height
-            if dest_update == "emp":
+        for count, outcome in ((item["employed"], "emp"), (item["nme"], "nme")):
+            left_top, left_bot = cursor, cursor - count * left_scale
+            if outcome == "emp":
                 right_top = emp_cursor
-                right_bot = emp_cursor - count * right_scale
-                emp_cursor = right_bot
+                emp_cursor = right_bot = emp_cursor - count * right_scale
             else:
                 right_top = nme_cursor
-                right_bot = nme_cursor - count * right_scale
-                nme_cursor = right_bot
+                nme_cursor = right_bot = nme_cursor - count * right_scale
             patch = _ribbon(flow_x0, flow_x1, left_top, left_bot, right_top, right_bot)
-            patch.set_facecolor(FLOW_COLORS[item["label"]])
-            patch.set_alpha(0.75)
+            patch.set_facecolor(PROGRAM_COLORS[item["label"]])
+            patch.set_alpha(FLOW_ALPHA)
+            patch.set_edgecolor("none")
             ax.add_patch(patch)
             cursor = left_bot
 
-    def node_box(x, y0, y1, facecolor, text, text_color):
-        rect = FancyBboxPatch(
-            (x, y0),
-            left_w if x < 0.5 else right_w,
-            y1 - y0,
-            boxstyle="round,pad=0.002,rounding_size=0.008",
-            facecolor=facecolor,
-            edgecolor="#1b1b1b",
-            linewidth=0.7,
-        )
-        ax.add_patch(rect)
-        ax.text(
-            x + (left_w if x < 0.5 else right_w) / 2,
-            (y0 + y1) / 2,
-            text,
-            ha="center",
-            va="center",
-            fontsize=8.5,
-            color=text_color,
-            linespacing=1.25,
-        )
+    def bar(x, y0, y1, color):
+        ax.add_patch(Rectangle((x, y0), bar_w, y1 - y0, facecolor=color, edgecolor="none"))
 
-    for item, y0, y1 in left_boxes:
+    # Direct labels beside each bar, so color is not the only identifier.
+    for item, y0, y1 in left_bars:
+        bar(left_x, y0, y1, PROGRAM_COLORS[item["label"]])
         share = rounded_share(item["total"], grand_total)
-        label = f"{item['label']}\n{share}%"
-        # Light program fills use dark text; the gold math fill is still dark
-        # enough that black text meets 4.5:1.
-        text_color = "#1b1b1b"
-        if item["label"] == "Engineering":
-            text_color = "white"
-        node_box(left_x, y0, y1, PROGRAM_COLORS[item["label"]], label, text_color)
+        ax.text(left_x - 0.01, (y0 + y1) / 2, f"{item['label']}  {share}%",
+                ha="right", va="center", fontsize=10, color=TEXT_COLOR,
+                fontweight="bold" if item["label"] == "Engineering" else "normal")
 
     emp_share = rounded_share(employed_total, grand_total)
     nme_share = rounded_share(nme_total, grand_total)
-    node_box(
-        right_x,
-        emp_bot,
-        emp_top,
-        EMPLOYED_COLOR,
-        f"Employed\n{emp_share}%",
-        "white",
-    )
-    node_box(
-        right_x,
-        nme_bot,
-        nme_top,
-        NME_COLOR,
-        f"No or very low\nearnings observed\n{nme_share}%",
-        "white",
-    )
+    bar(right_x, emp_bot, emp_top, EMPLOYED_COLOR)
+    bar(right_x, nme_bot, nme_top, NME_COLOR)
+    ax.text(right_x + bar_w + 0.01, (emp_bot + emp_top) / 2, f"Employed  {emp_share}%",
+            ha="left", va="center", fontsize=10, color=TEXT_COLOR, fontweight="bold")
+    ax.text(right_x + bar_w + 0.01, (nme_bot + nme_top) / 2,
+            f"No or very low\nearnings observed  {nme_share}%",
+            ha="left", va="center", fontsize=10, color=TEXT_COLOR, linespacing=1.3)
 
-    ax.set_title(
-        "First-year employment outcomes for University of Virginia master's graduates",
-        fontsize=13,
-        color="#1b1b1b",
-        pad=12,
-        loc="left",
-        x=0.02,
-    )
+    ax.text(left_x + bar_w / 2, 1.04, "Program", ha="center", va="bottom",
+            fontsize=10, color=TEXT_COLOR, fontweight="bold")
+    ax.text(right_x + bar_w / 2, 1.04, "Status", ha="center", va="bottom",
+            fontsize=10, color=TEXT_COLOR, fontweight="bold")
+
+    fig.text(0.02, 0.965,
+             "First-year employment outcomes for University of Virginia master's graduates",
+             ha="left", va="top", fontsize=13, color=TEXT_COLOR)
     note = (
         "Programs: Engineering, Social Sciences, and Mathematics and Statistics. "
         "All graduate cohorts in 5-year groups, year-1 outcomes, all industries, nation.\n"
@@ -454,12 +400,11 @@ def draw(rows: list[dict], source_note: str) -> None:
         f"({programs[2]['employed']:,}, {programs[2]['nme']:,}). "
         f"Total {grand_total:,}.\n"
         "Source: U.S. Census Bureau, Post-Secondary Employment Outcomes Flows, "
-        f"release {RELEASE} ({source_note}). "
+        f"release {RELEASE} ({source_note}).\n"
         "The current explorer release (2026Q2) shows different shares for the same selection."
     )
-    fig.text(0.02, 0.015, note, ha="left", va="bottom", fontsize=7.0, color="#1b1b1b",
-             wrap=True)
-    fig.subplots_adjust(top=0.88, bottom=0.22, left=0.02, right=0.98)
+    fig.text(0.02, 0.02, note, ha="left", va="bottom", fontsize=7.5,
+             color=TEXT_COLOR, linespacing=1.4)
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(OUT_PATH, dpi=150)
     plt.close(fig)
