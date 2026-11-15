@@ -123,7 +123,8 @@ The saved table uses these grouped amounts from the current API vintage.
 
 United States (total $3,309,381,532,000):
 
-<table tabindex="0" role="region" aria-label="United States 2017 state and local expenditure by category">
+<div class="table-scroll" role="region" tabindex="0" aria-label="United States 2017 state and local expenditure by category">
+<table>
 <thead>
 <tr><th>Category</th><th>Amount</th><th>Share of total</th></tr>
 </thead>
@@ -138,10 +139,12 @@ United States (total $3,309,381,532,000):
 <tr><td>Other</td><td>$421,019,199,000</td><td>12.7%</td></tr>
 </tbody>
 </table>
+</div>
 
 Alabama (total $43,131,484,000):
 
-<table tabindex="0" role="region" aria-label="Alabama 2017 state and local expenditure by category">
+<div class="table-scroll" role="region" tabindex="0" aria-label="Alabama 2017 state and local expenditure by category">
+<table>
 <thead>
 <tr><th>Category</th><th>Amount</th><th>Share of total</th></tr>
 </thead>
@@ -156,6 +159,7 @@ Alabama (total $43,131,484,000):
 <tr><td>Other</td><td>$4,154,876,000</td><td>9.6%</td></tr>
 </tbody>
 </table>
+</div>
 
 {% include code-example.html file="donut_chart.py" title="Show Python code for the state and local expenditure donuts" %}
 

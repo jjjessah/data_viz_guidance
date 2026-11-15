@@ -11,6 +11,19 @@
       /* Sidebar styles that complement Cayman */
       :root {
         --slim-bar-height: 3rem;
+
+        /* Site color tokens. Change a color here and it changes everywhere.
+           Contrast ratios are against white (#fff) unless noted.
+           Text needs at least 4.5:1; meaningful graphics and focus rings need at least 3:1. */
+        --dv-green: #0f6e45;        /* headings, tag pills, menu label, buttons: 6.29:1; 5.83:1 on #f4f7f6 */
+        --dv-green-dark: #0c5a3c;   /* button borders, Copy button text: 8.25:1 */
+        --dv-blue: #1e6bb8;         /* links and focus rings: 5.45:1; 5.05:1 on #f4f7f6 */
+        --dv-blue-deep: #155799;    /* banner gradient start: white text 7.35:1 */
+        --dv-text: #1b1b1b;         /* strong text and table text: 17.22:1 */
+        --dv-text-muted: #606c71;   /* body text and small labels: 5.41:1; 5.13:1 on #f9f9f9 */
+        --dv-surface: #f4f7f6;      /* menu and table header background */
+        --dv-border: #c5cdd2;       /* decorative table lines */
+        --dv-focus: #1e6bb8;        /* 3 px focus outline: 5.45:1 */
       }
       html {
         scroll-padding-top: calc(var(--slim-bar-height) + 0.5rem);
@@ -23,6 +36,10 @@
         z-index: 300;
         padding: 1.75rem 2rem;
         text-align: center;
+        /* Cayman ends the gradient at #159957, where white text is only 3.66:1.
+           Ending it at the darker green keeps white text at 6.29:1 or more everywhere. */
+        background-color: var(--dv-green);
+        background-image: linear-gradient(120deg, var(--dv-blue-deep), var(--dv-green));
       }
       header.page-header .project-name {
         font-size: 2rem;
@@ -37,7 +54,7 @@
         line-height: 1.35;
         margin: 0.4em 0 0;
         color: #fff;
-        opacity: 0.85;
+        opacity: 1; /* solid white; Cayman fades it to 70%, which drops it below 4.5:1 */
       }
 
       /* Slim site-name bar: sits under the banner at the top of the page,
@@ -53,8 +70,8 @@
         height: var(--slim-bar-height);
         margin-top: calc(-1 * var(--slim-bar-height));
         padding: 0 1.5rem;
-        background-color: #116649;
-        background-image: linear-gradient(120deg, #155799, #116649);
+        background-color: var(--dv-green);
+        background-image: linear-gradient(120deg, var(--dv-blue-deep), var(--dv-green));
         color: #fff;
         box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
       }
@@ -136,9 +153,64 @@
       }
       .main-content table th {
   background-color: #f1f5f4;
-  color: #1b1b1b;
+  color: var(--dv-text);
   font-weight: 700;
 }
+
+      /* Headings: Cayman's #159957 is 3.66:1, below 4.5:1 for normal-size text. */
+      .main-content h1,
+      .main-content h2,
+      .main-content h3,
+      .main-content h4,
+      .main-content h5,
+      .main-content h6 {
+        color: var(--dv-green);
+      }
+
+      /* Links inside running text are underlined, because the link blue and the
+         gray body text are nearly the same lightness (1.01:1), so color alone
+         would not mark them as links. */
+      .main-content p a,
+      .main-content li a,
+      .main-content td a,
+      .main-content th a,
+      .main-content dd a {
+        text-decoration: underline;
+        text-underline-offset: 0.15em;
+      }
+      .main-content a:focus-visible {
+        outline: 3px solid var(--dv-focus);
+        outline-offset: 2px;
+      }
+
+      /* Wide tables: the wrapper scrolls sideways on narrow screens.
+         When it scrolls, it is a labeled region that can be reached with the Tab key. */
+      .table-scroll {
+        max-width: 100%;
+        overflow-x: auto;
+        margin: 0 0 1rem;
+        -webkit-overflow-scrolling: touch;
+      }
+      .table-scroll > table {
+        overflow: visible;
+        margin-bottom: 0;
+      }
+      .table-scroll:focus,
+      .table-scroll:focus-visible {
+        outline: 3px solid var(--dv-focus);
+        outline-offset: -3px;
+      }
+
+      /* Run commands and other plain code blocks wrap on narrow screens instead of
+         running off the page. The longer Python examples keep sideways scrolling. */
+      .main-content pre:not(.code-example-pre) {
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+      .main-content pre:not(.code-example-pre) > code {
+        white-space: inherit;
+        overflow-wrap: inherit;
+      }
       .main-content ul.task-list {
   list-style: none;
   padding-left: 0;
@@ -164,7 +236,7 @@
           font-size: 1.1rem;
           font-weight: 700;
           line-height: 1.5;
-          color: #137e55;
+          color: var(--dv-green);
           margin-top: 0;
           margin-bottom: 12px;
           padding: 0;
@@ -179,11 +251,11 @@
       }
       .custom-sidebar ul { list-style: none; margin: 0; padding: 0; }
       .custom-sidebar li { margin-bottom: 8px; }
-      .custom-sidebar a { text-decoration: none; color: #1e6bb8; font-size: 0.95rem; }
+      .custom-sidebar a { text-decoration: none; color: var(--dv-blue); font-size: 0.95rem; }
       .custom-sidebar a:hover { text-decoration: underline; }
       .custom-sidebar a[aria-current="page"] {
         font-weight: 700;
-        color: #137e55;
+        color: var(--dv-green);
         text-decoration: underline;
       }
 
@@ -213,7 +285,7 @@
       .menu-group-toggle::marker { content: none; }
       .menu-group-toggle:focus,
       .menu-group-toggle:focus-visible {
-        outline: 3px solid #137e55;
+        outline: 3px solid var(--dv-green);
         outline-offset: 2px;
       }
       .menu-group-toggle::after {
@@ -266,7 +338,7 @@
       }
       .tag-link {
         display: inline-block;
-        background: #159957;
+        background: var(--dv-green);
         color: #fff !important;
         padding: 4px 12px;
         border-radius: 3px;
@@ -277,7 +349,11 @@
         text-decoration: none !important;
         transition: background 0.2s;
       }
-      .tag-link:hover { background: #1e6bb8; }
+      .tag-link:hover { background: var(--dv-blue); }
+      .tag-link:focus-visible {
+        outline: 3px solid var(--dv-focus);
+        outline-offset: 2px;
+      }
       
       /* Skip link: hidden until reached with the Tab key */
       .skip-link {
@@ -389,13 +465,13 @@
         align-items: center;
         gap: 0.6rem;
         min-height: 44px;
-        background: #137e55;
+        background: var(--dv-green);
         color: #fff;
         font-family: inherit;
         font-size: 1rem;
         font-weight: 700;
         line-height: 1.2;
-        border: 2px solid #0c5a3c;
+        border: 2px solid var(--dv-green-dark);
         border-radius: 4px;
         padding: 0.7rem 1rem;
         cursor: pointer;
@@ -419,7 +495,7 @@
       }
       .code-example-toggle:focus,
       .code-example-toggle:focus-visible {
-        outline: 3px solid #1e6bb8;
+        outline: 3px solid var(--dv-focus);
         outline-offset: 3px;
       }
       .code-example-panel { margin-top: 0.75rem; }
@@ -435,23 +511,23 @@
         min-height: 44px;
         padding: 0.5rem 1rem;
         background: #fff;
-        color: #0c5a3c;
+        color: var(--dv-green-dark);
         font-family: inherit;
         font-size: 1rem;
         font-weight: 700;
         line-height: 1.2;
-        border: 2px solid #0c5a3c;
+        border: 2px solid var(--dv-green-dark);
         border-radius: 4px;
         cursor: pointer;
       }
       .code-example-copy:hover { background: #f1f5f4; }
       .code-example-copy:focus,
       .code-example-copy:focus-visible {
-        outline: 3px solid #1e6bb8;
+        outline: 3px solid var(--dv-focus);
         outline-offset: 3px;
       }
       .code-example-status {
-        color: #0c5a3c;
+        color: var(--dv-green-dark);
         font-size: 0.95rem;
         font-weight: 700;
       }
@@ -473,7 +549,7 @@
       }
       .code-example-pre:focus,
       .code-example-pre:focus-visible {
-        outline: 3px solid #1e6bb8;
+        outline: 3px solid var(--dv-focus);
         outline-offset: 3px;
       }
       main.main-content pre.code-example-pre code,
@@ -620,6 +696,51 @@
     </div>
     </div>
 
+    <script>
+      /* Markdown tables: wrap each one so that, when it is too wide for the screen,
+         the scrolling area can be reached with the Tab key and is announced with a name.
+         Without JavaScript the tables still scroll sideways by touch or mouse. */
+      (function () {
+        var wraps = [];
+        document.querySelectorAll(".main-content table").forEach(function (table) {
+          if (table.closest(".table-scroll, .accessible-figure")) return;
+          var label = table.caption ? table.caption.textContent.trim() : "";
+          if (!label) {
+            var el = table.previousElementSibling;
+            while (el && !/^H[1-6]$/.test(el.tagName)) el = el.previousElementSibling;
+            label = el ? "Table under the heading " + el.textContent.trim() : "Data table";
+          }
+          var wrap = document.createElement("div");
+          wrap.className = "table-scroll";
+          wrap.setAttribute("data-label", label);
+          table.parentNode.insertBefore(wrap, table);
+          wrap.appendChild(table);
+          wraps.push(wrap);
+        });
+        function sync() {
+          wraps.forEach(function (wrap) {
+            if (wrap.scrollWidth > wrap.clientWidth + 1) {
+              wrap.setAttribute("tabindex", "0");
+              wrap.setAttribute("role", "region");
+              wrap.setAttribute("aria-label", wrap.getAttribute("data-label"));
+            } else {
+              wrap.removeAttribute("tabindex");
+              wrap.removeAttribute("role");
+              wrap.removeAttribute("aria-label");
+            }
+          });
+        }
+        if (!wraps.length) return;
+        sync();
+        var pending = false;
+        window.addEventListener("resize", function () {
+          if (pending) return;
+          pending = true;
+          window.requestAnimationFrame(function () { pending = false; sync(); });
+        });
+        window.addEventListener("load", sync);
+      })();
+    </script>
     <script>
       (function () {
         function fallbackCopy(text) {
