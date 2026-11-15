@@ -77,6 +77,48 @@ This example demonstrates the following practices well:
 * Labels remain clear and readable.
 * Gridlines help readers estimate values and interpret the chart.
 
+## Developer Implementation
+
+### Reproduce the New York commute example
+
+The script draws the bar chart in Example 1 from the 2016 American Community Survey 1-year estimates, Table DP03, for New York state, keeping the six categories and their order from Example 1. It saves two versions. The first keeps thin gray vertical gridlines at every 10 percent, drawn behind the bars, to show how to style gridlines so they stay secondary to the data. The gridline color, #949494, has a 3:1 contrast ratio against the white background, so the gridlines remain usable on charts that depend on them; thin lines keep them visually behind the bars. The second, the recommended version, leaves out the gridlines and the percent axis, as suggested under Example 1, because every bar already has a direct value label. Gridlines are worth keeping when readers need to estimate values that are not labeled, such as in line graphs, scatter plots, dense time series, or small multiples that share an axis.
+
+<a href="{{ '/examples/family_d/make_ny_commute_grid.py' | relative_url }}">Download the Python script</a>. It needs Python 3 and the matplotlib package. The program uses the saved table `examples/family_d/acs_dp03_ny_2016_commute.csv` so it can run offline. It calls the Census Data API only if that file is missing, or if the `--refresh` flag is used. To refresh the table, request a free Census Data API key at https://api.census.gov/data/key_signup.html and set it in the environment. Leave the key out of the program, this page, and the saved table:
+
+<pre style="white-space: pre-wrap; overflow: visible;"><code>export CENSUS_API_KEY=API_KEY_VALUE
+python3 examples/family_d/make_ny_commute_grid.py --refresh</code></pre>
+
+Without `--refresh`, run:
+
+<pre style="white-space: pre-wrap; overflow: visible;"><code>python3 examples/family_d/make_ny_commute_grid.py</code></pre>
+
+The script saves [the version with gridlines]({{ '/assets/family-d/ny-commute-2016-gridlines.png' | relative_url }}) and [the recommended version]({{ '/assets/family-d/ny-commute-2016-recommended.png' | relative_url }}).
+
+#### With gridlines (reproduces Example 1)
+
+![Horizontal bar chart of means of transportation to work in New York using 2016 American Community Survey 1-year estimates. Of 9,291,557 workers 16 years and over, 52.6 percent drove alone and 28.4 percent used public transportation, followed by carpool at 6.5 percent, walked at 6.2 percent, worked at home at 4.3 percent, and other means at 2.0 percent. Thin gray vertical gridlines mark every 10 percent behind the bars, and each bar has a direct value label.]({{ '/assets/family-d/ny-commute-2016-gridlines.png' | relative_url }})
+
+#### Recommended: without gridlines
+
+![The same horizontal bar chart of means of transportation to work in New York in 2016, without gridlines or a percent axis. Each bar has a direct value label: drove alone 52.6 percent, public transportation 28.4 percent, carpool 6.5 percent, walked 6.2 percent, worked at home 4.3 percent, and other means 2.0 percent.]({{ '/assets/family-d/ny-commute-2016-recommended.png' | relative_url }})
+
+The two versions differ only where the script checks `gridlines`: the gridline version adds the 10 percent ticks, the gridlines, and the axis title, and the recommended version removes the percent axis and moves "percent of workers 16 years and over" into the subtitle.
+
+Estimates for workers 16 years and over in New York, 2016. Margins of error are at the 90 percent confidence level.
+
+| Means of transportation | Estimate | Margin of error | Percent | Percent margin of error |
+|---|---:|---:|---:|---:|
+| Drove alone | 4,888,039 | ±27,150 | 52.6% | ±0.3 |
+| Public transportation (excluding taxicab) | 2,636,851 | ±24,680 | 28.4% | ±0.3 |
+| Carpool | 606,605 | ±15,551 | 6.5% | ±0.2 |
+| Walked | 577,983 | ±13,519 | 6.2% | ±0.1 |
+| Worked at home | 400,213 | ±12,682 | 4.3% | ±0.1 |
+| Other means | 181,866 | ±7,655 | 2.0% | ±0.1 |
+| Workers 16 years and over | 9,291,557 | ±26,473 | 100.0% | |
+
+{% include code-example.html file="grids_bar_chart.py" title="Show Python code for the New York commute bar charts" %}
+
+
 ## Common Errors and Misinterpretations
 
 | Issue | Why It Matters | Recommended Correction |

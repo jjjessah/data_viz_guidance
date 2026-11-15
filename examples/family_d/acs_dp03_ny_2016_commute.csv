@@ -1,0 +1,12 @@
+# U.S. Census Bureau, 2016 American Community Survey 1-Year Estimates, Table DP03
+# Census Data API: https://api.census.gov/data/2016/acs/acs1/profile
+# Geography: New York (state:36). Universe: workers 16 years and over.
+# Margins of error are at the 90 percent confidence level. Leave API keys out of this file.
+mode,variable,estimate,estimate_moe,percent,percent_moe
+Workers 16 years and over,DP03_0018,9291557,26473,,
+Drove alone,DP03_0019,4888039,27150,52.6,0.3
+Public transportation,DP03_0021,2636851,24680,28.4,0.3
+Carpool,DP03_0020,606605,15551,6.5,0.2
+Walked,DP03_0022,577983,13519,6.2,0.1
+Worked at home,DP03_0024,400213,12682,4.3,0.1
+Other means,DP03_0023,181866,7655,2.0,0.1
