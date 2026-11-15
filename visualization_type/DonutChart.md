@@ -176,15 +176,89 @@ Alabama (total $43,131,484,000):
 
 ## Publication Quality Checklist
 
-- [ ] The visualization fits the analytical question.
-- [ ] Relevant alternatives were considered.
-- [ ] Data source, geography, reference period, and units are documented.
-- [ ] Data transformations and aggregation are appropriate.
-- [ ] Missing values and relevant uncertainty are addressed.
-- [ ] Existing accessibility, scaling, and axes guidance has been followed.
-- [ ] Chart-specific limitations and caveats are explained.
-- [ ] Code examples have been executed and verified.
-- [ ] The visualization has undergone the appropriate review.
+<ul class="checklist-folds">
+  <li>
+    <details>
+      <summary>The visualization fits the analytical question.</summary>
+      <div class="checklist-fold-body">
+        <p>A donut chart suits showing how a few parts make up one whole: categories that do not overlap, add up to 100%, and number no more than 6. It also suits limited space, where the center can hold a label or total.</p>
+        <p><a href="#when-to-use">Read the full section: When to Use</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Relevant alternatives were considered.</summary>
+      <div class="checklist-fold-body">
+        <p>The page compares a donut chart with a bar chart, a line or stacked area chart, a stacked bar chart, and a table. Bars are easier to compare than arcs when there are more than 6 categories.</p>
+        <p><a href="#choosing-between-alternatives">Read the full section: Choosing Between Alternatives</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Data source, geography, reference period, and units are documented.</summary>
+      <div class="checklist-fold-body">
+        <p>State the measure, units, geographic area, and reference period. The Developer Implementation section names the source as the 2017 Annual Survey of State and Local Government Finances, current Census Data API vintage. Source line guidance is on the site-wide <a href="source.html">Sources</a> page.</p>
+        <p><a href="#data-requirements-and-statistical-considerations">Read the full section: Data Requirements and Statistical Considerations</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Data transformations and aggregation are appropriate.</summary>
+      <div class="checklist-fold-body">
+        <p>Categories must be mutually exclusive and total 100%, with a note when rounding makes the total 99% or 101%. The example combines spending into the eight groups in the Example 2 legend, and the donut total is general expenditure plus utility expenditure.</p>
+        <p><a href="#data-requirements-and-statistical-considerations">Read the full section: Data Requirements and Statistical Considerations</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Missing values and relevant uncertainty are addressed.</summary>
+      <div class="checklist-fold-body">
+        <p>For survey estimates, such as American Community Survey data, report margins of error in a note or data table. Explain how missing, suppressed, or combined categories are handled. More on uncertainty is on the site-wide <a href="uncertainty.html">Visualizing Uncertainty</a> page.</p>
+        <p><a href="#data-requirements-and-statistical-considerations">Read the full section: Data Requirements and Statistical Considerations</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Existing accessibility, scaling, and axes guidance has been followed.</summary>
+      <div class="checklist-fold-body">
+        <p>The Accessibility section calls for alt text that states the main takeaway, a data table, a label on each arc, text contrast of at least 4.5:1 (including any label in the hole), and arc contrast of at least 3:1. Full requirements are on the site-wide <a href="508.html">508 Compliance</a> and <a href="color.html">Color</a> pages, and axes guidance is on the site-wide <a href="axes.html">Axes</a> page.</p>
+        <p><a href="#accessibility">Read the full section: Accessibility</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Chart-specific limitations and caveats are explained.</summary>
+      <div class="checklist-fold-body">
+        <p>Donut charts are hard to read with negative values, change over time, nested rings, or similar values that need exact comparison. Example 2 notes that two side-by-side donuts with more than 2 categories each are hard to compare.</p>
+        <p><a href="#when-to-use-an-alternative">Read the full section: When to Use an Alternative</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Code examples have been executed and verified.</summary>
+      <div class="checklist-fold-body">
+        <p>The Developer Implementation section gives a downloadable Python script, the saved table it uses so it can run offline, and the commands that run it. It also notes that the current API totals differ from the dashboard figures in Example 2.</p>
+        <p><a href="#developer-implementation">Read the full section: Developer Implementation</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>The visualization has undergone the appropriate review.</summary>
+      <div class="checklist-fold-body">
+        <p>This page does not describe a formal review process. Its Common Errors and Misinterpretations table lists issues to look for, why they matter, and the recommended correction.</p>
+        <p><a href="#common-errors-and-misinterpretations">Read the full section: Common Errors and Misinterpretations</a></p>
+      </div>
+    </details>
+  </li>
+</ul>
  
 ## Related Pages
  

@@ -552,6 +552,75 @@
         outline: 3px solid var(--dv-focus);
         outline-offset: 3px;
       }
+      /* Publication Quality Checklist folds (pages that use ul.checklist-folds only).
+         Each item opens to a short summary and a link to the full section. No JavaScript. */
+      .main-content ul.checklist-folds {
+        list-style: none;
+        /* Indented 40px, the same as the plain bullet lists on the page. */
+        margin: 0 0 1.5rem 40px;
+        padding: 0;
+        border-top: 1px solid var(--dv-border);
+      }
+      .checklist-folds > li {
+        margin: 0;
+        border-bottom: 1px solid var(--dv-border);
+      }
+      .checklist-folds summary {
+        list-style: none;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.65rem;
+        min-height: 44px;
+        box-sizing: border-box;
+        padding: 0.65rem 0.5rem;
+        color: var(--dv-text);
+        font-weight: 600;
+        line-height: 1.4;
+        cursor: pointer;
+      }
+      .checklist-folds summary::-webkit-details-marker { display: none; }
+      .checklist-folds summary::marker { content: none; }
+      /* Closed: triangle points right. Open: triangle points down. #0f6e45 is 6.29:1 on white. */
+      .checklist-folds summary::before {
+        content: "";
+        flex-shrink: 0;
+        width: 0;
+        height: 0;
+        margin-top: 0.4em;
+        border-top: 0.38rem solid transparent;
+        border-bottom: 0.38rem solid transparent;
+        border-left: 0.55rem solid var(--dv-green);
+      }
+      .checklist-folds details[open] > summary::before {
+        margin-top: 0.5em;
+        border-left: 0.38rem solid transparent;
+        border-right: 0.38rem solid transparent;
+        border-top: 0.55rem solid var(--dv-green);
+        border-bottom: 0;
+      }
+      .checklist-folds summary:hover { color: var(--dv-green); text-decoration: underline; }
+      .checklist-folds summary:focus,
+      .checklist-folds summary:focus-visible {
+        outline: 3px solid var(--dv-focus);
+        outline-offset: -3px; /* drawn inside, so the page edge cannot clip it */
+      }
+      .checklist-fold-body {
+        padding: 0 0.5rem 0.75rem 1.7rem;
+        color: var(--dv-text);
+        font-size: 0.95em;
+      }
+      .checklist-fold-body p { margin: 0 0 0.5rem; }
+
+      /* Printing: show every summary, open or closed. */
+      @media print {
+        .checklist-folds details::details-content {
+          content-visibility: visible;
+          display: block;
+        }
+        .checklist-folds summary::before { display: none; }
+        .checklist-fold-body { padding-left: 0.25rem; }
+      }
+
       main.main-content pre.code-example-pre code,
       .code-example-pre code {
         font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;

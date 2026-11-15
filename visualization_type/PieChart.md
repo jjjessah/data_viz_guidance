@@ -196,15 +196,89 @@ Use this list as developer checks when implementing the examples on this page. I
 
 ## Publication Quality Checklist
 
-- [ ] The visualization fits the analytical question.
-- [ ] Relevant alternatives were considered.
-- [ ] Data source, geography, reference period, and units are documented.
-- [ ] Data transformations and aggregation are appropriate.
-- [ ] Missing values and relevant uncertainty are addressed.
-- [ ] Existing accessibility, scaling, and axes guidance has been followed.
-- [ ] Chart-specific limitations and caveats are explained.
-- [ ] Code examples have been executed and verified.
-- [ ] The visualization has undergone the appropriate review.
+<ul class="checklist-folds">
+  <li>
+    <details>
+      <summary>The visualization fits the analytical question.</summary>
+      <div class="checklist-fold-body">
+        <p>A pie chart suits a question about how a small number of categories make up one whole, when the categories do not overlap and broad differences in shares matter more than precise comparisons. The page recommends staying near three or four slices.</p>
+        <p><a href="#when-to-use">Read the full section: When to Use</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Relevant alternatives were considered.</summary>
+      <div class="checklist-fold-body">
+        <p>The page compares a pie chart with a bar chart, stacked bar chart, table, directly displayed numbers, and a donut chart, and says when each may be preferable. A display with a common baseline is usually easier to compare than several pies.</p>
+        <p><a href="#choosing-between-alternatives">Read the full section: Choosing Between Alternatives</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Data source, geography, reference period, and units are documented.</summary>
+      <div class="checklist-fold-body">
+        <p>Define the whole, including its population, geography, reference period, and units. Each Census example on this page names the survey, year, and table in its source line. Source line guidance is on the site-wide <a href="source.html">Sources</a> page.</p>
+        <p><a href="#data-requirements-and-statistical-considerations">Read the full section: Data Requirements and Statistical Considerations</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Data transformations and aggregation are appropriate.</summary>
+      <div class="checklist-fold-body">
+        <p>Categories should not overlap and should together account for the whole, with shares totaling 100 percent or a note explaining rounding. If small categories are combined, explain the grouping and keep the original categories in a data table, as the Maryland example does for its last slice.</p>
+        <p><a href="#data-requirements-and-statistical-considerations">Read the full section: Data Requirements and Statistical Considerations</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Missing values and relevant uncertainty are addressed.</summary>
+      <div class="checklist-fold-body">
+        <p>Explain missing or suppressed values rather than treating them as zero or dropping them from the whole; the ownership example notes that the Maine pie is omitted because a count is suppressed. Provide measures of uncertainty when appropriate. More on uncertainty is on the site-wide <a href="uncertainty.html">Visualizing Uncertainty</a> page.</p>
+        <p><a href="#data-requirements-and-statistical-considerations">Read the full section: Data Requirements and Statistical Considerations</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Existing accessibility, scaling, and axes guidance has been followed.</summary>
+      <div class="checklist-fold-body">
+        <p>The Accessibility section calls for alt text that states the main takeaway, a data table, a label on each wedge, text contrast of at least 4.5:1, and wedge contrast of at least 3:1. Full requirements are on the site-wide <a href="508.html">508 Compliance</a> and <a href="color.html">Color</a> pages, and axes guidance is on the site-wide <a href="axes.html">Axes</a> page.</p>
+        <p><a href="#accessibility">Read the full section: Accessibility</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Chart-specific limitations and caveats are explained.</summary>
+      <div class="checklist-fold-body">
+        <p>Readers find it hard to compare wedge sizes, especially when shares are similar. The page recommends another display for precise comparisons, many categories, or similar shares, and warns against implying that a small visual difference is statistically significant.</p>
+        <p><a href="#when-to-use-an-alternative">Read the full section: When to Use an Alternative</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Code examples have been executed and verified.</summary>
+      <div class="checklist-fold-body">
+        <p>Each example has a downloadable Python script, the saved data file it uses when no API key is set, and the command that runs it. The Maryland table note records that its estimates were checked against the published 2024 ACS 5-year table on November 8, 2026.</p>
+        <p><a href="#developer-implementation">Read the full section: Developer Implementation</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>The visualization has undergone the appropriate review.</summary>
+      <div class="checklist-fold-body">
+        <p>This page does not describe a formal review process. Its Accessibility Review list gives developer checks for the examples on this page, and the Common Errors and Misinterpretations table lists issues to look for.</p>
+        <p><a href="#accessibility-review">Read the full section: Accessibility Review</a></p>
+      </div>
+    </details>
+  </li>
+</ul>
  
 ## Related Pages
  

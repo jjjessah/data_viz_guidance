@@ -132,15 +132,89 @@ Estimates for workers 16 years and over in New York, 2016. Margins of error are 
 
 ## Publication Quality Checklist
 
-- [ ] The visualization fits the analytical question.
-- [ ] Relevant alternatives were considered.
-- [ ] Data source, geography, reference period, and units are documented.
-- [ ] Data transformations and aggregation are appropriate.
-- [ ] Missing values and relevant uncertainty are addressed.
-- [ ] Existing accessibility, scaling, and axes guidance has been followed.
-- [ ] Chart-specific limitations and caveats are explained.
-- [ ] Code examples have been executed and verified.
-- [ ] The visualization has undergone the appropriate review.
+<ul class="checklist-folds">
+  <li>
+    <details>
+      <summary>The visualization fits the analytical question.</summary>
+      <div class="checklist-fold-body">
+        <p>Gridlines are optional. The page says to use them when they help readers trace unlabeled data points to axis values, and to consider removing them when direct labels already give the values.</p>
+        <p><a href="#recommended-practices">Read the full section: Recommended Practices</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Relevant alternatives were considered.</summary>
+      <div class="checklist-fold-body">
+        <p>The New York example shows two versions of the same chart: one with gridlines, which reproduces Example 1, and a recommended version without them, because every bar already has a direct value label.</p>
+        <p><a href="#recommended-without-gridlines">Read the full section: Recommended: without gridlines</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Data source, geography, reference period, and units are documented.</summary>
+      <div class="checklist-fold-body">
+        <p>The New York example names its source as the 2016 American Community Survey 1-year estimates, Table DP03, for New York state, and its table covers workers 16 years and over. Source line guidance is on the site-wide <a href="source.html">Sources</a> page.</p>
+        <p><a href="#reproduce-the-new-york-commute-example">Read the full section: Reproduce the New York commute example</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Data transformations and aggregation are appropriate.</summary>
+      <div class="checklist-fold-body">
+        <p>This page does not cover data transformation. The New York example keeps the six categories and their order from Example 1, and its table lists each estimate, percent, and margin of error.</p>
+        <p><a href="#reproduce-the-new-york-commute-example">Read the full section: Reproduce the New York commute example</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Missing values and relevant uncertainty are addressed.</summary>
+      <div class="checklist-fold-body">
+        <p>The New York table gives margins of error at the 90 percent confidence level. The Accessibility section says not to rely on gridlines alone when precise values matter, and to use direct labels or a data table. More on uncertainty is on the site-wide <a href="uncertainty.html">Visualizing Uncertainty</a> page.</p>
+        <p><a href="#reproduce-the-new-york-commute-example">Read the full section: Reproduce the New York commute example</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Existing accessibility, scaling, and axes guidance has been followed.</summary>
+      <div class="checklist-fold-body">
+        <p>Axis and tick labels need a contrast of at least 4.5:1, and gridlines that readers must use to read values need at least 3:1 against the background. Full requirements are on the site-wide <a href="508.html">508 Compliance</a>, <a href="color.html">Color</a>, and <a href="axes.html">Axes</a> pages.</p>
+        <p><a href="#accessibility">Read the full section: Accessibility</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Chart-specific limitations and caveats are explained.</summary>
+      <div class="checklist-fold-body">
+        <p>Gridlines should not obscure data marks or compete with the data, and unnecessary gridlines add clutter when direct labels already make values clear. Graticules belong on a thematic map only when they help readers interpret it.</p>
+        <p><a href="#practices-to-avoid">Read the full section: Practices to Avoid</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Code examples have been executed and verified.</summary>
+      <div class="checklist-fold-body">
+        <p>The Developer Implementation section gives a downloadable Python script that saves both versions, the saved table it uses so it can run offline, and the commands that run it. It names the one setting in the script where the two versions differ.</p>
+        <p><a href="#developer-implementation">Read the full section: Developer Implementation</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>The visualization has undergone the appropriate review.</summary>
+      <div class="checklist-fold-body">
+        <p>This page does not describe a formal review process. Its Common Errors and Misinterpretations table lists issues to look for, why they matter, and the recommended correction.</p>
+        <p><a href="#common-errors-and-misinterpretations">Read the full section: Common Errors and Misinterpretations</a></p>
+      </div>
+    </details>
+  </li>
+</ul>
  
 ## Related Pages
  

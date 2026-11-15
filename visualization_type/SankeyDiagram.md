@@ -139,15 +139,89 @@ The script saves [the Sankey diagram]({{ '/assets/family-d/pseo-uva-masters-flow
 
 ## Publication Quality Checklist
 
-- [ ] The visualization fits the analytical question.
-- [ ] Relevant alternatives were considered.
-- [ ] Data source, geography, reference period, and units are documented.
-- [ ] Data transformations and aggregation are appropriate.
-- [ ] Missing values and relevant uncertainty are addressed.
-- [ ] Existing accessibility, scaling, and axes guidance has been followed.
-- [ ] Chart-specific limitations and caveats are explained.
-- [ ] Code examples have been executed and verified.
-- [ ] The visualization has undergone the appropriate review.
+<ul class="checklist-folds">
+  <li>
+    <details>
+      <summary>The visualization fits the analytical question.</summary>
+      <div class="checklist-fold-body">
+        <p>A Sankey diagram shows where amounts come from and where they go across two or more stages, with flows that add up on each side. The page says to use it to show change, not comparison.</p>
+        <p><a href="#when-to-use">Read the full section: When to Use</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Relevant alternatives were considered.</summary>
+      <div class="checklist-fold-body">
+        <p>The page compares a Sankey diagram with a bar chart or dot plot, a stacked bar chart or proportion plot, a parallel coordinate plot, a pie, donut, or treemap, and a table. When all links have similar widths, a stacked bar chart or another alternative may work better.</p>
+        <p><a href="#choosing-between-alternatives">Read the full section: Choosing Between Alternatives</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Data source, geography, reference period, and units are documented.</summary>
+      <div class="checklist-fold-body">
+        <p>State the measure, units, geographic area, and reference period. The example names its source as the Post-Secondary Employment Outcomes 2023Q4 release and lists the institution, degree level, programs, and cohorts. Source line guidance is on the site-wide <a href="source.html">Sources</a> page.</p>
+        <p><a href="#data-requirements-and-statistical-considerations">Read the full section: Data Requirements and Statistical Considerations</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Data transformations and aggregation are appropriate.</summary>
+      <div class="checklist-fold-body">
+        <p>Each flow needs a source group, a destination group, and an amount. Amounts must be zero or positive, and flows into a node should equal flows out of it unless the difference is explained. Smaller nodes can be collapsed into an “Other” category.</p>
+        <p><a href="#data-requirements-and-statistical-considerations">Read the full section: Data Requirements and Statistical Considerations</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Missing values and relevant uncertainty are addressed.</summary>
+      <div class="checklist-fold-body">
+        <p>For survey estimates, report margins of error in a note or data table. Explain how small, suppressed, or combined categories are handled, such as an “Other” category. More on uncertainty is on the site-wide <a href="uncertainty.html">Visualizing Uncertainty</a> page.</p>
+        <p><a href="#data-requirements-and-statistical-considerations">Read the full section: Data Requirements and Statistical Considerations</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Existing accessibility, scaling, and axes guidance has been followed.</summary>
+      <div class="checklist-fold-body">
+        <p>The Accessibility section calls for alt text that states the main flow, a data table of sources, targets, and values, direct node labels, label contrast of at least 4.5:1, and flow contrast of at least 3:1. Full requirements are on the site-wide <a href="508.html">508 Compliance</a> and <a href="color.html">Color</a> pages, and axes guidance is on the site-wide <a href="axes.html">Axes</a> page.</p>
+        <p><a href="#accessibility">Read the full section: Accessibility</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Chart-specific limitations and caveats are explained.</summary>
+      <div class="checklist-fold-body">
+        <p>Flow widths are hard to compare precisely, many nodes and flows can make changes hard to interpret, and Sankey diagrams are not recommended for comparing different metrics. The Example 1 note explains that the live explorer no longer matches the screenshot.</p>
+        <p><a href="#when-to-use-an-alternative">Read the full section: When to Use an Alternative</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Code examples have been executed and verified.</summary>
+      <div class="checklist-fold-body">
+        <p>The Developer Implementation section gives a downloadable Python script, the saved table it uses so it can run offline, and the command that runs it. No API key is required.</p>
+        <p><a href="#developer-implementation">Read the full section: Developer Implementation</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>The visualization has undergone the appropriate review.</summary>
+      <div class="checklist-fold-body">
+        <p>This page does not describe a formal review process. Its Common Errors and Misinterpretations table lists issues to look for, why they matter, and the recommended correction.</p>
+        <p><a href="#common-errors-and-misinterpretations">Read the full section: Common Errors and Misinterpretations</a></p>
+      </div>
+    </details>
+  </li>
+</ul>
  
 ## Related Pages
  
