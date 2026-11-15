@@ -291,7 +291,7 @@ def place_total(rows: list[dict], geography: str) -> int:
 
 
 def draw(rows: list[dict], source_note: str) -> None:
-    fig, axes = plt.subplots(1, 2, figsize=(11.5, 7.2))
+    fig, axes = plt.subplots(1, 2, figsize=(11.5, 5.9))
     fig.patch.set_facecolor("white")
 
     for ax, (geography, _) in zip(axes, PLACES):
@@ -334,7 +334,7 @@ def draw(rows: list[dict], source_note: str) -> None:
         center = (
             f"{geography}\n"
             f"{dollars_text(total)}"
-        )
+        ).replace("$", r"\$")
         ax.text(
             0,
             0,
@@ -357,7 +357,7 @@ def draw(rows: list[dict], source_note: str) -> None:
         ncol=4,
         frameon=False,
         fontsize=9,
-        bbox_to_anchor=(0.5, 0.18),
+        bbox_to_anchor=(0.5, 0.165),
     )
 
     us_total = place_total(rows, "United States")
@@ -377,8 +377,12 @@ def draw(rows: list[dict], source_note: str) -> None:
         "Source: U.S. Census Bureau, 2017 Annual Survey of State and Local Government Finances, "
         f"Census Data API ({source_note})."
     )
-    fig.text(0.5, 0.015, note, ha="center", va="bottom", fontsize=7.4, color="#1b1b1b")
-    fig.subplots_adjust(top=0.88, bottom=0.32, left=0.04, right=0.96, wspace=0.08)
+    # Escape dollar signs so matplotlib prints them instead of reading
+    # text between two of them as math.
+    note = note.replace("$", r"\$")
+    fig.text(0.5, 0.015, note, ha="center", va="bottom", fontsize=7.4, color="#1b1b1b",
+             linespacing=1.4)
+    fig.subplots_adjust(top=0.86, bottom=0.27, left=0.04, right=0.96, wspace=0.08)
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(OUT_PATH, dpi=150)
     plt.close(fig)

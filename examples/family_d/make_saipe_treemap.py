@@ -61,6 +61,13 @@ BIN_COLORS = (
 )
 
 
+STATE_ABBR = {
+    "Illinois": "IL", "Indiana": "IN", "Iowa": "IA", "Kansas": "KS",
+    "Michigan": "MI", "Minnesota": "MN", "Missouri": "MO", "Nebraska": "NE",
+    "North Dakota": "ND", "Ohio": "OH", "South Dakota": "SD", "Wisconsin": "WI",
+}
+
+
 def bin_style(rate: float) -> tuple[str, str, str]:
     for edge, fill, text, label in BIN_COLORS:
         if edge is None or rate < edge:
@@ -290,11 +297,13 @@ def short_label(county: str) -> str:
     return county.replace(" County", " Co.")
 
 
+AXES_HEIGHT_IN = 5.6  # height of the treemap area in inches; one data unit
+
+
 def label_fits(text: str, cw: float, ch: float, fontsize: float = 6.2) -> bool:
-    # Conservative fit check in data units for a ~13.5 x 8.8 inch figure
-    # with an equal-aspect axes that covers most of the height.
-    inches = 7.0
-    points_per_data = inches * 72
+    # Conservative fit check. One data unit equals the treemap height, and the
+    # axes use an equal aspect, so data units convert directly to points.
+    points_per_data = AXES_HEIGHT_IN * 72
     lines = text.split("\n")
     text_w = 0.58 * fontsize * max(len(line) for line in lines) / points_per_data
     text_h = 1.30 * fontsize * len(lines) / points_per_data
@@ -320,59 +329,69 @@ def draw(rows: list[dict], source_note: str) -> None:
         sum(row["snappop"] for row in by_state[name]) for name in state_names
     ]
 
-    fig, ax = plt.subplots(figsize=(13.5, 8.8))
+    # Wide layout like Example 1. The treemap fills the width of the figure,
+    # the legend runs across the top, and the note sits directly below.
+    fig_w, fig_h = 13.5, 7.6
+    axes_left, axes_bottom, axes_w_in = 0.01, 0.115, 13.5 * 0.98
+    fig = plt.figure(figsize=(fig_w, fig_h))
     fig.patch.set_facecolor("white")
-    ax.set_xlim(0, 1)
+    ax = fig.add_axes([axes_left, axes_bottom, 0.98, AXES_HEIGHT_IN / fig_h])
+    width = axes_w_in / AXES_HEIGHT_IN
+    ax.set_xlim(0, width)
     ax.set_ylim(0, 1)
     ax.set_aspect("equal")
     ax.axis("off")
     ax.invert_yaxis()
 
-    # Leave a right margin for the legend.
-    plot_x, plot_y, plot_w, plot_h = 0.01, 0.02, 0.80, 0.90
-    state_rects = squarify(state_totals, plot_x, plot_y, plot_w, plot_h)
+    # Largest states are placed first, then mirrored left to right so Illinois
+    # and Ohio sit on the right, as in Example 1.
+    state_rects = squarify(state_totals, 0, 0, width, 1)
+    state_rects = [(width - sx - sw, sy, sw, sh) for sx, sy, sw, sh in state_rects]
     pad = 0.003
+    header_h = 0.032
 
     labeled = []
     for name, (sx, sy, sw, sh) in zip(state_names, state_rects):
         members = sorted(by_state[name], key=lambda row: row["snappop"], reverse=True)
+        # Gray name strip at the top of each state, as in Example 1.
+        ax.add_patch(
+            Rectangle((sx, sy), sw, header_h, facecolor="#D6D6D6",
+                      edgecolor="#1b1b1b", linewidth=1.1, zorder=1)
+        )
+        # Use the postal abbreviation when the full name does not fit.
+        header_label = name
+        if 0.62 * 8 * len(name) / (AXES_HEIGHT_IN * 72) > sw - 0.012:
+            header_label = STATE_ABBR.get(name, name)
+        ax.text(sx + 0.006, sy + header_h / 2, header_label, ha="left", va="center",
+                fontsize=8, fontweight="bold", color="#1b1b1b", zorder=3, clip_on=True)
+        ax.add_patch(
+            Rectangle((sx, sy), sw, sh, facecolor="white", edgecolor="#1b1b1b",
+                      linewidth=1.1, zorder=1)
+        )
         inner_x = sx + pad
-        inner_y = sy + pad
+        inner_y = sy + header_h + pad
         inner_w = max(sw - 2 * pad, 0)
-        inner_h = max(sh - 2 * pad, 0)
+        inner_h = max(sh - header_h - 2 * pad, 0)
         county_rects = squarify(
             [row["snappop"] for row in members], inner_x, inner_y, inner_w, inner_h
         )
-        # A thin state frame sits under the counties.
-        ax.add_patch(
-            Rectangle(
-                (sx, sy),
-                sw,
-                sh,
-                facecolor="white",
-                edgecolor="#1b1b1b",
-                linewidth=1.1,
-                zorder=1,
-            )
-        )
+        # Mirror counties so the largest sits at the lower right of each state,
+        # as in Example 1.
+        county_rects = [
+            (2 * inner_x + inner_w - cx - cw, 2 * inner_y + inner_h - cy - ch, cw, ch)
+            for cx, cy, cw, ch in county_rects
+        ]
         for row, (cx, cy, cw, ch) in zip(members, county_rects):
             fill, text_color, _ = bin_style(row["ratio"])
             ax.add_patch(
-                Rectangle(
-                    (cx, cy),
-                    cw,
-                    ch,
-                    facecolor=fill,
-                    edgecolor="white",
-                    linewidth=0.25,
-                    zorder=2,
-                )
+                Rectangle((cx, cy), cw, ch, facecolor=fill, edgecolor="white",
+                          linewidth=0.25, zorder=2)
             )
             chosen = None
-            name = row["county"]
-            candidates = [short_label(name)]
-            if ", " in name:
-                base, st = name.rsplit(", ", 1)
+            county = row["county"]
+            candidates = [short_label(county)]
+            if ", " in county:
+                base, st = county.rsplit(", ", 1)
                 short = base.replace(" County", " Co.")
                 candidates.append(f"{short}\n{st}")
                 shorter = base.replace(" County", "").replace(" Parish", "")
@@ -382,42 +401,27 @@ def draw(rows: list[dict], source_note: str) -> None:
                     chosen = label
                     break
             if chosen:
-                ax.text(
-                    cx + cw / 2,
-                    cy + ch / 2,
-                    chosen,
-                    ha="center",
-                    va="center",
-                    fontsize=6.2,
-                    color=text_color,
-                    zorder=3,
-                    clip_on=True,
-                )
-                labeled.append(row["county"])
+                ax.text(cx + cw / 2, cy + ch / 2, chosen, ha="center", va="center",
+                        fontsize=6.2, color=text_color, zorder=3, clip_on=True)
+                labeled.append(county)
 
-    handles = []
-    for edge, fill, text, label in BIN_COLORS:
-        handles.append(
-            Patch(facecolor=fill, edgecolor="#1b1b1b", linewidth=0.5, label=label)
-        )
+    handles = [
+        Patch(facecolor=fill, edgecolor="#1b1b1b", linewidth=0.5, label=label)
+        for edge, fill, text, label in BIN_COLORS
+    ]
     fig.legend(
         handles=handles,
-        title="SNAP participation rate",
-        loc="center left",
-        bbox_to_anchor=(0.82, 0.55),
+        title="SNAP participation rate:",
+        loc="upper left",
+        bbox_to_anchor=(axes_left, 0.925),
+        ncol=len(handles),
         frameon=False,
         fontsize=8.5,
         title_fontsize=9,
+        alignment="left",
     )
-
-    ax.set_title(
-        "SNAP participation in Midwest counties, 2020",
-        fontsize=14,
-        color="#1b1b1b",
-        pad=10,
-        loc="left",
-        x=0.01,
-    )
+    fig.text(axes_left, 0.975, "SNAP participation in Midwest counties, 2020",
+             ha="left", va="top", fontsize=14, color="#1b1b1b")
     omitted = [
         row["county"]
         for row in rows
@@ -439,8 +443,8 @@ def draw(rows: list[dict], source_note: str) -> None:
         "Source: U.S. Census Bureau, Small Area Income and Poverty Estimates (SAIPE), "
         f"2020 SNAP participation ({source_note})."
     )
-    fig.text(0.01, 0.01, note, ha="left", va="bottom", fontsize=7.2, color="#1b1b1b")
-    fig.subplots_adjust(top=0.90, bottom=0.10, left=0.02, right=0.99)
+    fig.text(axes_left, 0.015, note, ha="left", va="bottom", fontsize=7.5,
+             color="#1b1b1b", linespacing=1.4)
     OUT_PATH.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(OUT_PATH, dpi=150)
     plt.close(fig)
