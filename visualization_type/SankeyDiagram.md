@@ -144,7 +144,7 @@ The script saves [the Sankey diagram]({{ '/assets/family-d/pseo-uva-masters-flow
     <details>
       <summary>The visualization fits the analytical question.</summary>
       <div class="checklist-fold-body">
-        <p>A Sankey diagram shows where amounts come from and where they go across two or more stages, with flows that add up on each side. The page says to use it to show change, not comparison.</p>
+        <p>A Sankey diagram shows where amounts come from and where they go across two or more stages, with flows that add up on each side. Use it to show change, not comparison.</p>
         <p><a href="#when-to-use">Read the full section: When to Use</a></p>
       </div>
     </details>

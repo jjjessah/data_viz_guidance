@@ -137,7 +137,7 @@ Estimates for workers 16 years and over in New York, 2016. Margins of error are 
     <details>
       <summary>The visualization fits the analytical question.</summary>
       <div class="checklist-fold-body">
-        <p>Gridlines are optional. The page says to use them when they help readers trace unlabeled data points to axis values, and to consider removing them when direct labels already give the values.</p>
+        <p>Gridlines are optional. Use them when they help readers trace unlabeled data points to axis values, and consider removing them when direct labels already give the values.</p>
         <p><a href="#recommended-practices">Read the full section: Recommended Practices</a></p>
       </div>
     </details>
