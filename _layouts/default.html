@@ -379,6 +379,111 @@
         details[open] > .site-menu-toggle { margin-bottom: 12px; }
         .menu-group-toggle { min-height: 44px; }
       }
+
+      /* Shared Python code example (show/hide + copy) */
+      .code-example { margin: 1rem 0 1.5rem; }
+      .code-example-toggle {
+        list-style: none;
+        box-sizing: border-box;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        min-height: 44px;
+        background: #137e55;
+        color: #fff;
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.2;
+        border: 2px solid #0c5a3c;
+        border-radius: 4px;
+        padding: 0.7rem 1rem;
+        cursor: pointer;
+      }
+      .code-example-toggle::-webkit-details-marker { display: none; }
+      .code-example-toggle::marker { content: none; }
+      .code-example-toggle::after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-top: 0.35rem solid transparent;
+        border-bottom: 0.35rem solid transparent;
+        border-left: 0.5rem solid #fff;
+        flex-shrink: 0;
+      }
+      .code-example[open] > .code-example-toggle::after {
+        border-left: 0.35rem solid transparent;
+        border-right: 0.35rem solid transparent;
+        border-top: 0.5rem solid #fff;
+        border-bottom: 0;
+      }
+      .code-example-toggle:focus,
+      .code-example-toggle:focus-visible {
+        outline: 3px solid #1e6bb8;
+        outline-offset: 3px;
+      }
+      .code-example-panel { margin-top: 0.75rem; }
+      .code-example-toolbar {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.5rem;
+      }
+      .code-example-copy[hidden] { display: none !important; }
+      .code-example-copy {
+        box-sizing: border-box;
+        min-height: 44px;
+        padding: 0.5rem 1rem;
+        background: #fff;
+        color: #0c5a3c;
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.2;
+        border: 2px solid #0c5a3c;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .code-example-copy:hover { background: #f1f5f4; }
+      .code-example-copy:focus,
+      .code-example-copy:focus-visible {
+        outline: 3px solid #1e6bb8;
+        outline-offset: 3px;
+      }
+      .code-example-status {
+        color: #0c5a3c;
+        font-size: 0.95rem;
+        font-weight: 700;
+      }
+      main.main-content pre.code-example-pre,
+      .code-example-pre {
+        box-sizing: border-box;
+        max-width: 100%;
+        margin: 0;
+        padding: 1rem;
+        overflow-x: auto;
+        overflow-y: hidden;
+        background: #f6f8fa;
+        color: #1b1b1b;
+        border: 1px solid #d0d7de;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        line-height: 1.45;
+        white-space: pre;
+      }
+      .code-example-pre:focus,
+      .code-example-pre:focus-visible {
+        outline: 3px solid #1e6bb8;
+        outline-offset: 3px;
+      }
+      main.main-content pre.code-example-pre code,
+      .code-example-pre code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+        font-size: inherit;
+        color: #1b1b1b;
+        background: transparent;
+        white-space: pre;
+      }
     </style>
   </head>
   
@@ -514,5 +619,45 @@
     </main>
     </div>
     </div>
+
+    <script>
+      (function () {
+        function fallbackCopy(text) {
+          var area = document.createElement("textarea");
+          area.value = text;
+          area.setAttribute("readonly", "");
+          area.style.position = "absolute";
+          area.style.left = "-9999px";
+          document.body.appendChild(area);
+          area.select();
+          var ok = false;
+          try { ok = document.execCommand("copy"); } catch (e) {}
+          document.body.removeChild(area);
+          return ok;
+        }
+        function announce(status, message) {
+          if (!status) return;
+          status.textContent = message;
+          window.setTimeout(function () {
+            if (status.textContent === message) status.textContent = "";
+          }, 2000);
+        }
+        document.querySelectorAll(".code-example-copy").forEach(function (button) {
+          button.hidden = false;
+          button.addEventListener("click", function () {
+            var root = button.closest(".code-example");
+            var code = root ? root.querySelector("code") : null;
+            var status = root ? root.querySelector(".code-example-status") : null;
+            var text = code ? code.textContent : "";
+            function done(ok) { announce(status, ok ? "Copied" : "Copy failed"); }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(text).then(function () { done(true); }).catch(function () { done(fallbackCopy(text)); });
+            } else {
+              done(fallbackCopy(text));
+            }
+          });
+        });
+      })();
+    </script>
   </body>
 </html>
