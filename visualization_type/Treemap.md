@@ -85,7 +85,34 @@ This chart is a good example of the following:
 
 ## Developer Implementation
 
-A reproducible Python example using U.S. Census Bureau data will be added in a later update.
+### Reproduce the Midwest SNAP participation example
+
+The script draws the Midwest county treemap in Example 1 from the Census Bureau's official 2020 SAIPE SNAP treemap file. Rectangle size is the number of SNAP participants. Color is the participation rate, using the same five bins as the tool: less than 10 percent, 10 to 20, 20 to 30, 30 to 40, and more than 40 percent. Shannon County, South Dakota, is omitted from the treemap because the official file has no population or SNAP counts for that county name.
+
+<a href="{{ '/examples/family_d/make_saipe_treemap.py' | relative_url }}">Download the Python script</a>. It needs Python 3 and the matplotlib package. No API key is required. The program uses the saved table `examples/family_d/saipe_snap_2020_midwest.csv` so it can run offline. If that file is missing, or if the `--refresh` flag is used, it downloads `snap.2020.json` from the Census SAIPE treemap tool and keeps the Midwest counties.
+
+<pre style="white-space: pre-wrap; overflow: visible;"><code>python3 examples/family_d/make_saipe_treemap.py</code></pre>
+
+
+The script saves [the treemap]({{ '/assets/family-d/saipe-midwest-snap-2020.png' | relative_url }}).
+
+![Treemap of 2020 SNAP participation in 1,055 Midwest counties. Rectangle size is the number of SNAP participants. Color is the participation rate in five bins from less than 10 percent to more than 40 percent. The largest counties are Cook County, Illinois, with 946,451 participants, and Wayne County, Michigan, with 408,499 participants.]({{ '/assets/family-d/saipe-midwest-snap-2020.png' | relative_url }})
+
+The full county table is in the saved CSV. The largest counties in the 2020 file are:
+
+| County | SNAP participants | Participation rate |
+|---|---:|---:|
+| Cook County, IL | 946,451 | 18.5% |
+| Wayne County, MI | 408,499 | 23.5% |
+| Milwaukee County, WI | 266,064 | 28.2% |
+| Cuyahoga County, OH | 216,158 | 17.6% |
+| Franklin County, OH | 171,189 | 12.9% |
+| Marion County, IN | 153,228 | 15.9% |
+| Hennepin County, MN | 121,093 | 9.5% |
+| Hamilton County, OH | 116,971 | 14.3% |
+
+{% include code-example.html file="treemap.py" title="Show Python code for the Midwest SNAP treemap" %}
+
 
 ## Common Errors and Misinterpretations
 

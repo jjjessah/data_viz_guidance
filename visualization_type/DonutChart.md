@@ -100,7 +100,65 @@ This example could use the following improvements:
 
 ## Developer Implementation
 
-A reproducible Python example using U.S. Census Bureau data will be added in a later update.
+### Reproduce the state and local expenditure example
+
+The script draws two donut charts of combined state and local government expenditure in 2017: one for the United States and one for Alabama. The eight groups follow the legend in the Example 2 screenshot. Amounts come from the current Census Data API vintage of the 2017 Annual Survey of State and Local Government Finances. The donut total is general expenditure plus utility expenditure.
+
+The current-vintage totals are $3,309,381,532,000 for the United States and $43,131,484,000 for Alabama. The dashboard screenshot in Example 2 shows $3,311,141,581,000 and $44,974,894,000. The Example 2 text keeps the dashboard figures; the script and the table below use the current API figures.
+
+<a href="{{ '/examples/family_d/make_govfin_donut.py' | relative_url }}">Download the Python script</a>. It needs Python 3 and the matplotlib package. The program uses the saved table `examples/family_d/govslocalfin_2017_expenditure.csv` so it can run offline. It calls the Census Data API only if that file is missing, or if the `--refresh` flag is used. To refresh the table, request a free Census Data API key at https://api.census.gov/data/key_signup.html and set it in the environment. Leave the key out of the program, this page, and the saved table:
+
+<pre style="white-space: pre-wrap; overflow: visible;"><code>export CENSUS_API_KEY=API_KEY_VALUE
+python3 examples/family_d/make_govfin_donut.py --refresh</code></pre>
+
+Without `--refresh`, run:
+
+<pre style="white-space: pre-wrap; overflow: visible;"><code>python3 examples/family_d/make_govfin_donut.py</code></pre>
+
+The script saves [the donut chart]({{ '/assets/family-d/state-local-spending-2017.png' | relative_url }}).
+
+![Two donut charts of 2017 combined state and local government expenditure for the United States and Alabama. The United States total is $3,309,381,532,000. Alabama is $43,131,484,000. The largest groups in both places are Education and Health and Welfare. Other groups are Administration, Parks and Recreation, Public Safety, Transportation, Utilities, and Other, which includes Interest on General Debt.]({{ '/assets/family-d/state-local-spending-2017.png' | relative_url }})
+
+The saved table uses these grouped amounts from the current API vintage.
+
+United States (total $3,309,381,532,000):
+
+<table tabindex="0" role="region" aria-label="United States 2017 state and local expenditure by category">
+<thead>
+<tr><th>Category</th><th>Amount</th><th>Share of total</th></tr>
+</thead>
+<tbody>
+<tr><td>Education</td><td>$1,016,295,002,000</td><td>30.7%</td></tr>
+<tr><td>Administration</td><td>$145,904,336,000</td><td>4.4%</td></tr>
+<tr><td>Health &amp; Welfare</td><td>$974,807,244,000</td><td>29.5%</td></tr>
+<tr><td>Parks &amp; Recreation</td><td>$45,481,602,000</td><td>1.4%</td></tr>
+<tr><td>Public Safety</td><td>$257,856,617,000</td><td>7.8%</td></tr>
+<tr><td>Transportation</td><td>$215,867,058,000</td><td>6.5%</td></tr>
+<tr><td>Utilities</td><td>$232,150,474,000</td><td>7.0%</td></tr>
+<tr><td>Other</td><td>$421,019,199,000</td><td>12.7%</td></tr>
+</tbody>
+</table>
+
+Alabama (total $43,131,484,000):
+
+<table tabindex="0" role="region" aria-label="Alabama 2017 state and local expenditure by category">
+<thead>
+<tr><th>Category</th><th>Amount</th><th>Share of total</th></tr>
+</thead>
+<tbody>
+<tr><td>Education</td><td>$14,017,829,000</td><td>32.5%</td></tr>
+<tr><td>Administration</td><td>$1,565,766,000</td><td>3.6%</td></tr>
+<tr><td>Health &amp; Welfare</td><td>$14,259,211,000</td><td>33.1%</td></tr>
+<tr><td>Parks &amp; Recreation</td><td>$546,254,000</td><td>1.3%</td></tr>
+<tr><td>Public Safety</td><td>$2,686,153,000</td><td>6.2%</td></tr>
+<tr><td>Transportation</td><td>$2,729,585,000</td><td>6.3%</td></tr>
+<tr><td>Utilities</td><td>$3,171,810,000</td><td>7.4%</td></tr>
+<tr><td>Other</td><td>$4,154,876,000</td><td>9.6%</td></tr>
+</tbody>
+</table>
+
+{% include code-example.html file="donut_chart.py" title="Show Python code for the state and local expenditure donuts" %}
+
 
 ## Common Errors and Misinterpretations
 

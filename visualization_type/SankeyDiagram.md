@@ -102,7 +102,30 @@ This chart is a good example of the following:
 
 ## Developer Implementation
 
-A reproducible Python example using U.S. Census Bureau data will be added in a later update.
+### Reproduce the Post-Secondary Employment Outcomes example
+
+The script draws the Sankey diagram in Example 1 from the Post-Secondary Employment Outcomes 2023Q4 release, which matches the screenshot. The selection is the University of Virginia (institution 00374500), master's degrees (degree level 07), and the 2-digit programs Engineering (CIP 14), Social Sciences (CIP 45), and Mathematics and Statistics (CIP 27), for all graduate cohorts in 5-year groups, year-1 outcomes, all industries, and the nation.
+
+As noted under Example 1, the current 2026Q2 explorer release shows different shares for the same selection.
+
+<a href="{{ '/examples/family_d/make_pseo_sankey.py' | relative_url }}">Download the Python script</a>. It needs Python 3 and the matplotlib package. No API key is required. The program uses the saved table `examples/family_d/pseo_uva_masters_flows_R2023Q4.csv` so it can run offline. If that file is missing, or if the `--refresh` flag is used, it downloads the 2023Q4 Virginia flows file from the Census LEHD site and keeps only the rows used in the chart.
+
+<pre style="white-space: pre-wrap; overflow: visible;"><code>python3 examples/family_d/make_pseo_sankey.py</code></pre>
+
+
+The script saves [the Sankey diagram]({{ '/assets/family-d/pseo-uva-masters-flows.png' | relative_url }}).
+
+![Sankey diagram of first-year employment outcomes for University of Virginia master's graduates in Engineering, Social Sciences, and Mathematics and Statistics, from the Post-Secondary Employment Outcomes 2023Q4 release. Engineering is 67 percent, Social Sciences 21 percent, and Mathematics and Statistics 12 percent of the 1,916 selected graduates. Employed is 51 percent. No or very low earnings observed is 49 percent.]({{ '/assets/family-d/pseo-uva-masters-flows.png' | relative_url }})
+
+| Program | Employed | No or very low earnings observed | Total | Share of selected graduates |
+|---|---:|---:|---:|---:|
+| Engineering | 768 | 508 | 1,276 | 67% |
+| Social Sciences | 84 | 326 | 410 | 21% |
+| Mathematics and Statistics | 122 | 108 | 230 | 12% |
+| Total | 974 | 942 | 1,916 | 100% |
+
+{% include code-example.html file="sankey_diagram.py" title="Show Python code for the PSEO Sankey diagram" %}
+
 
 ## Common Errors and Misinterpretations
 
