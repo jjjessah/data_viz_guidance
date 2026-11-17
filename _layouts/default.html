@@ -11,25 +11,208 @@
     
     <style>
       /* Sidebar styles that complement Cayman */
-      body { margin-left: 240px; background-color: #fff; }
-      
-      .custom-sidebar {
-        position: fixed;
-        left: 0;
+      :root {
+        --slim-bar-height: 3rem;
+
+        /* Site color tokens. Change a color here and it changes everywhere.
+           Contrast ratios are against white (#fff) unless noted.
+           Text needs at least 4.5:1; meaningful graphics and focus rings need at least 3:1. */
+        --dv-green: #0f6e45;        /* headings, tag pills, menu label, buttons: 6.29:1; 5.83:1 on #f4f7f6 */
+        --dv-green-dark: #0c5a3c;   /* button borders, Copy button text: 8.25:1 */
+        --dv-blue: #1e6bb8;         /* links and focus rings: 5.45:1; 5.05:1 on #f4f7f6 */
+        --dv-blue-deep: #155799;    /* banner gradient start: white text 7.35:1 */
+        --dv-text: #1b1b1b;         /* strong text and table text: 17.22:1 */
+        --dv-text-muted: #606c71;   /* body text and small labels: 5.41:1; 5.13:1 on #f9f9f9 */
+        --dv-surface: #f4f7f6;      /* menu and table header background */
+        --dv-border: #c5cdd2;       /* decorative table lines */
+        --dv-focus: #1e6bb8;        /* 3 px focus outline: 5.45:1 */
+      }
+      html {
+        scroll-padding-top: calc(var(--slim-bar-height) + 0.5rem);
+      }
+      body { margin: 0; background-color: #fff; }
+
+      /* Full-width, thinner banner (overrides Cayman's large header padding) */
+      header.page-header {
+        position: relative;
+        z-index: 300;
+        padding: 1.75rem 2rem;
+        text-align: center;
+        /* Cayman ends the gradient at #159957, where white text is only 3.66:1.
+           Ending it at the darker green keeps white text at 6.29:1 or more everywhere. */
+        background-color: var(--dv-green);
+        background-image: linear-gradient(120deg, var(--dv-blue-deep), var(--dv-green));
+      }
+      header.page-header .project-name {
+        font-size: 2rem;
+        font-weight: 700;
+        line-height: 1.2;
+        margin: 0;
+        color: #fff;
+      }
+      header.page-header .project-tagline {
+        font-size: 1rem;
+        font-weight: 400;
+        line-height: 1.35;
+        margin: 0.4em 0 0;
+        color: #fff;
+        opacity: 1; /* solid white; Cayman fades it to 70%, which drops it below 4.5:1 */
+      }
+
+      /* Slim site-name bar: sits under the banner at the top of the page,
+         then stays at the top once the banner has scrolled away. */
+      .slim-bar {
+        position: sticky;
         top: 0;
-        width: 220px;
-        height: 100%;
-        background-color: #f4f7f6;
-        border-right: 1px solid #e5e5e5;
-        padding: 30px 20px;
-        z-index: 1000;
+        z-index: 200;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        width: 100%;
+        height: var(--slim-bar-height);
+        margin-top: calc(-1 * var(--slim-bar-height));
+        padding: 0 1.5rem;
+        background-color: var(--dv-green);
+        background-image: linear-gradient(120deg, var(--dv-blue-deep), var(--dv-green));
+        color: #fff;
+        box-shadow: 0 1px 0 rgba(0, 0, 0, 0.12);
+      }
+      .slim-bar:focus-within {
+        z-index: 400;
+      }
+      .slim-bar-home {
+        color: #fff;
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.2;
+        text-decoration: none;
+      }
+      .slim-bar-home:hover {
+        text-decoration: underline;
+      }
+      .slim-bar-home:focus,
+      .slim-bar-home:focus-visible {
+        outline: 3px solid #fff;
+        outline-offset: 3px;
+        text-decoration: underline;
+      }
+
+      /* Center the menu and content as one block on wide screens */
+      .page-body {
+        display: flex;
+        align-items: flex-start;
+        box-sizing: border-box;
+        width: 100%;
+        max-width: 75rem;
+        margin: 0 auto;
+        padding: 1rem 1.5rem 3rem;
+        gap: 2rem;
+      }
+      .page-content {
+        flex: 1 1 auto;
+        min-width: 0;
+      }
+
+      .custom-sidebar {
+        position: sticky;
+        top: var(--slim-bar-height);
+        flex: 0 0 240px;
+        width: 240px;
+        max-height: calc(100vh - var(--slim-bar-height));
         overflow-y: auto;
+        background-color: #f4f7f6;
+        border: 1px solid #e5e5e5;
+        border-radius: 8px;
+        padding: 16px 16px 24px;
+        z-index: 100;
+        box-sizing: border-box;
+        align-self: flex-start;
+      }
+
+      /* Sit content next to the menu; drop Cayman's centered 64rem column */
+      @media (min-width: 801px) {
+        main.main-content {
+          max-width: none;
+          margin: 0;
+          padding: 1.75rem 0 2.5rem;
+          font-size: 1.1rem;
+        }
+        .page-content .tag-bar {
+          padding-left: 0;
+          padding-right: 0;
+        }
+        main.main-content img {
+          max-width: 100%;
+          height: auto;
+        }
+        main.main-content table {
+          max-width: 100%;
+        }
+        main.main-content {
+          overflow-x: auto;
+        }
       }
       .main-content table th {
   background-color: #f1f5f4;
-  color: #1b1b1b;
+  color: var(--dv-text);
   font-weight: 700;
 }
+
+      /* Headings: Cayman's #159957 is 3.66:1, below 4.5:1 for normal-size text. */
+      .main-content h1,
+      .main-content h2,
+      .main-content h3,
+      .main-content h4,
+      .main-content h5,
+      .main-content h6 {
+        color: var(--dv-green);
+      }
+
+      /* Links inside running text are underlined, because the link blue and the
+         gray body text are nearly the same lightness (1.01:1), so color alone
+         would not mark them as links. */
+      .main-content p a,
+      .main-content li a,
+      .main-content td a,
+      .main-content th a,
+      .main-content dd a {
+        text-decoration: underline;
+        text-underline-offset: 0.15em;
+      }
+      .main-content a:focus-visible {
+        outline: 3px solid var(--dv-focus);
+        outline-offset: 2px;
+      }
+
+      /* Wide tables: the wrapper scrolls sideways on narrow screens.
+         When it scrolls, it is a labeled region that can be reached with the Tab key. */
+      .table-scroll {
+        max-width: 100%;
+        overflow-x: auto;
+        margin: 0 0 1rem;
+        -webkit-overflow-scrolling: touch;
+      }
+      .table-scroll > table {
+        overflow: visible;
+        margin-bottom: 0;
+      }
+      .table-scroll:focus,
+      .table-scroll:focus-visible {
+        outline: 3px solid var(--dv-focus);
+        outline-offset: -3px;
+      }
+
+      /* Run commands and other plain code blocks wrap on narrow screens instead of
+         running off the page. The longer Python examples keep sideways scrolling. */
+      .main-content pre:not(.code-example-pre) {
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+      .main-content pre:not(.code-example-pre) > code {
+        white-space: inherit;
+        overflow-wrap: inherit;
+      }
       .main-content ul.task-list {
   list-style: none;
   padding-left: 0;
@@ -40,14 +223,104 @@
 .main-content .task-list-item-checkbox {
   margin-right: 0.5rem;
 }
-      .custom-sidebar h3 { font-size: 1.1rem; color: #159957; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 1px; }
+      details.site-menu { margin: 0; }
+      .site-menu-toggle {
+        list-style: none;
+        box-sizing: border-box;
+        font-family: inherit;
+      }
+      .site-menu-toggle::-webkit-details-marker { display: none; }
+      .site-menu-toggle::marker { content: none; }
+      @media (min-width: 801px) {
+        details.site-menu > ul { display: block !important; }
+        .site-menu-toggle {
+          display: block;
+          font-size: 1.1rem;
+          font-weight: 700;
+          line-height: 1.5;
+          color: var(--dv-green);
+          margin-top: 0;
+          margin-bottom: 12px;
+          padding: 0;
+          background: transparent;
+          border: 0;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          cursor: default;
+          pointer-events: none;
+        }
+        .site-menu-toggle::after { display: none; }
+      }
       .custom-sidebar ul { list-style: none; margin: 0; padding: 0; }
-      .custom-sidebar li { margin-bottom: 15px; }
-      .custom-sidebar a { text-decoration: none; color: #1e6bb8; font-size: 0.95rem; }
+      .custom-sidebar li { margin-bottom: 8px; }
+      .custom-sidebar a { text-decoration: none; color: var(--dv-blue); font-size: 0.95rem; }
       .custom-sidebar a:hover { text-decoration: underline; }
-      
-      .category-title { color: #2e3532; font-weight: bold; display: block; margin-top: 25px; margin-bottom: 8px; font-size: 0.9rem; }
-      .sub-menu { margin-left: 15px !important; margin-top: 5px !important; }
+      .custom-sidebar a[aria-current="page"] {
+        font-weight: 700;
+        color: var(--dv-green);
+        text-decoration: underline;
+      }
+
+      details.menu-group { margin: 0; }
+      .menu-group-toggle {
+        list-style: none;
+        box-sizing: border-box;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        min-height: 44px;
+        padding: 8px 4px;
+        margin: 4px 0 0;
+        background: transparent;
+        border: 0;
+        border-radius: 4px;
+        font-family: inherit;
+        font-size: 0.9rem;
+        font-weight: 700;
+        line-height: 1.3;
+        color: #2e3532;
+        text-align: left;
+        cursor: pointer;
+      }
+      .menu-group-toggle::-webkit-details-marker { display: none; }
+      .menu-group-toggle::marker { content: none; }
+      .menu-group-toggle:focus,
+      .menu-group-toggle:focus-visible {
+        outline: 3px solid var(--dv-green);
+        outline-offset: 2px;
+      }
+      .menu-group-toggle::after {
+        content: "";
+        width: 0.4em;
+        height: 0.4em;
+        margin-left: 8px;
+        border-right: 2px solid #2e3532;
+        border-bottom: 2px solid #2e3532;
+        transform: rotate(45deg);
+        flex-shrink: 0;
+      }
+      details.menu-group[open] > .menu-group-toggle::after {
+        transform: rotate(-135deg);
+      }
+      .sub-menu { margin-left: 15px !important; margin-top: 4px !important; }
+
+      /* Same look as folding group names, but not a control: no chevron, not clickable. */
+      .menu-group-label {
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        width: 100%;
+        min-height: 44px;
+        padding: 8px 4px;
+        margin: 4px 0 0;
+        font-family: inherit;
+        font-size: 0.9rem;
+        font-weight: 700;
+        line-height: 1.3;
+        color: #2e3532;
+        text-align: left;
+      }
 
       /* Horizontal Tag Bar Styles */
       .tag-bar {
@@ -67,7 +340,7 @@
       }
       .tag-link {
         display: inline-block;
-        background: #159957;
+        background: var(--dv-green);
         color: #fff !important;
         padding: 4px 12px;
         border-radius: 3px;
@@ -78,74 +351,405 @@
         text-decoration: none !important;
         transition: background 0.2s;
       }
-      .tag-link:hover { background: #1e6bb8; }
+      .tag-link:hover { background: var(--dv-blue); }
+      .tag-link:focus-visible {
+        outline: 3px solid var(--dv-focus);
+        outline-offset: 2px;
+      }
+      
+      /* Skip link: hidden until reached with the Tab key */
+      .skip-link {
+        position: fixed;
+        left: -9999px;
+        top: 0;
+        z-index: 2000;
+        background: #1b1b1b;
+        color: #fff;
+        padding: 10px 16px;
+        font-weight: bold;
+        text-decoration: underline;
+      }
+      .skip-link:focus { left: 10px; top: 10px; }
+      p.project-name { font-weight: bold; }
 
       /* Responsiveness for mobile */
       @media (max-width: 800px) {
-        body { margin-left: 0; }
-        .custom-sidebar { position: relative; width: 100%; height: auto; border-right: none; border-bottom: 1px solid #e5e5e5; }
-        .main-content { padding: 2rem 1rem; }
+        html {
+          scroll-padding-top: calc(var(--slim-bar-height) + 4.5rem);
+        }
+        .page-body { display: block; max-width: none; margin: 0; padding: 0; gap: 0; }
+        header.page-header { padding: 1rem 1.25rem; }
+        header.page-header .project-name { font-size: 1.5rem; }
+        header.page-header .project-tagline { font-size: 0.95rem; }
+        .slim-bar { padding: 0 1.25rem; }
+        .slim-bar-home { font-size: 0.95rem; }
+        .custom-sidebar {
+          position: sticky;
+          top: var(--slim-bar-height);
+          z-index: 150;
+          width: 100%;
+          flex: none;
+          max-height: calc(100vh - var(--slim-bar-height));
+          height: auto;
+          overflow: hidden;
+          display: flex;
+          flex-direction: column;
+          border: none;
+          border-bottom: 1px solid #e5e5e5;
+          border-radius: 0;
+          padding: 10px 12px;
+        }
+        details.site-menu {
+          display: flex;
+          flex-direction: column;
+          min-height: 0;
+          max-height: 100%;
+        }
+        details.site-menu[open] > ul {
+          overflow-y: auto;
+          overscroll-behavior: contain;
+          min-height: 0;
+          flex: 1 1 auto;
+          max-height: calc(100vh - var(--slim-bar-height) - 4.75rem);
+          -webkit-overflow-scrolling: touch;
+        }
+        main.main-content { padding: 2rem 1rem; max-width: none; margin: 0; overflow-x: visible; }
         .tag-bar { justify-content: center; }
+        .page-content .tag-bar { padding-left: 20px; padding-right: 20px; }
+        .site-menu-toggle {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          width: 100%;
+          min-height: 44px;
+          padding: 10px 14px;
+          margin: 0;
+          background: #1b1b1b;
+          color: #fff;
+          font-size: 1rem;
+          font-weight: 700;
+          line-height: 1.2;
+          text-transform: uppercase;
+          letter-spacing: 1px;
+          border: 0;
+          border-radius: 4px;
+          cursor: pointer;
+        }
+        .site-menu-toggle:focus,
+        .site-menu-toggle:focus-visible {
+          outline: 3px solid #1b1b1b;
+          outline-offset: 3px;
+        }
+        .site-menu-toggle::after {
+          content: "";
+          width: 0.5em;
+          height: 0.5em;
+          margin-left: 12px;
+          border-right: 2px solid #fff;
+          border-bottom: 2px solid #fff;
+          transform: rotate(45deg);
+          flex-shrink: 0;
+          transition: transform 0.15s ease;
+        }
+        details[open] > .site-menu-toggle::after {
+          transform: rotate(-135deg);
+        }
+        details[open] > .site-menu-toggle { margin-bottom: 12px; }
+        .menu-group-toggle { min-height: 44px; }
+      }
+
+      /* Shared Python code example (show/hide + copy) */
+      .code-example { margin: 1rem 0 1.5rem; }
+      .code-example-toggle {
+        list-style: none;
+        box-sizing: border-box;
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        min-height: 44px;
+        background: var(--dv-green);
+        color: #fff;
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.2;
+        border: 2px solid var(--dv-green-dark);
+        border-radius: 4px;
+        padding: 0.7rem 1rem;
+        cursor: pointer;
+      }
+      .code-example-toggle::-webkit-details-marker { display: none; }
+      .code-example-toggle::marker { content: none; }
+      .code-example-toggle::after {
+        content: "";
+        width: 0;
+        height: 0;
+        border-top: 0.35rem solid transparent;
+        border-bottom: 0.35rem solid transparent;
+        border-left: 0.5rem solid #fff;
+        flex-shrink: 0;
+      }
+      .code-example[open] > .code-example-toggle::after {
+        border-left: 0.35rem solid transparent;
+        border-right: 0.35rem solid transparent;
+        border-top: 0.5rem solid #fff;
+        border-bottom: 0;
+      }
+      .code-example-toggle:focus,
+      .code-example-toggle:focus-visible {
+        outline: 3px solid var(--dv-focus);
+        outline-offset: 3px;
+      }
+      .code-example-panel { margin-top: 0.75rem; }
+      .code-example-toolbar {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-bottom: 0.5rem;
+      }
+      .code-example-copy[hidden] { display: none !important; }
+      .code-example-copy {
+        box-sizing: border-box;
+        min-height: 44px;
+        padding: 0.5rem 1rem;
+        background: #fff;
+        color: var(--dv-green-dark);
+        font-family: inherit;
+        font-size: 1rem;
+        font-weight: 700;
+        line-height: 1.2;
+        border: 2px solid var(--dv-green-dark);
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .code-example-copy:hover { background: #f1f5f4; }
+      .code-example-copy:focus,
+      .code-example-copy:focus-visible {
+        outline: 3px solid var(--dv-focus);
+        outline-offset: 3px;
+      }
+      .code-example-status {
+        color: var(--dv-green-dark);
+        font-size: 0.95rem;
+        font-weight: 700;
+      }
+      main.main-content pre.code-example-pre,
+      .code-example-pre {
+        box-sizing: border-box;
+        max-width: 100%;
+        margin: 0;
+        padding: 1rem;
+        overflow-x: auto;
+        overflow-y: hidden;
+        background: #f6f8fa;
+        color: #1b1b1b;
+        border: 1px solid #d0d7de;
+        border-radius: 4px;
+        font-size: 0.9rem;
+        line-height: 1.45;
+        white-space: pre;
+      }
+      .code-example-pre:focus,
+      .code-example-pre:focus-visible {
+        outline: 3px solid var(--dv-focus);
+        outline-offset: 3px;
+      }
+      /* Publication Quality Checklist folds (pages that use ul.checklist-folds only).
+         Each item opens to a short summary and a link to the full section. No JavaScript. */
+      .main-content ul.checklist-folds {
+        list-style: none;
+        /* Indented 40px, the same as the plain bullet lists on the page. */
+        margin: 0 0 1.5rem 40px;
+        padding: 0;
+        border-top: 1px solid var(--dv-border);
+      }
+      .checklist-folds > li {
+        margin: 0;
+        border-bottom: 1px solid var(--dv-border);
+      }
+      .checklist-folds summary {
+        list-style: none;
+        display: flex;
+        align-items: flex-start;
+        gap: 0.65rem;
+        min-height: 44px;
+        box-sizing: border-box;
+        padding: 0.65rem 0.5rem;
+        color: var(--dv-text);
+        font-weight: 600;
+        line-height: 1.4;
+        cursor: pointer;
+      }
+      .checklist-folds summary::-webkit-details-marker { display: none; }
+      .checklist-folds summary::marker { content: none; }
+      /* Closed: triangle points right. Open: triangle points down. #0f6e45 is 6.29:1 on white. */
+      .checklist-folds summary::before {
+        content: "";
+        flex-shrink: 0;
+        width: 0;
+        height: 0;
+        margin-top: 0.4em;
+        border-top: 0.38rem solid transparent;
+        border-bottom: 0.38rem solid transparent;
+        border-left: 0.55rem solid var(--dv-green);
+      }
+      .checklist-folds details[open] > summary::before {
+        margin-top: 0.5em;
+        border-left: 0.38rem solid transparent;
+        border-right: 0.38rem solid transparent;
+        border-top: 0.55rem solid var(--dv-green);
+        border-bottom: 0;
+      }
+      .checklist-folds summary:hover { color: var(--dv-green); text-decoration: underline; }
+      .checklist-folds summary:focus,
+      .checklist-folds summary:focus-visible {
+        outline: 3px solid var(--dv-focus);
+        outline-offset: -3px; /* drawn inside, so the page edge cannot clip it */
+      }
+      .checklist-fold-body {
+        padding: 0 0.5rem 0.75rem 1.7rem;
+        color: var(--dv-text);
+        font-size: 0.95em;
+      }
+      .checklist-fold-body p { margin: 0 0 0.5rem; }
+
+      /* Printing: show every summary, open or closed. */
+      @media print {
+        .checklist-folds details::details-content {
+          content-visibility: visible;
+          display: block;
+        }
+        .checklist-folds summary::before { display: none; }
+        .checklist-fold-body { padding-left: 0.25rem; }
+      }
+
+      main.main-content pre.code-example-pre code,
+      .code-example-pre code {
+        font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace;
+        font-size: inherit;
+        color: #1b1b1b;
+        background: transparent;
+        white-space: pre;
       }
     </style>
   </head>
+  
   <body>
+    {% assign page_slug = page.url | downcase | remove: '.html' | split: '/' | last %}
+    {% assign is_home = false %}
+    {% if page.url == '/' or page.url == '/index.html' or page_slug == 'index' or page_slug == '' %}
+      {% assign is_home = true %}
+    {% endif %}
+    {% assign all_tags = "" | split: "" %}
+    {% for p in site.pages %}
+      {% if p.tags %}
+        {% assign all_tags = all_tags | concat: p.tags %}
+      {% endif %}
+    {% endfor %}
+    {% assign all_tags = all_tags | uniq | sort %}
 
-    <div class="custom-sidebar">
-      <h3>Menu</h3>
-      <ul>
-        <li><a href="{{ site.baseurl }}/" style="font-weight: bold;">Home</a></li>
-        
-        {% for category in site.navigation %}
-          <li>
-            <span class="category-title">{{ category.title }}</span>
-            <ul class="sub-menu">
-              {% for link in category.sub_pages %}
-                <li>
-                  <a href="{{ site.baseurl }}/{{ link.url }}.html">{{ link.title }}</a>
-                </li>
-              {% endfor %}
-            </ul>
-          </li>
-        {% endfor %}
-      </ul>
-    </div>
+    <a class="skip-link" href="#content">Skip to main content</a>
 
     <header class="page-header" role="banner">
-      <h1 class="project-name">{{ site.title | default: site.github.repository_name }}</h1>
-      <h2 class="project-tagline">{{ site.description | default: site.github.project_tagline }}</h2>
+      <p class="project-name">{{ site.title | default: site.github.repository_name }}</p>
+      <p class="project-tagline">{{ site.description | default: site.github.project_tagline }}</p>
     </header>
 
-    <!-- STEP 3: Horizontal Tag Bar under Banner -->
-    <nav class="tag-bar">
+    <nav class="slim-bar" aria-label="Site home">
+      <a class="slim-bar-home" href="{{ site.baseurl }}/"{% if is_home %} aria-current="page"{% endif %}>{{ site.title | default: site.github.repository_name }}</a>
+    </nav>
+
+    <div class="page-body">
+    <nav class="custom-sidebar" aria-label="Site menu">
+      <details class="site-menu" open>
+        <summary class="site-menu-toggle">Menu</summary>
+        <ul>
+        <li><a href="{{ site.baseurl }}/"{% if is_home %} aria-current="page"{% endif %} style="font-weight: bold;">Home</a></li>
+        {% if all_tags.size > 0 %}
+        <li class="menu-tags">
+          <p id="explore-by-tag-heading" class="menu-group-label">Explore by tag</p>
+          <ul class="sub-menu" aria-labelledby="explore-by-tag-heading">
+            {% for tag_name in all_tags %}
+              {% if tag_name != "" and tag_name != nil %}
+                {% assign tag_slug = tag_name | slugify %}
+                {% assign tag_path = '/tags/' | append: tag_slug | append: '/' %}
+                {% assign tag_path_index = tag_path | append: 'index.html' %}
+                <li>
+                  <a href="{{ site.baseurl }}/tags/{{ tag_slug }}/"{% if page.url == tag_path or page.url == tag_path_index %} aria-current="page"{% endif %}>{{ tag_name }}</a>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </li>
+        {% endif %}
+        
+        {% for category in site.navigation %}
+          {% assign group_open = false %}
+          {% for link in category.sub_pages %}
+            {% assign link_slug = link.url | downcase | remove: '.html' %}
+            {% if page_slug == link_slug %}
+              {% assign group_open = true %}
+            {% endif %}
+          {% endfor %}
+          <li>
+            <details class="menu-group"{% if group_open %} open{% endif %}>
+              <summary class="menu-group-toggle">{{ category.title }}</summary>
+              <ul class="sub-menu">
+                {% for link in category.sub_pages %}
+                  {% assign link_slug = link.url | downcase | remove: '.html' %}
+                  <li>
+                    <a href="{{ site.baseurl }}/{{ link.url }}.html"{% if page_slug == link_slug %} aria-current="page"{% endif %}>{{ link.title }}</a>
+                  </li>
+                {% endfor %}
+              </ul>
+            </details>
+          </li>
+        {% endfor %}
+        </ul>
+      </details>
+    </nav>
+    <script>
+      (function () {
+        var menu = document.querySelector("details.site-menu");
+        if (!menu) return;
+        var query = window.matchMedia("(max-width: 800px)");
+        var summary = menu.querySelector("summary");
+        function syncMenu(isNarrow) {
+          if (isNarrow) {
+            menu.removeAttribute("open");
+            if (summary) summary.tabIndex = 0;
+          } else {
+            menu.setAttribute("open", "");
+            if (summary) summary.tabIndex = -1;
+          }
+        }
+        syncMenu(query.matches);
+        if (query.addEventListener) query.addEventListener("change", function (e) { syncMenu(e.matches); });
+        else query.addListener(function (e) { syncMenu(e.matches); });
+        menu.addEventListener("toggle", function () {
+          if (!query.matches && !menu.open) menu.setAttribute("open", "");
+        });
+      })();
+    </script>
+
+    <div class="page-content">
+    <!-- Horizontal Tag Bar under Banner -->
+  <nav class="tag-bar" aria-label="Tags">
   <span class="tag-bar-label">Explore Tags:</span>
-  
-  {% comment %} 
-    Initialize an empty array and cleanly concatenate every page's tags to it.
-  {% endcomment %}
-  {% assign all_tags = "" | split: "" %}
-  
-  {% for p in site.pages %}
-    {% if p.tags %}
-      {% assign all_tags = all_tags | concat: p.tags %}
-    {% endif %}
-  {% endfor %}
-  
-  {% comment %} 
-    Now deduplicate and sort the cleanly flattened array.
-  {% endcomment %}
-  {% assign all_tags = all_tags | uniq | sort %}
   
   {% for tag_name in all_tags %}
     {% if tag_name != "" and tag_name != nil %}
-      <a href="{{ site.baseurl }}/tags/{{ tag_name | slugify }}/" class="tag-link">
+      {% assign tag_slug = tag_name | slugify %}
+      {% assign tag_path = '/tags/' | append: tag_slug | append: '/' %}
+      {% assign tag_path_index = tag_path | append: 'index.html' %}
+      <a href="{{ site.baseurl }}/tags/{{ tag_slug }}/" class="tag-link"{% if page.url == tag_path or page.url == tag_path_index %} aria-current="page"{% endif %}>
         {{ tag_name }}
       </a>
     {% endif %}
   {% endfor %}
 </nav>
 
-    <main id="content" class="main-content" role="main">
+  <main id="content" class="main-content" role="main" tabindex="-1">
       
       <!-- Individual Page Tags (Optional: shows tags specific to this page) -->
       {% if page.tags %}
@@ -160,6 +764,107 @@
         <span class="site-footer-owner">Site maintained by the Quality Program Staff</span>
       </footer>
     </main>
+    </div>
+    </div>
+
+    <script>
+      /* Markdown tables: wrap each one so that, when it is too wide for the screen,
+         the scrolling area can be reached with the Tab key and is announced with a name.
+         Without JavaScript the tables still scroll sideways by touch or mouse. */
+      (function () {
+        var wraps = [];
+        document.querySelectorAll(".main-content table").forEach(function (table) {
+          if (table.closest(".table-scroll, .accessible-figure")) return;
+          var label = table.caption ? table.caption.textContent.trim() : "";
+          if (!label) {
+            var el = table.previousElementSibling;
+            while (el && !/^H[1-6]$/.test(el.tagName)) el = el.previousElementSibling;
+            label = el ? "Table under the heading " + el.textContent.trim() : "Data table";
+          }
+          var wrap = document.createElement("div");
+          wrap.className = "table-scroll";
+          wrap.setAttribute("data-label", label);
+          table.parentNode.insertBefore(wrap, table);
+          wrap.appendChild(table);
+          wraps.push(wrap);
+        });
+        /* Two tables under the same heading would get the same name, so number repeated names. */
+        var seen = {};
+        wraps.forEach(function (wrap) {
+          var label = wrap.getAttribute("data-label");
+          seen[label] = (seen[label] || 0) + 1;
+        });
+        var counter = {};
+        wraps.forEach(function (wrap) {
+          var label = wrap.getAttribute("data-label");
+          if (seen[label] > 1) {
+            counter[label] = (counter[label] || 0) + 1;
+            wrap.setAttribute("data-label", label + ", table " + counter[label] + " of " + seen[label]);
+          }
+        });
+        function sync() {
+          wraps.forEach(function (wrap) {
+            if (wrap.scrollWidth > wrap.clientWidth + 1) {
+              wrap.setAttribute("tabindex", "0");
+              wrap.setAttribute("role", "region");
+              wrap.setAttribute("aria-label", wrap.getAttribute("data-label"));
+            } else {
+              wrap.removeAttribute("tabindex");
+              wrap.removeAttribute("role");
+              wrap.removeAttribute("aria-label");
+            }
+          });
+        }
+        if (!wraps.length) return;
+        sync();
+        var pending = false;
+        window.addEventListener("resize", function () {
+          if (pending) return;
+          pending = true;
+          window.requestAnimationFrame(function () { pending = false; sync(); });
+        });
+        window.addEventListener("load", sync);
+      })();
+    </script>
+    <script>
+      (function () {
+        function fallbackCopy(text) {
+          var area = document.createElement("textarea");
+          area.value = text;
+          area.setAttribute("readonly", "");
+          area.style.position = "absolute";
+          area.style.left = "-9999px";
+          document.body.appendChild(area);
+          area.select();
+          var ok = false;
+          try { ok = document.execCommand("copy"); } catch (e) {}
+          document.body.removeChild(area);
+          return ok;
+        }
+        function announce(status, message) {
+          if (!status) return;
+          status.textContent = message;
+          window.setTimeout(function () {
+            if (status.textContent === message) status.textContent = "";
+          }, 2000);
+        }
+        document.querySelectorAll(".code-example-copy").forEach(function (button) {
+          button.hidden = false;
+          button.addEventListener("click", function () {
+            var root = button.closest(".code-example");
+            var code = root ? root.querySelector("code") : null;
+            var status = root ? root.querySelector(".code-example-status") : null;
+            var text = code ? code.textContent : "";
+            function done(ok) { announce(status, ok ? "Copied" : "Copy failed"); }
+            if (navigator.clipboard && navigator.clipboard.writeText) {
+              navigator.clipboard.writeText(text).then(function () { done(true); }).catch(function () { done(fallbackCopy(text)); });
+            } else {
+              done(fallbackCopy(text));
+            }
+          });
+        });
+      })();
+    </script>
 
     <!-- Download functionality for Python, Jupyter, and other files -->
     <script src="{{ '/assets/js/download.js' | relative_url }}" defer></script>

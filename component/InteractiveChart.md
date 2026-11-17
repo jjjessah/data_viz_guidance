@@ -100,15 +100,89 @@ This chart is a good example of the following:
 
 ## Publication Quality Checklist
 
-- [ ] The visualization fits the analytical question.
-- [ ] Relevant alternatives were considered.
-- [ ] Data source, geography, reference period, and units are documented.
-- [ ] Data transformations and aggregation are appropriate.
-- [ ] Missing values and relevant uncertainty are addressed.
-- [ ] Existing accessibility, scaling, and axes guidance has been followed.
-- [ ] Chart-specific limitations and caveats are explained.
-- [ ] Code examples have been executed and verified.
-- [ ] The visualization has undergone the appropriate review.
+<ul class="checklist-folds">
+  <li>
+    <details>
+      <summary>The visualization fits the analytical question.</summary>
+      <div class="checklist-fold-body">
+        <p>This guidance applies when a chart, map, or dashboard lets users hover, click, filter, or make selections. Use the most recently released vintage of the data unless the chart shows trends or a historical overview.</p>
+        <p><a href="#when-this-guidance-applies">Read the full section: When This Guidance Applies</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Relevant alternatives were considered.</summary>
+      <div class="checklist-fold-body">
+        <p>Interactive features belong in a chart only when they add information. Do not add features that make the chart harder to use, and do not use automatic dashboard sizing.</p>
+        <p><a href="#practices-to-avoid">Read the full section: Practices to Avoid</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Data source, geography, reference period, and units are documented.</summary>
+      <div class="checklist-fold-body">
+        <p>Where applicable, show the Census Bureau DMS and DRB numbers on the visualization the same way as a source statement, and link every full web address shown in it. Data from other agencies uses that agency's preferred referencing. Source line guidance is on the site-wide <a href="source.html">Sources</a> page.</p>
+        <p><a href="#essential-requirements">Read the full section: Essential Requirements</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Data transformations and aggregation are appropriate.</summary>
+      <div class="checklist-fold-body">
+        <p>To share the data behind the visualization, link to tables already released on data.census.gov or on the program area site. A download option needs review so the data and naming follow Census Bureau standards, best practices, and disclosure rules.</p>
+        <p><a href="#recommended-practices">Read the full section: Recommended Practices</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Missing values and relevant uncertainty are addressed.</summary>
+      <div class="checklist-fold-body">
+        <p>When applicable, measures of uncertainty, such as margins of error or coefficients of variation, must be available through a pop-up or a link, and the type of error term must be named, such as a 90 percent margin of error. More on uncertainty is on the site-wide <a href="uncertainty.html">Visualizing Uncertainty</a> page.</p>
+        <p><a href="#essential-requirements">Read the full section: Essential Requirements</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Existing accessibility, scaling, and axes guidance has been followed.</summary>
+      <div class="checklist-fold-body">
+        <p>All buttons, navigation, and filters must work and be reachable with a keyboard, and the visualization should work for mobile users. Use a fixed width of 1000 pixels for a visualization page or 770 pixels for a blog post or America Counts story. Full requirements are on the site-wide <a href="508.html">508 Compliance</a> and <a href="color.html">Color</a> pages, and axes guidance is on the site-wide <a href="axes.html">Axes</a> page.</p>
+        <p><a href="#recommended-practices">Read the full section: Recommended Practices</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Chart-specific limitations and caveats are explained.</summary>
+      <div class="checklist-fold-body">
+        <p>Do not put the source, notes, or error terms only in hover pop-ups, and tell users up front what they can hover over, click, or select. Example 1 shows county margins of error only on hover, without saying they are 90 percent margins of error.</p>
+        <p><a href="#practices-to-avoid">Read the full section: Practices to Avoid</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Code examples have been executed and verified.</summary>
+      <div class="checklist-fold-body">
+        <p>Does not apply to this page. This page has no code example. Before release, all buttons, navigation, and filters need testing, and the Recommended Practices section calls for a review of the user experience and usefulness of the visualization.</p>
+        <p><a href="#recommended-practices">Read the full section: Recommended Practices</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>The visualization has undergone the appropriate review.</summary>
+      <div class="checklist-fold-body">
+        <p>Visualization creators must get approval through the program area, including the Division Chief or Assistant Division Chief, subject matter experts, and statistical subject matter experts. Data from other agencies also needs that agency's approval.</p>
+        <p><a href="#essential-requirements">Read the full section: Essential Requirements</a></p>
+      </div>
+    </details>
+  </li>
+</ul>
  
 ## Related Pages
  

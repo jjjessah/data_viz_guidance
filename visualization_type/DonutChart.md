@@ -100,7 +100,71 @@ This example could use the following improvements:
 
 ## Developer Implementation
 
-A reproducible Python example using U.S. Census Bureau data will be added in a later update.
+### Reproduce the state and local expenditure example
+
+The script draws two donut charts of combined state and local government expenditure in 2017: one for the United States and one for Alabama. The eight groups follow the legend in the Example 2 screenshot. Amounts come from the current Census Data API vintage of the 2017 Annual Survey of State and Local Government Finances. The donut total is general expenditure plus utility expenditure.
+
+No margin of error is shown. 2017 is a census year for government finances: in years ending in 2 and 7, the Census Bureau collects data from all state and local governments, and the [2017 Census of Governments: Finance methodology](https://www2.census.gov/programs-surveys/gov-finances/technical-documentation/methodology/2017/2017_methodology.pdf) states, “The data for the census year are not subject to sampling and do not contain sampling error.” The figures can still contain nonsampling error, such as reporting, classification, and processing errors.
+
+The current-vintage totals are $3,309,381,532,000 for the United States and $43,131,484,000 for Alabama. The dashboard screenshot in Example 2 shows $3,311,141,581,000 and $44,974,894,000. The Example 2 text keeps the dashboard figures; the script and the table below use the current API figures.
+
+<a href="{{ '/examples/family_d/make_govfin_donut.py' | relative_url }}">Download the Python script</a>. It needs Python 3 and the matplotlib package. The program uses the saved table `examples/family_d/govslocalfin_2017_expenditure.csv` so it can run offline. It calls the Census Data API only if that file is missing, or if the `--refresh` flag is used. To refresh the table, request a free Census Data API key at https://api.census.gov/data/key_signup.html and set it in the environment. Leave the key out of the program, this page, and the saved table:
+
+<pre style="white-space: pre-wrap; overflow: visible;"><code>export CENSUS_API_KEY=API_KEY_VALUE
+python3 examples/family_d/make_govfin_donut.py --refresh</code></pre>
+
+Without `--refresh`, run:
+
+<pre style="white-space: pre-wrap; overflow: visible;"><code>python3 examples/family_d/make_govfin_donut.py</code></pre>
+
+The script saves [the donut chart]({{ '/assets/family-d/state-local-spending-2017.png' | relative_url }}).
+
+![Two donut charts of 2017 combined state and local government expenditure for the United States and Alabama. The United States total is $3,309,381,532,000. Alabama is $43,131,484,000. The largest groups in both places are Education and Health and Welfare. Other groups are Administration, Parks and Recreation, Public Safety, Transportation, Utilities, and Other, which includes Interest on General Debt.]({{ '/assets/family-d/state-local-spending-2017.png' | relative_url }})
+
+The saved table uses these grouped amounts from the current API vintage.
+
+United States (total $3,309,381,532,000):
+
+<div class="table-scroll" role="region" tabindex="0" aria-label="United States 2017 state and local expenditure by category">
+<table>
+<thead>
+<tr><th>Category</th><th>Amount</th><th>Share of total</th></tr>
+</thead>
+<tbody>
+<tr><td>Education</td><td>$1,016,295,002,000</td><td>30.7%</td></tr>
+<tr><td>Administration</td><td>$145,904,336,000</td><td>4.4%</td></tr>
+<tr><td>Health &amp; Welfare</td><td>$974,807,244,000</td><td>29.5%</td></tr>
+<tr><td>Parks &amp; Recreation</td><td>$45,481,602,000</td><td>1.4%</td></tr>
+<tr><td>Public Safety</td><td>$257,856,617,000</td><td>7.8%</td></tr>
+<tr><td>Transportation</td><td>$215,867,058,000</td><td>6.5%</td></tr>
+<tr><td>Utilities</td><td>$232,150,474,000</td><td>7.0%</td></tr>
+<tr><td>Other</td><td>$421,019,199,000</td><td>12.7%</td></tr>
+</tbody>
+</table>
+</div>
+
+Alabama (total $43,131,484,000):
+
+<div class="table-scroll" role="region" tabindex="0" aria-label="Alabama 2017 state and local expenditure by category">
+<table>
+<thead>
+<tr><th>Category</th><th>Amount</th><th>Share of total</th></tr>
+</thead>
+<tbody>
+<tr><td>Education</td><td>$14,017,829,000</td><td>32.5%</td></tr>
+<tr><td>Administration</td><td>$1,565,766,000</td><td>3.6%</td></tr>
+<tr><td>Health &amp; Welfare</td><td>$14,259,211,000</td><td>33.1%</td></tr>
+<tr><td>Parks &amp; Recreation</td><td>$546,254,000</td><td>1.3%</td></tr>
+<tr><td>Public Safety</td><td>$2,686,153,000</td><td>6.2%</td></tr>
+<tr><td>Transportation</td><td>$2,729,585,000</td><td>6.3%</td></tr>
+<tr><td>Utilities</td><td>$3,171,810,000</td><td>7.4%</td></tr>
+<tr><td>Other</td><td>$4,154,876,000</td><td>9.6%</td></tr>
+</tbody>
+</table>
+</div>
+
+{% include code-example.html file="donut_chart.py" title="Show Python code for the state and local expenditure donuts" %}
+
 
 ## Common Errors and Misinterpretations
 
@@ -114,15 +178,89 @@ A reproducible Python example using U.S. Census Bureau data will be added in a l
 
 ## Publication Quality Checklist
 
-- [ ] The visualization fits the analytical question.
-- [ ] Relevant alternatives were considered.
-- [ ] Data source, geography, reference period, and units are documented.
-- [ ] Data transformations and aggregation are appropriate.
-- [ ] Missing values and relevant uncertainty are addressed.
-- [ ] Existing accessibility, scaling, and axes guidance has been followed.
-- [ ] Chart-specific limitations and caveats are explained.
-- [ ] Code examples have been executed and verified.
-- [ ] The visualization has undergone the appropriate review.
+<ul class="checklist-folds">
+  <li>
+    <details>
+      <summary>The visualization fits the analytical question.</summary>
+      <div class="checklist-fold-body">
+        <p>A donut chart suits showing how a few parts make up one whole: categories that do not overlap, add up to 100%, and number no more than 6. It also suits limited space, where the center can hold a label or total.</p>
+        <p><a href="#when-to-use">Read the full section: When to Use</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Relevant alternatives were considered.</summary>
+      <div class="checklist-fold-body">
+        <p>The page compares a donut chart with a bar chart, a line or stacked area chart, a stacked bar chart, and a table. Bars are easier to compare than arcs when there are more than 6 categories.</p>
+        <p><a href="#choosing-between-alternatives">Read the full section: Choosing Between Alternatives</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Data source, geography, reference period, and units are documented.</summary>
+      <div class="checklist-fold-body">
+        <p>State the measure, units, geographic area, and reference period. The Developer Implementation section names the source as the 2017 Annual Survey of State and Local Government Finances, current Census Data API vintage. Source line guidance is on the site-wide <a href="source.html">Sources</a> page.</p>
+        <p><a href="#data-requirements-and-statistical-considerations">Read the full section: Data Requirements and Statistical Considerations</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Data transformations and aggregation are appropriate.</summary>
+      <div class="checklist-fold-body">
+        <p>Categories must be mutually exclusive and total 100%, with a note when rounding makes the total 99% or 101%. The example combines spending into the eight groups in the Example 2 legend, and the donut total is general expenditure plus utility expenditure.</p>
+        <p><a href="#data-requirements-and-statistical-considerations">Read the full section: Data Requirements and Statistical Considerations</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Missing values and relevant uncertainty are addressed.</summary>
+      <div class="checklist-fold-body">
+        <p>For survey estimates, such as American Community Survey data, report margins of error in a note or data table. Explain how missing, suppressed, or combined categories are handled. More on uncertainty is on the site-wide <a href="uncertainty.html">Visualizing Uncertainty</a> page.</p>
+        <p><a href="#data-requirements-and-statistical-considerations">Read the full section: Data Requirements and Statistical Considerations</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Existing accessibility, scaling, and axes guidance has been followed.</summary>
+      <div class="checklist-fold-body">
+        <p>The Accessibility section calls for alt text that states the main takeaway, a data table, a label on each arc, text contrast of at least 4.5:1 (including any label in the hole), and arc contrast of at least 3:1. Full requirements are on the site-wide <a href="508.html">508 Compliance</a> and <a href="color.html">Color</a> pages, and axes guidance is on the site-wide <a href="axes.html">Axes</a> page.</p>
+        <p><a href="#accessibility">Read the full section: Accessibility</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Chart-specific limitations and caveats are explained.</summary>
+      <div class="checklist-fold-body">
+        <p>Donut charts are hard to read with negative values, change over time, nested rings, or similar values that need exact comparison. Example 2 notes that two side-by-side donuts with more than 2 categories each are hard to compare.</p>
+        <p><a href="#when-to-use-an-alternative">Read the full section: When to Use an Alternative</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Code examples have been executed and verified.</summary>
+      <div class="checklist-fold-body">
+        <p>The Developer Implementation section gives a downloadable Python script, the saved table it uses so it can run offline, and the commands that run it. It also notes that the current API totals differ from the dashboard figures in Example 2.</p>
+        <p><a href="#developer-implementation">Read the full section: Developer Implementation</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>The visualization has undergone the appropriate review.</summary>
+      <div class="checklist-fold-body">
+        <p>This page does not describe a formal review process. Its Common Errors and Misinterpretations table lists issues to look for, why they matter, and the recommended correction.</p>
+        <p><a href="#common-errors-and-misinterpretations">Read the full section: Common Errors and Misinterpretations</a></p>
+      </div>
+    </details>
+  </li>
+</ul>
  
 ## Related Pages
  

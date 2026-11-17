@@ -22,7 +22,7 @@ Sankey diagrams show how data moves across stages. Use them to show change, not 
 
 Use a Sankey diagram when:
 
-* You want to show where amounts come from and where they go, such as graduates moving from degree programs into industries.
+* The goal is to show where amounts come from and where they go, such as graduates moving from degree programs into industries.
 * The data moves through two or more stages, and each stage splits or combines amounts.
 * The total amount is kept from one stage to the next, so the flows add up on each side.
 * Readers need to see the largest flows and how groups shift between stages.
@@ -102,7 +102,32 @@ This chart is a good example of the following:
 
 ## Developer Implementation
 
-A reproducible Python example using U.S. Census Bureau data will be added in a later update.
+### Reproduce the Post-Secondary Employment Outcomes example
+
+The script draws the Sankey diagram in Example 1 from the Post-Secondary Employment Outcomes 2023Q4 release, which matches the screenshot. It keeps the Example 1 layout, with thin bars at each end and labels beside them, and colors each flow by its program so each path can be followed across crossings. The selection is the University of Virginia (institution 00374500), master's degrees (degree level 07), and the 2-digit programs Engineering (CIP 14), Social Sciences (CIP 45), and Mathematics and Statistics (CIP 27), for all graduate cohorts in 5-year groups, year-1 outcomes, all industries, and the nation.
+
+As noted under Example 1, the current 2026Q2 explorer release shows different shares for the same selection.
+
+No margin of error is shown. The flows are counts of graduates from partner institutions, matched to Census Bureau administrative job records, not estimates from a sample survey, and the PSEO flows files publish counts and status flags without margins of error. To protect confidentiality, the Census Bureau adds random noise to each flow count with a differential privacy method, as the [PSEO Technical Documentation](https://lehd.ces.census.gov/doc/PSEOTechnicalDocumentation.pdf) describes, so small flows are less exact than their counts suggest.
+
+<a href="{{ '/examples/family_d/make_pseo_sankey.py' | relative_url }}">Download the Python script</a>. It needs Python 3 and the matplotlib package. No API key is required. The program uses the saved table `examples/family_d/pseo_uva_masters_flows_R2023Q4.csv` so it can run offline. If that file is missing, or if the `--refresh` flag is used, it downloads the 2023Q4 Virginia flows file from the Census LEHD site and keeps only the rows used in the chart.
+
+<pre style="white-space: pre-wrap; overflow: visible;"><code>python3 examples/family_d/make_pseo_sankey.py</code></pre>
+
+
+The script saves [the Sankey diagram]({{ '/assets/family-d/pseo-uva-masters-flows.png' | relative_url }}).
+
+![Sankey diagram of first-year employment outcomes for University of Virginia master's graduates in Engineering, Social Sciences, and Mathematics and Statistics, from the Post-Secondary Employment Outcomes 2023Q4 release. Engineering is 67 percent, Social Sciences 21 percent, and Mathematics and Statistics 12 percent of the 1,916 selected graduates. Employed is 51 percent. No or very low earnings observed is 49 percent.]({{ '/assets/family-d/pseo-uva-masters-flows.png' | relative_url }})
+
+| Program | Employed | No or very low earnings observed | Total | Share of selected graduates |
+|---|---:|---:|---:|---:|
+| Engineering | 768 | 508 | 1,276 | 67% |
+| Social Sciences | 84 | 326 | 410 | 21% |
+| Mathematics and Statistics | 122 | 108 | 230 | 12% |
+| Total | 974 | 942 | 1,916 | 100% |
+
+{% include code-example.html file="sankey_diagram.py" title="Show Python code for the PSEO Sankey diagram" %}
+
 
 ## Common Errors and Misinterpretations
 
@@ -116,15 +141,89 @@ A reproducible Python example using U.S. Census Bureau data will be added in a l
 
 ## Publication Quality Checklist
 
-- [ ] The visualization fits the analytical question.
-- [ ] Relevant alternatives were considered.
-- [ ] Data source, geography, reference period, and units are documented.
-- [ ] Data transformations and aggregation are appropriate.
-- [ ] Missing values and relevant uncertainty are addressed.
-- [ ] Existing accessibility, scaling, and axes guidance has been followed.
-- [ ] Chart-specific limitations and caveats are explained.
-- [ ] Code examples have been executed and verified.
-- [ ] The visualization has undergone the appropriate review.
+<ul class="checklist-folds">
+  <li>
+    <details>
+      <summary>The visualization fits the analytical question.</summary>
+      <div class="checklist-fold-body">
+        <p>A Sankey diagram shows where amounts come from and where they go across two or more stages, with flows that add up on each side. Use it to show change, not comparison.</p>
+        <p><a href="#when-to-use">Read the full section: When to Use</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Relevant alternatives were considered.</summary>
+      <div class="checklist-fold-body">
+        <p>The page compares a Sankey diagram with a bar chart or dot plot, a stacked bar chart or proportion plot, a parallel coordinate plot, a pie, donut, or treemap, and a table. When all links have similar widths, a stacked bar chart or another alternative may work better.</p>
+        <p><a href="#choosing-between-alternatives">Read the full section: Choosing Between Alternatives</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Data source, geography, reference period, and units are documented.</summary>
+      <div class="checklist-fold-body">
+        <p>State the measure, units, geographic area, and reference period. The example names its source as the Post-Secondary Employment Outcomes 2023Q4 release and lists the institution, degree level, programs, and cohorts. Source line guidance is on the site-wide <a href="source.html">Sources</a> page.</p>
+        <p><a href="#data-requirements-and-statistical-considerations">Read the full section: Data Requirements and Statistical Considerations</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Data transformations and aggregation are appropriate.</summary>
+      <div class="checklist-fold-body">
+        <p>Each flow needs a source group, a destination group, and an amount. Amounts must be zero or positive, and flows into a node should equal flows out of it unless the difference is explained. Smaller nodes can be collapsed into an “Other” category.</p>
+        <p><a href="#data-requirements-and-statistical-considerations">Read the full section: Data Requirements and Statistical Considerations</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Missing values and relevant uncertainty are addressed.</summary>
+      <div class="checklist-fold-body">
+        <p>For survey estimates, report margins of error in a note or data table. Explain how small, suppressed, or combined categories are handled, such as an “Other” category. More on uncertainty is on the site-wide <a href="uncertainty.html">Visualizing Uncertainty</a> page.</p>
+        <p><a href="#data-requirements-and-statistical-considerations">Read the full section: Data Requirements and Statistical Considerations</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Existing accessibility, scaling, and axes guidance has been followed.</summary>
+      <div class="checklist-fold-body">
+        <p>The Accessibility section calls for alt text that states the main flow, a data table of sources, targets, and values, direct node labels, label contrast of at least 4.5:1, and flow contrast of at least 3:1. Full requirements are on the site-wide <a href="508.html">508 Compliance</a> and <a href="color.html">Color</a> pages, and axes guidance is on the site-wide <a href="axes.html">Axes</a> page.</p>
+        <p><a href="#accessibility">Read the full section: Accessibility</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Chart-specific limitations and caveats are explained.</summary>
+      <div class="checklist-fold-body">
+        <p>Flow widths are hard to compare precisely, many nodes and flows can make changes hard to interpret, and Sankey diagrams are not recommended for comparing different metrics. The Example 1 note explains that the live explorer no longer matches the screenshot.</p>
+        <p><a href="#when-to-use-an-alternative">Read the full section: When to Use an Alternative</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Code examples have been executed and verified.</summary>
+      <div class="checklist-fold-body">
+        <p>The Developer Implementation section gives a downloadable Python script, the saved table it uses so it can run offline, and the command that runs it. No API key is required.</p>
+        <p><a href="#developer-implementation">Read the full section: Developer Implementation</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>The visualization has undergone the appropriate review.</summary>
+      <div class="checklist-fold-body">
+        <p>This page does not describe a formal review process. Its Common Errors and Misinterpretations table lists issues to look for, why they matter, and the recommended correction.</p>
+        <p><a href="#common-errors-and-misinterpretations">Read the full section: Common Errors and Misinterpretations</a></p>
+      </div>
+    </details>
+  </li>
+</ul>
  
 ## Related Pages
  

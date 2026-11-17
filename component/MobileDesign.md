@@ -71,17 +71,17 @@ The existing example illustrates these mobile design choices:
 
 Access the full visualization: [State Government Spending: 2022](https://www.census.gov/library/visualizations/interactive/state-government-spending.html).
 
-***Example 2:*** Digital Equity Act Population Viewer
+***Example 2:*** Digital Equity Act Population Viewer (retired)
 
 ![Mobile view of the Digital Equity Act Population Viewer, with a state map above an open legend panel. Purple shading shows the percentage of residents in at least one covered population category, from less than 75 percent to 90 percent or more. Map navigation controls appear along the right edge, and explanatory text continues below the legend.](assets/MobileDesign2.png)
 
-The existing example illustrates these mobile design choices:
+The screenshot illustrates these mobile design choices:
 
 * The map appears above a panel containing the legend and explanatory text.
 * The legend panel has a visible scrollbar, indicating that more information is available below.
 * Menu and map navigation controls remain available alongside the map.
 
-Access the full visualization: [Digital Equity Act Population Viewer](https://www.census.gov/programs-surveys/geography/data/interactive-maps/DigitalEquity.html).
+The Census Bureau retired this tool in September 2026, according to its list of [Decommissioned Data Tools and Web Applications](https://www.census.gov/data/data-tools/decommissioned.html). The May 13, 2022, press release [Census Bureau Releases Digital Equity Act Population Viewer](https://www.census.gov/newsroom/press-releases/2022/digital-equity-act-population-viewer.html) describes the tool and its maps.
 
 ## Common Errors and Misinterpretations
 
@@ -97,15 +97,89 @@ Access the full visualization: [Digital Equity Act Population Viewer](https://ww
 
 ## Publication Quality Checklist
 
-- [ ] The visualization fits the analytical question.
-- [ ] Relevant alternatives were considered.
-- [ ] Data source, geography, reference period, and units are documented.
-- [ ] Data transformations and aggregation are appropriate.
-- [ ] Missing values and relevant uncertainty are addressed.
-- [ ] Existing accessibility, scaling, and axes guidance has been followed.
-- [ ] Chart-specific limitations and caveats are explained.
-- [ ] Code examples have been executed and verified.
-- [ ] The visualization has undergone the appropriate review.
+<ul class="checklist-folds">
+  <li>
+    <details>
+      <summary>The visualization fits the analytical question.</summary>
+      <div class="checklist-fold-body">
+        <p>This guidance applies to interactive charts, maps, and dashboards that people may use on a smartphone or tablet. Mobile users often want the main findings first, so the highest-priority view and message go at the top.</p>
+        <p><a href="#when-this-guidance-applies">Read the full section: When This Guidance Applies</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Relevant alternatives were considered.</summary>
+      <div class="checklist-fold-body">
+        <p>For wide tables, a mobile-friendly list or chart can serve as the main view while the underlying data stay available. Compact controls, such as dropdowns and single-select filters, can replace long filter lists.</p>
+        <p><a href="#recommended-practices">Read the full section: Recommended Practices</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Data source, geography, reference period, and units are documented.</summary>
+      <div class="checklist-fold-body">
+        <p>The mobile layout keeps the source and other required text. In Example 1, the source and logo come last in the priority order, below the visuals. Source line guidance is on the site-wide <a href="source.html">Sources</a> page.</p>
+        <p><a href="#census-data-examples">Read the full section: Census Data Examples</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Data transformations and aggregation are appropriate.</summary>
+      <div class="checklist-fold-body">
+        <p>Smaller data extracts, smaller images, fewer marks, and efficient calculations help the visualization load on slower mobile networks. Limit the dashboard to the objects that matter most for the story.</p>
+        <p><a href="#recommended-practices">Read the full section: Recommended Practices</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Missing values and relevant uncertainty are addressed.</summary>
+      <div class="checklist-fold-body">
+        <p>This page does not cover missing values or uncertainty directly. Details such as margins of error should be available on tap, not only on hover, and essential information should stay visible without opening a tooltip. More on uncertainty is on the site-wide <a href="uncertainty.html">Visualizing Uncertainty</a> page.</p>
+        <p><a href="#recommended-practices">Read the full section: Recommended Practices</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Existing accessibility, scaling, and axes guidance has been followed.</summary>
+      <div class="checklist-fold-body">
+        <p>Controls need enough size and spacing to avoid accidental selections; WCAG 2.2 criterion 2.5.8 sets a minimum of 24 by 24 CSS pixels, with exceptions. Normal text needs a contrast of at least 4.5:1, and ordinary text should wrap without horizontal scrolling. Full requirements are on the site-wide <a href="508.html">508 Compliance</a> and <a href="color.html">Color</a> pages, and axes guidance is on the site-wide <a href="axes.html">Axes</a> page.</p>
+        <p><a href="#essential-requirements">Read the full section: Essential Requirements</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Chart-specific limitations and caveats are explained.</summary>
+      <div class="checklist-fold-body">
+        <p>Do not shrink a desktop dashboard to fit a phone without adjusting it, require landscape orientation, or rely on hover alone. When a dashboard scrolls, a visible cue should show that more content continues below the screen.</p>
+        <p><a href="#practices-to-avoid">Read the full section: Practices to Avoid</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Code examples have been executed and verified.</summary>
+      <div class="checklist-fold-body">
+        <p>Does not apply to this page. This page has no code example. The Recommended Practices section calls for testing the visualization on a range of real iOS and Android devices and in Chrome, Safari, and Firefox.</p>
+        <p><a href="#recommended-practices">Read the full section: Recommended Practices</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>The visualization has undergone the appropriate review.</summary>
+      <div class="checklist-fold-body">
+        <p>This page does not describe a formal review process. Its Common Errors and Misinterpretations table lists issues to look for, why they matter, and the recommended correction.</p>
+        <p><a href="#common-errors-and-misinterpretations">Read the full section: Common Errors and Misinterpretations</a></p>
+      </div>
+    </details>
+  </li>
+</ul>
 
 ## Additional Resources
 

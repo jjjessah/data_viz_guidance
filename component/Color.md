@@ -21,7 +21,7 @@ Use color carefully in data visualizations to clearly convey the information pre
 
 Section 508 considerations are mentioned here, but for more information, see the [508 Compliance page](508.html).
 
-The colors featured in this section follow the U.S. Census Bureau's brand guidelines and can be customized to fit your needs. Text placed on these colors must meet a contrast ratio of at least 4.5:1, as required by the latest Web Content Accessibility Guidelines (WCAG) 2.1 AA.
+The colors featured in this section follow the U.S. Census Bureau's brand guidelines and can be customized for each product. Text placed on these colors must meet a contrast ratio of at least 4.5:1, as required by the latest Web Content Accessibility Guidelines (WCAG) 2.1 AA.
 
 ## When This Guidance Applies
 
@@ -47,8 +47,7 @@ Each featured Census color can be used to create a sequential color palette. Use
 
 ![Blue sequential palette of seven shades, from darkest blue (hex 081627) through blue (hex 2E78D2) to lightest blue (hex C1D7F2).](assets/Color03.png)
 
-![Orange sequential palette of seven shades, from darkest orange (hex 5D2818) through orange (hex FF7043) to lightest orange (hex FFE4DC).
-](assets/Color04.png)
+![Orange sequential palette of seven shades, from darkest orange (hex 5D2818) through orange (hex FF7043) to lightest orange (hex FFE4DC).](assets/Color04.png)
 
 ![Grey sequential palette of seven shades, from darkest grey (hex 222C31) through grey (hex 78909C) to lightest grey (hex E8EFF2).](assets/Color05.png)
 
@@ -89,13 +88,13 @@ Sometimes elements with no data still need color, such as areas on a map. In the
 
 ### Text Accessibility
 
-Text colors must also meet the 4.5:1 contrast ratio. The examples below show color combinations that meet Section 508 foreground and background contrast requirements. To keep text accessible, use only these combinations. If you customize beyond this palette, test every combination with the [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/).
+Text colors must also meet the 4.5:1 contrast ratio. The examples below show color combinations that meet Section 508 foreground and background contrast requirements. To keep text accessible, use only these combinations. Test every combination outside this palette with the [WebAIM Contrast Checker](https://webaim.org/resources/contrastchecker/).
 
 ## Recommended Practices
 
 * Label data directly with text to rely less on color.
 * Use color the same way across related visualizations.
-* Consider what colors mean for your topic. For example, red usually signals a warning, error, or problem.
+* Consider what colors mean for the topic. For example, red usually signals a warning, error, or problem.
 * With a qualitative palette, avoid color pairs that are hard to tell apart, especially for readers with color blindness:
    * red and green
    * green and brown
@@ -110,7 +109,7 @@ Text colors must also meet the 4.5:1 contrast ratio. The examples below show col
 
 * Don't use a sequential or diverging scheme if the data don't have that kind of order.
 * Don't use too many colors. Too many colors distract from the purpose of the visualization.
-* Don't use colors that clash with what you are showing, because it makes the chart harder to read. For example, coloring Asian as blue, Hispanic or Latino as black, Black or African American as white, and White as gray makes this chart harder to interpret. Use the recommended qualitative palette instead.
+* Don't use colors that clash with the subject of the chart, because it makes the chart harder to read. For example, coloring Asian as blue, Hispanic or Latino as black, Black or African American as white, and White as gray makes this chart harder to interpret. Use the recommended qualitative palette instead.
 
   ![Not recommended example from the 2023 Deloitte Digital Citizen Survey: three radial bar charts of challenges accessing digital government services by race, with Asian shown in blue, Hispanic or Latino in black, Black or African American in white, and White or Caucasian in gray. The white bars almost disappear against the light background.](assets/Color09.png)
 
@@ -142,15 +141,88 @@ Text colors must also meet the 4.5:1 contrast ratio. The examples below show col
 
 ## Publication Quality Checklist
 
-- [ ] The visualization fits the analytical question.
-- [ ] Relevant alternatives were considered.
-- [ ] Data source, geography, reference period, and units are documented.
-- [ ] Data transformations and aggregation are appropriate.
-- [ ] Missing values and relevant uncertainty are addressed.
-- [ ] Existing accessibility, scaling, and axes guidance has been followed.
-- [ ] Chart-specific limitations and caveats are explained.
-- [ ] Code examples have been executed and verified.
-- [ ] The visualization has undergone the appropriate review.
+<ul class="checklist-folds">
+  <li>
+    <details>
+      <summary>The visualization fits the analytical question.</summary>
+      <div class="checklist-fold-body">
+        <p>Match the palette to the data: sequential or diverging colors for values ordered from low to high, and qualitative colors for categories with no natural order. A highlight color can draw attention to one category.</p>
+        <p><a href="#census-color-palettes">Read the full section: Census Color Palettes</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Relevant alternatives were considered.</summary>
+      <div class="checklist-fold-body">
+        <p>Do not use a sequential or diverging scheme for data without that order, too many colors, or colors that clash with the subject of the chart. The page shows a not-recommended example and points to the recommended qualitative palette instead.</p>
+        <p><a href="#practices-to-avoid">Read the full section: Practices to Avoid</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Data source, geography, reference period, and units are documented.</summary>
+      <div class="checklist-fold-body">
+        <p>Does not apply to this page. The page covers color, not data sources. Source line guidance is on the site-wide <a href="source.html">Sources</a> page.</p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Data transformations and aggregation are appropriate.</summary>
+      <div class="checklist-fold-body">
+        <p>Does not apply to this page. The page covers color, not data transformation or aggregation. When values are grouped into color classes, the shades should follow the order of the data, with lower values lighter and higher values darker.</p>
+        <p><a href="#sequential-colors">Read the full section: Sequential Colors</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Missing values and relevant uncertainty are addressed.</summary>
+      <div class="checklist-fold-body">
+        <p>Areas with no data need a neutral color, a “No Data” class in the legend, and a description in the alt text. For sequential or diverging schemes, use a dark gray that will not be mistaken for a valid value. More on uncertainty is on the site-wide <a href="uncertainty.html">Visualizing Uncertainty</a> page.</p>
+        <p><a href="#no-data-colors">Read the full section: No Data Colors</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Existing accessibility, scaling, and axes guidance has been followed.</summary>
+      <div class="checklist-fold-body">
+        <p>Text needs a contrast of at least 4.5:1 against its background, and chart shapes need at least 3:1 against nearby colors. Color must not be the only way to show meaning, and colors with opacity must still meet these ratios. Full requirements are on the site-wide <a href="508.html">508 Compliance</a> page.</p>
+        <p><a href="#essential-requirements">Read the full section: Essential Requirements</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Chart-specific limitations and caveats are explained.</summary>
+      <div class="checklist-fold-body">
+        <p>Use the tested text and background combinations in the Text Accessibility examples, and check any other combination before use. Example 2 shows that white labels on bright teal bars fail, while the same labels on darker teal bars meet the requirement.</p>
+        <p><a href="#text-accessibility">Read the full section: Text Accessibility</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Code examples have been executed and verified.</summary>
+      <div class="checklist-fold-body">
+        <p>Does not apply to this page. This page has no code example. Contrast can be checked with a tool such as the WebAIM Contrast Checker, as described under Essential Requirements.</p>
+        <p><a href="#essential-requirements">Read the full section: Essential Requirements</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>The visualization has undergone the appropriate review.</summary>
+      <div class="checklist-fold-body">
+        <p>This page does not describe a formal review process. Its Common Errors and Misinterpretations table lists issues to look for, why they matter, and the recommended correction.</p>
+        <p><a href="#common-errors-and-misinterpretations">Read the full section: Common Errors and Misinterpretations</a></p>
+      </div>
+    </details>
+  </li>
+</ul>
  
 ## Related Pages
  

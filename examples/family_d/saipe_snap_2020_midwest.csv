@@ -1,0 +1,1061 @@
+# U.S. Census Bureau, Small Area Income and Poverty Estimates (SAIPE), SNAP participation, 2020
+# Source file: https://www.census.gov/data-tools/demo/saipe_treemap/snap.2020.json
+# Geography: Midwest region counties. snappop is SNAP participants; ratio is the participation rate.
+# Shannon County, SD is present in the official file with blank population and SNAP counts.
+year,region,state,state_abbrev,state_fips,county,totalpop,snappop,ratio
+2020,Midwest,Illinois,IL,17,"Adams County, IL",64783,10966,16.92728031
+2020,Midwest,Illinois,IL,17,"Alexander County, IL",5497,1963,35.71038748
+2020,Midwest,Illinois,IL,17,"Bond County, IL",16262,2073,12.74750953
+2020,Midwest,Illinois,IL,17,"Boone County, IL",52777,6637,12.57555375
+2020,Midwest,Illinois,IL,17,"Brown County, IL",6546,490,7.485487321
+2020,Midwest,Illinois,IL,17,"Bureau County, IL",32303,4429,13.71080085
+2020,Midwest,Illinois,IL,17,"Calhoun County, IL",4616,513,11.1135182
+2020,Midwest,Illinois,IL,17,"Carroll County, IL",14241,1965,13.79818833
+2020,Midwest,Illinois,IL,17,"Cass County, IL",11925,1974,16.55345912
+2020,Midwest,Illinois,IL,17,"Champaign County, IL",209192,27295,13.0478221
+2020,Midwest,Illinois,IL,17,"Christian County, IL",32075,5852,18.24473889
+2020,Midwest,Illinois,IL,17,"Clark County, IL",15268,2225,14.57296306
+2020,Midwest,Illinois,IL,17,"Clay County, IL",13079,2164,16.54560746
+2020,Midwest,Illinois,IL,17,"Clinton County, IL",37398,2934,7.845339323
+2020,Midwest,Illinois,IL,17,"Coles County, IL",50383,8713,17.29353155
+2020,Midwest,Illinois,IL,17,"Cook County, IL",5108284,946451,18.52776784
+2020,Midwest,Illinois,IL,17,"Crawford County, IL",18512,2664,14.39066551
+2020,Midwest,Illinois,IL,17,"Cumberland County, IL",10649,1239,11.6348953
+2020,Midwest,Illinois,IL,17,"DeKalb County, IL",104491,13336,12.76282168
+2020,Midwest,Illinois,IL,17,"De Witt County, IL",15368,2428,15.79906299
+2020,Midwest,Illinois,IL,17,"Douglas County, IL",19510,2063,10.57406458
+2020,Midwest,Illinois,IL,17,"DuPage County, IL",917481,64817,7.064669459
+2020,Midwest,Illinois,IL,17,"Edgar County, IL",16858,3056,18.1278918
+2020,Midwest,Illinois,IL,17,"Edwards County, IL",6356,941,14.80490875
+2020,Midwest,Illinois,IL,17,"Effingham County, IL",34065,3473,10.19521503
+2020,Midwest,Illinois,IL,17,"Fayette County, IL",21264,3335,15.6837848
+2020,Midwest,Illinois,IL,17,"Ford County, IL",12949,1867,14.41810178
+2020,Midwest,Illinois,IL,17,"Franklin County, IL",38060,9034,23.73620599
+2020,Midwest,Illinois,IL,17,"Fulton County, IL",33690,5269,15.63965568
+2020,Midwest,Illinois,IL,17,"Gallatin County, IL",4793,1100,22.95013561
+2020,Midwest,Illinois,IL,17,"Greene County, IL",12702,2049,16.1313179
+2020,Midwest,Illinois,IL,17,"Grundy County, IL",50993,4784,9.381679838
+2020,Midwest,Illinois,IL,17,"Hamilton County, IL",8084,1177,14.55962395
+2020,Midwest,Illinois,IL,17,"Hancock County, IL",17422,2390,13.71828722
+2020,Midwest,Illinois,IL,17,"Hardin County, IL",3808,907,23.81827731
+2020,Midwest,Illinois,IL,17,"Henderson County, IL",6535,845,12.9303749
+2020,Midwest,Illinois,IL,17,"Henry County, IL",48411,5932,12.25341348
+2020,Midwest,Illinois,IL,17,"Iroquois County, IL",26711,4236,15.85863502
+2020,Midwest,Illinois,IL,17,"Jackson County, IL",56675,11698,20.64049404
+2020,Midwest,Illinois,IL,17,"Jasper County, IL",9465,1075,11.35763339
+2020,Midwest,Illinois,IL,17,"Jefferson County, IL",37235,7428,19.94897274
+2020,Midwest,Illinois,IL,17,"Jersey County, IL",21616,2777,12.84696521
+2020,Midwest,Illinois,IL,17,"Jo Daviess County, IL",21239,1674,7.881727012
+2020,Midwest,Illinois,IL,17,"Johnson County, IL",12358,1786,14.45217673
+2020,Midwest,Illinois,IL,17,"Kane County, IL",531010,59685,11.23990132
+2020,Midwest,Illinois,IL,17,"Kankakee County, IL",108594,20343,18.73307918
+2020,Midwest,Illinois,IL,17,"Kendall County, IL",130638,10363,7.932607664
+2020,Midwest,Illinois,IL,17,"Knox County, IL",49053,9390,19.14256009
+2020,Midwest,Illinois,IL,17,"Lake County, IL",693593,66936,9.650616428
+2020,Midwest,Illinois,IL,17,"La Salle County, IL",107571,16221,15.07934295
+2020,Midwest,Illinois,IL,17,"Lawrence County, IL",15467,2336,15.10312278
+2020,Midwest,Illinois,IL,17,"Lee County, IL",33647,4369,12.98481291
+2020,Midwest,Illinois,IL,17,"Livingston County, IL",35414,4604,13.00050827
+2020,Midwest,Illinois,IL,17,"Logan County, IL",28383,4369,15.39301695
+2020,Midwest,Illinois,IL,17,"McDonough County, IL",29295,3731,12.73596177
+2020,Midwest,Illinois,IL,17,"McHenry County, IL",305888,21008,6.867873208
+2020,Midwest,Illinois,IL,17,"McLean County, IL",171256,18860,11.01275284
+2020,Midwest,Illinois,IL,17,"Macon County, IL",103015,23354,22.67048488
+2020,Midwest,Illinois,IL,17,"Macoupin County, IL",44567,6599,14.80691992
+2020,Midwest,Illinois,IL,17,"Madison County, IL",262635,39738,15.13050431
+2020,Midwest,Illinois,IL,17,"Marion County, IL",37045,9098,24.55931975
+2020,Midwest,Illinois,IL,17,"Marshall County, IL",11309,1460,12.91007162
+2020,Midwest,Illinois,IL,17,"Mason County, IL",13173,2512,19.06930843
+2020,Midwest,Illinois,IL,17,"Massac County, IL",13636,3506,25.7113523
+2020,Midwest,Illinois,IL,17,"Menard County, IL",12068,1306,10.82200862
+2020,Midwest,Illinois,IL,17,"Mercer County, IL",15225,1608,10.56157635
+2020,Midwest,Illinois,IL,17,"Monroe County, IL",34739,1492,4.294884712
+2020,Midwest,Illinois,IL,17,"Montgomery County, IL",28045,4876,17.38634338
+2020,Midwest,Illinois,IL,17,"Morgan County, IL",33400,6365,19.05688623
+2020,Midwest,Illinois,IL,17,"Moultrie County, IL",14347,1374,9.576915035
+2020,Midwest,Illinois,IL,17,"Ogle County, IL",50306,5825,11.57913569
+2020,Midwest,Illinois,IL,17,"Peoria County, IL",177652,37003,20.82892396
+2020,Midwest,Illinois,IL,17,"Perry County, IL",20664,3148,15.23422377
+2020,Midwest,Illinois,IL,17,"Piatt County, IL",16355,1223,7.477835524
+2020,Midwest,Illinois,IL,17,"Pike County, IL",15239,2749,18.03924142
+2020,Midwest,Illinois,IL,17,"Pope County, IL",4142,740,17.86576533
+2020,Midwest,Illinois,IL,17,"Pulaski County, IL",5201,1605,30.85945011
+2020,Midwest,Illinois,IL,17,"Putnam County, IL",5716,515,9.009797061
+2020,Midwest,Illinois,IL,17,"Randolph County, IL",31351,4382,13.97722561
+2020,Midwest,Illinois,IL,17,"Richland County, IL",15507,2697,17.39214548
+2020,Midwest,Illinois,IL,17,"Rock Island County, IL",140907,24800,17.60026117
+2020,Midwest,Illinois,IL,17,"St. Clair County, IL",258046,54211,21.00826984
+2020,Midwest,Illinois,IL,17,"Saline County, IL",23182,5893,25.42058494
+2020,Midwest,Illinois,IL,17,"Sangamon County, IL",193882,33964,17.5178717
+2020,Midwest,Illinois,IL,17,"Schuyler County, IL",6738,633,9.394479074
+2020,Midwest,Illinois,IL,17,"Scott County, IL",4950,667,13.47474747
+2020,Midwest,Illinois,IL,17,"Shelby County, IL",21299,2382,11.18362364
+2020,Midwest,Illinois,IL,17,"Stark County, IL",5262,745,14.15811479
+2020,Midwest,Illinois,IL,17,"Stephenson County, IL",43831,8480,19.34703748
+2020,Midwest,Illinois,IL,17,"Tazewell County, IL",130777,16692,12.76371227
+2020,Midwest,Illinois,IL,17,"Union County, IL",16498,3573,21.65717057
+2020,Midwest,Illinois,IL,17,"Vermilion County, IL",74855,18062,24.12931668
+2020,Midwest,Illinois,IL,17,"Wabash County, IL",11190,1772,15.83556747
+2020,Midwest,Illinois,IL,17,"Warren County, IL",16696,2435,14.58433158
+2020,Midwest,Illinois,IL,17,"Washington County, IL",13764,1244,9.038070328
+2020,Midwest,Illinois,IL,17,"Wayne County, IL",16031,2388,14.89613873
+2020,Midwest,Illinois,IL,17,"White County, IL",13364,2609,19.52259802
+2020,Midwest,Illinois,IL,17,"Whiteside County, IL",54656,8672,15.86651054
+2020,Midwest,Illinois,IL,17,"Will County, IL",688726,74759,10.85467951
+2020,Midwest,Illinois,IL,17,"Williamson County, IL",66415,13270,19.98042611
+2020,Midwest,Illinois,IL,17,"Winnebago County, IL",281295,65716,23.36195098
+2020,Midwest,Illinois,IL,17,"Woodford County, IL",38091,2512,6.594733664
+2020,Midwest,Indiana,IN,18,"Adams County, IN",35839,1987,5.544239516
+2020,Midwest,Indiana,IN,18,"Allen County, IN",382187,39962,10.45613796
+2020,Midwest,Indiana,IN,18,"Bartholomew County, IN",84447,5532,6.550854382
+2020,Midwest,Indiana,IN,18,"Benton County, IN",8741,931,10.65095527
+2020,Midwest,Indiana,IN,18,"Blackford County, IN",11782,1536,13.03683585
+2020,Midwest,Indiana,IN,18,"Boone County, IN",69347,2045,2.94893795
+2020,Midwest,Indiana,IN,18,"Brown County, IN",15112,858,5.6776072
+2020,Midwest,Indiana,IN,18,"Carroll County, IN",20228,1054,5.210599169
+2020,Midwest,Indiana,IN,18,"Cass County, IN",37388,3648,9.757141329
+2020,Midwest,Indiana,IN,18,"Clark County, IN",119266,8982,7.531065014
+2020,Midwest,Indiana,IN,18,"Clay County, IN",26246,2659,10.13106759
+2020,Midwest,Indiana,IN,18,"Clinton County, IN",32206,2908,9.029373409
+2020,Midwest,Indiana,IN,18,"Crawford County, IN",10629,918,8.636748518
+2020,Midwest,Indiana,IN,18,"Daviess County, IN",33505,2593,7.739143411
+2020,Midwest,Indiana,IN,18,"Dearborn County, IN",49824,3370,6.763808606
+2020,Midwest,Indiana,IN,18,"Decatur County, IN",26584,1835,6.902648209
+2020,Midwest,Indiana,IN,18,"De Kalb County, IN",43670,2703,6.189603847
+2020,Midwest,Indiana,IN,18,"Delaware County, IN",113454,14335,12.63507677
+2020,Midwest,Indiana,IN,18,"Dubois County, IN",42542,1597,3.753937286
+2020,Midwest,Indiana,IN,18,"Elkhart County, IN",206161,16556,8.030616848
+2020,Midwest,Indiana,IN,18,"Fayette County, IN",22892,3801,16.60405382
+2020,Midwest,Indiana,IN,18,"Floyd County, IN",78936,6580,8.335867032
+2020,Midwest,Indiana,IN,18,"Fountain County, IN",16511,1263,7.649445824
+2020,Midwest,Indiana,IN,18,"Franklin County, IN",22761,1617,7.104257282
+2020,Midwest,Indiana,IN,18,"Fulton County, IN",20018,1929,9.636327305
+2020,Midwest,Indiana,IN,18,"Gibson County, IN",33825,2278,6.73466371
+2020,Midwest,Indiana,IN,18,"Grant County, IN",65225,9491,14.55116903
+2020,Midwest,Indiana,IN,18,"Greene County, IN",32203,3208,9.961804801
+2020,Midwest,Indiana,IN,18,"Hamilton County, IN",344238,8403,2.441043697
+2020,Midwest,Indiana,IN,18,"Hancock County, IN",79553,3991,5.016781265
+2020,Midwest,Indiana,IN,18,"Harrison County, IN",40682,2474,6.081313603
+2020,Midwest,Indiana,IN,18,"Hendricks County, IN",173251,5397,3.115133535
+2020,Midwest,Indiana,IN,18,"Henry County, IN",48033,5359,11.15691296
+2020,Midwest,Indiana,IN,18,"Howard County, IN",82732,10392,12.56104047
+2020,Midwest,Indiana,IN,18,"Huntington County, IN",36395,2807,7.712597884
+2020,Midwest,Indiana,IN,18,"Jackson County, IN",44222,3743,8.464112885
+2020,Midwest,Indiana,IN,18,"Jasper County, IN",33440,2493,7.455143541
+2020,Midwest,Indiana,IN,18,"Jay County, IN",20416,1610,7.885971787
+2020,Midwest,Indiana,IN,18,"Jefferson County, IN",32110,3136,9.766427904
+2020,Midwest,Indiana,IN,18,"Jennings County, IN",27515,2016,7.326912593
+2020,Midwest,Indiana,IN,18,"Johnson County, IN",160607,10518,6.548905091
+2020,Midwest,Indiana,IN,18,"Knox County, IN",36522,4280,11.71896391
+2020,Midwest,Indiana,IN,18,"Kosciusko County, IN",78988,4737,5.997113486
+2020,Midwest,Indiana,IN,18,"Lagrange County, IN",40119,1538,3.833595055
+2020,Midwest,Indiana,IN,18,"Lake County, IN",487536,68661,14.0832677
+2020,Midwest,Indiana,IN,18,"La Porte County, IN",109663,13646,12.44357714
+2020,Midwest,Indiana,IN,18,"Lawrence County, IN",45496,3762,8.268858801
+2020,Midwest,Indiana,IN,18,"Madison County, IN",129681,17443,13.45069825
+2020,Midwest,Indiana,IN,18,"Marion County, IN",966183,153228,15.85910744
+2020,Midwest,Indiana,IN,18,"Marshall County, IN",46108,3021,6.552008328
+2020,Midwest,Indiana,IN,18,"Martin County, IN",10079,746,7.401527929
+2020,Midwest,Indiana,IN,18,"Miami County, IN",35328,3866,10.94316123
+2020,Midwest,Indiana,IN,18,"Monroe County, IN",148219,8113,5.473657223
+2020,Midwest,Indiana,IN,18,"Montgomery County, IN",38365,3111,8.108953473
+2020,Midwest,Indiana,IN,18,"Morgan County, IN",70707,5529,7.819593534
+2020,Midwest,Indiana,IN,18,"Newton County, IN",13907,1359,9.772057237
+2020,Midwest,Indiana,IN,18,"Noble County, IN",47832,2577,5.387606623
+2020,Midwest,Indiana,IN,18,"Ohio County, IN",5892,286,4.854039375
+2020,Midwest,Indiana,IN,18,"Orange County, IN",19651,2019,10.2742863
+2020,Midwest,Indiana,IN,18,"Owen County, IN",20833,1901,9.124945999
+2020,Midwest,Indiana,IN,18,"Parke County, IN",16871,1646,9.756386699
+2020,Midwest,Indiana,IN,18,"Perry County, IN",19154,1660,8.666597055
+2020,Midwest,Indiana,IN,18,"Pike County, IN",12378,1066,8.612053644
+2020,Midwest,Indiana,IN,18,"Porter County, IN",170980,10268,6.005380746
+2020,Midwest,Indiana,IN,18,"Posey County, IN",25275,1871,7.402571711
+2020,Midwest,Indiana,IN,18,"Pulaski County, IN",12388,1078,8.701969648
+2020,Midwest,Indiana,IN,18,"Putnam County, IN",37469,2596,6.928394139
+2020,Midwest,Indiana,IN,18,"Randolph County, IN",24191,2650,10.95448721
+2020,Midwest,Indiana,IN,18,"Ripley County, IN",28448,1858,6.531214848
+2020,Midwest,Indiana,IN,18,"Rush County, IN",16649,1449,8.703225419
+2020,Midwest,Indiana,IN,18,"St. Joseph County, IN",271484,30469,11.22312917
+2020,Midwest,Indiana,IN,18,"Scott County, IN",23788,3335,14.01967379
+2020,Midwest,Indiana,IN,18,"Shelby County, IN",44871,3851,8.582380602
+2020,Midwest,Indiana,IN,18,"Spencer County, IN",20225,1147,5.671199011
+2020,Midwest,Indiana,IN,18,"Starke County, IN",23049,2831,12.28252853
+2020,Midwest,Indiana,IN,18,"Steuben County, IN",34831,2074,5.954465849
+2020,Midwest,Indiana,IN,18,"Sullivan County, IN",20578,2116,10.28282632
+2020,Midwest,Indiana,IN,18,"Switzerland County, IN",10724,927,8.644162626
+2020,Midwest,Indiana,IN,18,"Tippecanoe County, IN",196115,13444,6.855161512
+2020,Midwest,Indiana,IN,18,"Tipton County, IN",15227,767,5.037105142
+2020,Midwest,Indiana,IN,18,"Union County, IN",7119,598,8.400056188
+2020,Midwest,Indiana,IN,18,"Vanderburgh County, IN",182447,20049,10.98894473
+2020,Midwest,Indiana,IN,18,"Vermillion County, IN",15329,1756,11.45541131
+2020,Midwest,Indiana,IN,18,"Vigo County, IN",106608,14616,13.71004052
+2020,Midwest,Indiana,IN,18,"Wabash County, IN",30784,2208,7.172557173
+2020,Midwest,Indiana,IN,18,"Warren County, IN",8194,493,6.01659751
+2020,Midwest,Indiana,IN,18,"Warrick County, IN",63269,2582,4.080987529
+2020,Midwest,Indiana,IN,18,"Washington County, IN",28213,1980,7.018041328
+2020,Midwest,Indiana,IN,18,"Wayne County, IN",65778,8939,13.58965003
+2020,Midwest,Indiana,IN,18,"Wells County, IN",28142,1347,4.786440196
+2020,Midwest,Indiana,IN,18,"White County, IN",24165,1631,6.749430995
+2020,Midwest,Indiana,IN,18,"Whitley County, IN",34378,1402,4.07818954
+2020,Midwest,Iowa,IA,19,"Adair County, IA",7059,577,8.173962318
+2020,Midwest,Iowa,IA,19,"Adams County, IA",3588,302,8.416945373
+2020,Midwest,Iowa,IA,19,"Allamakee County, IA",13642,1011,7.410936813
+2020,Midwest,Iowa,IA,19,"Appanoose County, IA",12430,1639,13.18584071
+2020,Midwest,Iowa,IA,19,"Audubon County, IA",5481,433,7.900018245
+2020,Midwest,Iowa,IA,19,"Benton County, IA",25414,1634,6.429527032
+2020,Midwest,Iowa,IA,19,"Black Hawk County, IA",130786,15716,12.0165767
+2020,Midwest,Iowa,IA,19,"Boone County, IA",26277,1623,6.176504167
+2020,Midwest,Iowa,IA,19,"Bremer County, IA",25311,1038,4.100983762
+2020,Midwest,Iowa,IA,19,"Buchanan County, IA",21287,1265,5.942594071
+2020,Midwest,Iowa,IA,19,"Buena Vista County, IA",19772,1608,8.132712927
+2020,Midwest,Iowa,IA,19,"Butler County, IA",14333,895,6.244331264
+2020,Midwest,Iowa,IA,19,"Calhoun County, IA",9473,753,7.948907421
+2020,Midwest,Iowa,IA,19,"Carroll County, IA",19914,1497,7.517324495
+2020,Midwest,Iowa,IA,19,"Cass County, IA",12817,1417,11.05562924
+2020,Midwest,Iowa,IA,19,"Cedar County, IA",18485,936,5.063565053
+2020,Midwest,Iowa,IA,19,"Cerro Gordo County, IA",42103,3977,9.445882716
+2020,Midwest,Iowa,IA,19,"Cherokee County, IA",11190,752,6.72028597
+2020,Midwest,Iowa,IA,19,"Chickasaw County, IA",11834,615,5.196890316
+2020,Midwest,Iowa,IA,19,"Clarke County, IA",9353,993,10.61691436
+2020,Midwest,Iowa,IA,19,"Clay County, IA",15976,1366,8.550325488
+2020,Midwest,Iowa,IA,19,"Clayton County, IA",17321,987,5.698285318
+2020,Midwest,Iowa,IA,19,"Clinton County, IA",46392,6151,13.25875151
+2020,Midwest,Iowa,IA,19,"Crawford County, IA",16834,1471,8.738267791
+2020,Midwest,Iowa,IA,19,"Dallas County, IA",96963,2755,2.841289977
+2020,Midwest,Iowa,IA,19,"Davis County, IA",9051,532,5.877803558
+2020,Midwest,Iowa,IA,19,"Decatur County, IA",7769,805,10.36169391
+2020,Midwest,Iowa,IA,19,"Delaware County, IA",16937,967,5.709393635
+2020,Midwest,Iowa,IA,19,"Des Moines County, IA",38708,5895,15.22940994
+2020,Midwest,Iowa,IA,19,"Dickinson County, IA",17549,950,5.41341387
+2020,Midwest,Iowa,IA,19,"Dubuque County, IA",97590,8174,8.375858182
+2020,Midwest,Iowa,IA,19,"Emmet County, IA",9095,833,9.158878505
+2020,Midwest,Iowa,IA,19,"Fayette County, IA",19258,2192,11.38228269
+2020,Midwest,Iowa,IA,19,"Floyd County, IA",15480,1609,10.39405685
+2020,Midwest,Iowa,IA,19,"Franklin County, IA",9971,754,7.561929596
+2020,Midwest,Iowa,IA,19,"Fremont County, IA",6729,746,11.0863427
+2020,Midwest,Iowa,IA,19,"Greene County, IA",8795,888,10.09664582
+2020,Midwest,Iowa,IA,19,"Grundy County, IA",12217,554,4.534664811
+2020,Midwest,Iowa,IA,19,"Guthrie County, IA",10737,782,7.283226227
+2020,Midwest,Iowa,IA,19,"Hamilton County, IA",14716,958,6.509921174
+2020,Midwest,Iowa,IA,19,"Hancock County, IA",10507,559,5.320262682
+2020,Midwest,Iowa,IA,19,"Hardin County, IA",16575,1438,8.67571644
+2020,Midwest,Iowa,IA,19,"Harrison County, IA",13928,1252,8.989086732
+2020,Midwest,Iowa,IA,19,"Henry County, IA",19697,1990,10.10306138
+2020,Midwest,Iowa,IA,19,"Howard County, IA",9176,532,5.797733217
+2020,Midwest,Iowa,IA,19,"Humboldt County, IA",9473,657,6.935500897
+2020,Midwest,Iowa,IA,19,"Ida County, IA",6833,520,7.610127323
+2020,Midwest,Iowa,IA,19,"Iowa County, IA",16138,778,4.820919569
+2020,Midwest,Iowa,IA,19,"Jackson County, IA",19205,1591,8.284300963
+2020,Midwest,Iowa,IA,19,"Jasper County, IA",37148,3346,9.007214386
+2020,Midwest,Iowa,IA,19,"Jefferson County, IA",18347,1717,9.358478225
+2020,Midwest,Iowa,IA,19,"Johnson County, IA",153740,9201,5.984779498
+2020,Midwest,Iowa,IA,19,"Jones County, IA",20617,1437,6.969976233
+2020,Midwest,Iowa,IA,19,"Keokuk County, IA",10085,972,9.638076351
+2020,Midwest,Iowa,IA,19,"Kossuth County, IA",14680,890,6.0626703
+2020,Midwest,Iowa,IA,19,"Lee County, IA",33480,4805,14.35185185
+2020,Midwest,Iowa,IA,19,"Linn County, IA",227854,22035,9.670666304
+2020,Midwest,Iowa,IA,19,"Louisa County, IA",11011,845,7.674144038
+2020,Midwest,Iowa,IA,19,"Lucas County, IA",8518,861,10.10800657
+2020,Midwest,Iowa,IA,19,"Lyon County, IA",11756,445,3.785301123
+2020,Midwest,Iowa,IA,19,"Madison County, IA",16521,752,4.55178258
+2020,Midwest,Iowa,IA,19,"Mahaska County, IA",22370,2129,9.51721055
+2020,Midwest,Iowa,IA,19,"Marion County, IA",33168,2132,6.427882296
+2020,Midwest,Iowa,IA,19,"Marshall County, IA",39495,4107,10.39878466
+2020,Midwest,Iowa,IA,19,"Mills County, IA",14766,1037,7.022890424
+2020,Midwest,Iowa,IA,19,"Mitchell County, IA",10647,567,5.325443787
+2020,Midwest,Iowa,IA,19,"Monona County, IA",8598,888,10.32798325
+2020,Midwest,Iowa,IA,19,"Monroe County, IA",7770,706,9.086229086
+2020,Midwest,Iowa,IA,19,"Montgomery County, IA",9935,1391,14.00100654
+2020,Midwest,Iowa,IA,19,"Muscatine County, IA",42394,5091,12.00877483
+2020,Midwest,Iowa,IA,19,"O'Brien County, IA",13679,815,5.958037868
+2020,Midwest,Iowa,IA,19,"Osceola County, IA",5987,372,6.213462502
+2020,Midwest,Iowa,IA,19,"Page County, IA",15073,1532,10.16386917
+2020,Midwest,Iowa,IA,19,"Palo Alto County, IA",8845,591,6.681741097
+2020,Midwest,Iowa,IA,19,"Plymouth County, IA",25219,1083,4.294381221
+2020,Midwest,Iowa,IA,19,"Pocahontas County, IA",6607,552,8.354775238
+2020,Midwest,Iowa,IA,19,"Polk County, IA",494281,55746,11.27820005
+2020,Midwest,Iowa,IA,19,"Pottawattamie County, IA",93328,12551,13.44826847
+2020,Midwest,Iowa,IA,19,"Poweshiek County, IA",18381,1083,5.891953648
+2020,Midwest,Iowa,IA,19,"Ringgold County, IA",4801,444,9.248073318
+2020,Midwest,Iowa,IA,19,"Sac County, IA",9603,598,6.22722066
+2020,Midwest,Iowa,IA,19,"Scott County, IA",173216,22256,12.84869758
+2020,Midwest,Iowa,IA,19,"Shelby County, IA",11430,873,7.637795276
+2020,Midwest,Iowa,IA,19,"Sioux County, IA",35043,1084,3.093342465
+2020,Midwest,Iowa,IA,19,"Story County, IA",98237,3915,3.985260136
+2020,Midwest,Iowa,IA,19,"Tama County, IA",16801,1417,8.434021784
+2020,Midwest,Iowa,IA,19,"Taylor County, IA",6092,596,9.78332239
+2020,Midwest,Iowa,IA,19,"Union County, IA",12157,1353,11.12939047
+2020,Midwest,Iowa,IA,19,"Van Buren County, IA",7069,677,9.577026454
+2020,Midwest,Iowa,IA,19,"Wapello County, IA",34985,5056,14.45190796
+2020,Midwest,Iowa,IA,19,"Warren County, IA",52265,2297,4.394910552
+2020,Midwest,Iowa,IA,19,"Washington County, IA",21992,1559,7.088941433
+2020,Midwest,Iowa,IA,19,"Wayne County, IA",6415,520,8.106001559
+2020,Midwest,Iowa,IA,19,"Webster County, IA",35934,4710,13.1073635
+2020,Midwest,Iowa,IA,19,"Winnebago County, IA",10277,646,6.285881094
+2020,Midwest,Iowa,IA,19,"Winneshiek County, IA",19862,791,3.982479106
+2020,Midwest,Iowa,IA,19,"Woodbury County, IA",103138,13634,13.21918207
+2020,Midwest,Iowa,IA,19,"Worth County, IA",7359,480,6.522625357
+2020,Midwest,Iowa,IA,19,"Wright County, IA",12416,1207,9.72132732
+2020,Midwest,Kansas,KS,20,"Allen County, KS",12399,1475,11.89612065
+2020,Midwest,Kansas,KS,20,"Anderson County, KS",7949,494,6.214618191
+2020,Midwest,Kansas,KS,20,"Atchison County, KS",16015,1456,9.091476741
+2020,Midwest,Kansas,KS,20,"Barber County, KS",4358,179,4.10738871
+2020,Midwest,Kansas,KS,20,"Barton County, KS",25658,2232,8.699041235
+2020,Midwest,Kansas,KS,20,"Bourbon County, KS",14435,1842,12.7606512
+2020,Midwest,Kansas,KS,20,"Brown County, KS",9482,902,9.512761021
+2020,Midwest,Kansas,KS,20,"Butler County, KS",66992,3991,5.957427753
+2020,Midwest,Kansas,KS,20,"Chase County, KS",2586,131,5.065738592
+2020,Midwest,Kansas,KS,20,"Chautauqua County, KS",3230,361,11.17647059
+2020,Midwest,Kansas,KS,20,"Cherokee County, KS",19681,2326,11.81850516
+2020,Midwest,Kansas,KS,20,"Cheyenne County, KS",2600,103,3.961538462
+2020,Midwest,Kansas,KS,20,"Clark County, KS",1963,110,5.603667855
+2020,Midwest,Kansas,KS,20,"Clay County, KS",8025,447,5.570093458
+2020,Midwest,Kansas,KS,20,"Cloud County, KS",8642,701,8.111548253
+2020,Midwest,Kansas,KS,20,"Coffey County, KS",8158,608,7.452807061
+2020,Midwest,Kansas,KS,20,"Comanche County, KS",1690,83,4.911242604
+2020,Midwest,Kansas,KS,20,"Cowley County, KS",34628,4094,11.82280236
+2020,Midwest,Kansas,KS,20,"Crawford County, KS",38730,4402,11.36586625
+2020,Midwest,Kansas,KS,20,"Decatur County, KS",2776,181,6.520172911
+2020,Midwest,Kansas,KS,20,"Dickinson County, KS",18266,1204,6.591481441
+2020,Midwest,Kansas,KS,20,"Doniphan County, KS",7496,447,5.963180363
+2020,Midwest,Kansas,KS,20,"Douglas County, KS",122530,5291,4.318126173
+2020,Midwest,Kansas,KS,20,"Edwards County, KS",2750,170,6.181818182
+2020,Midwest,Kansas,KS,20,"Elk County, KS",2507,256,10.21140806
+2020,Midwest,Kansas,KS,20,"Ellis County, KS",28671,1233,4.300512713
+2020,Midwest,Kansas,KS,20,"Ellsworth County, KS",6034,263,4.358634405
+2020,Midwest,Kansas,KS,20,"Finney County, KS",35917,2719,7.570231367
+2020,Midwest,Kansas,KS,20,"Ford County, KS",33094,2175,6.572188312
+2020,Midwest,Kansas,KS,20,"Franklin County, KS",25703,1806,7.02641715
+2020,Midwest,Kansas,KS,20,"Geary County, KS",32218,2758,8.560432057
+2020,Midwest,Kansas,KS,20,"Gove County, KS",2621,81,3.090423502
+2020,Midwest,Kansas,KS,20,"Graham County, KS",2389,118,4.939305149
+2020,Midwest,Kansas,KS,20,"Grant County, KS",7077,490,6.923837784
+2020,Midwest,Kansas,KS,20,"Gray County, KS",5954,136,2.284178703
+2020,Midwest,Kansas,KS,20,"Greeley County, KS",1196,31,2.591973244
+2020,Midwest,Kansas,KS,20,"Greenwood County, KS",5868,544,9.270620314
+2020,Midwest,Kansas,KS,20,"Hamilton County, KS",2425,101,4.164948454
+2020,Midwest,Kansas,KS,20,"Harper County, KS",5336,439,8.227136432
+2020,Midwest,Kansas,KS,20,"Harvey County, KS",34291,2240,6.532326266
+2020,Midwest,Kansas,KS,20,"Haskell County, KS",3923,152,3.874585776
+2020,Midwest,Kansas,KS,20,"Hodgeman County, KS",1779,71,3.991006183
+2020,Midwest,Kansas,KS,20,"Jackson County, KS",13171,723,5.489332625
+2020,Midwest,Kansas,KS,20,"Jefferson County, KS",19032,793,4.166666667
+2020,Midwest,Kansas,KS,20,"Jewell County, KS",2833,196,6.918460995
+2020,Midwest,Kansas,KS,20,"Johnson County, KS",607220,13033,2.146339053
+2020,Midwest,Kansas,KS,20,"Kearny County, KS",3745,199,5.313751669
+2020,Midwest,Kansas,KS,20,"Kingman County, KS",6974,376,5.391453972
+2020,Midwest,Kansas,KS,20,"Kiowa County, KS",2456,128,5.211726384
+2020,Midwest,Kansas,KS,20,"Labette County, KS",19586,2408,12.29449607
+2020,Midwest,Kansas,KS,20,"Lane County, KS",1518,66,4.347826087
+2020,Midwest,Kansas,KS,20,"Leavenworth County, KS",82246,3593,4.368601513
+2020,Midwest,Kansas,KS,20,"Lincoln County, KS",2986,180,6.028131279
+2020,Midwest,Kansas,KS,20,"Linn County, KS",9654,811,8.400662938
+2020,Midwest,Kansas,KS,20,"Logan County, KS",2732,108,3.953147877
+2020,Midwest,Kansas,KS,20,"Lyon County, KS",33045,2333,7.060069602
+2020,Midwest,Kansas,KS,20,"McPherson County, KS",28448,1304,4.583802025
+2020,Midwest,Kansas,KS,20,"Marion County, KS",11652,536,4.600068658
+2020,Midwest,Kansas,KS,20,"Marshall County, KS",9652,474,4.910899295
+2020,Midwest,Kansas,KS,20,"Meade County, KS",4029,152,3.7726483
+2020,Midwest,Kansas,KS,20,"Miami County, KS",34334,1635,4.762043455
+2020,Midwest,Kansas,KS,20,"Mitchell County, KS",5879,296,5.034869876
+2020,Midwest,Kansas,KS,20,"Montgomery County, KS",31502,3824,12.13891182
+2020,Midwest,Kansas,KS,20,"Morris County, KS",5559,322,5.792408707
+2020,Midwest,Kansas,KS,20,"Morton County, KS",2538,122,4.806934594
+2020,Midwest,Kansas,KS,20,"Nemaha County, KS",10121,375,3.705167474
+2020,Midwest,Kansas,KS,20,"Neosho County, KS",15929,1629,10.22663067
+2020,Midwest,Kansas,KS,20,"Ness County, KS",2768,80,2.89017341
+2020,Midwest,Kansas,KS,20,"Norton County, KS",5328,227,4.260510511
+2020,Midwest,Kansas,KS,20,"Osage County, KS",15770,1114,7.064045656
+2020,Midwest,Kansas,KS,20,"Osborne County, KS",3439,213,6.193660948
+2020,Midwest,Kansas,KS,20,"Ottawa County, KS",5712,362,6.337535014
+2020,Midwest,Kansas,KS,20,"Pawnee County, KS",6366,463,7.273012881
+2020,Midwest,Kansas,KS,20,"Phillips County, KS",5181,230,4.439297433
+2020,Midwest,Kansas,KS,20,"Pottawatomie County, KS",24722,901,3.644527142
+2020,Midwest,Kansas,KS,20,"Pratt County, KS",9127,391,4.28399255
+2020,Midwest,Kansas,KS,20,"Rawlins County, KS",2511,93,3.703703704
+2020,Midwest,Kansas,KS,20,"Reno County, KS",61793,5238,8.476688298
+2020,Midwest,Kansas,KS,20,"Republic County, KS",4536,235,5.180776014
+2020,Midwest,Kansas,KS,20,"Rice County, KS",9362,622,6.643879513
+2020,Midwest,Kansas,KS,20,"Riley County, KS",73202,2734,3.734870632
+2020,Midwest,Kansas,KS,20,"Rooks County, KS",4827,262,5.427801947
+2020,Midwest,Kansas,KS,20,"Rush County, KS",2947,265,8.992195453
+2020,Midwest,Kansas,KS,20,"Russell County, KS",6804,579,8.509700176
+2020,Midwest,Kansas,KS,20,"Saline County, KS",53926,4827,8.951155287
+2020,Midwest,Kansas,KS,20,"Scott County, KS",4790,168,3.507306889
+2020,Midwest,Kansas,KS,20,"Sedgwick County, KS",519907,53306,10.25298755
+2020,Midwest,Kansas,KS,20,"Seward County, KS",21038,1262,5.998669075
+2020,Midwest,Kansas,KS,20,"Shawnee County, KS",175999,17715,10.0653981
+2020,Midwest,Kansas,KS,20,"Sheridan County, KS",2520,63,2.5
+2020,Midwest,Kansas,KS,20,"Sherman County, KS",5777,394,6.820148866
+2020,Midwest,Kansas,KS,20,"Smith County, KS",3544,175,4.937923251
+2020,Midwest,Kansas,KS,20,"Stafford County, KS",4046,267,6.599110232
+2020,Midwest,Kansas,KS,20,"Stanton County, KS",1969,57,2.894870493
+2020,Midwest,Kansas,KS,20,"Stevens County, KS",5388,229,4.250185598
+2020,Midwest,Kansas,KS,20,"Sumner County, KS",22578,1867,8.269111524
+2020,Midwest,Kansas,KS,20,"Thomas County, KS",7702,280,3.635419372
+2020,Midwest,Kansas,KS,20,"Trego County, KS",2758,96,3.480783176
+2020,Midwest,Kansas,KS,20,"Wabaunsee County, KS",6906,284,4.112366058
+2020,Midwest,Kansas,KS,20,"Wallace County, KS",1536,67,4.361979167
+2020,Midwest,Kansas,KS,20,"Washington County, KS",5427,181,3.335175972
+2020,Midwest,Kansas,KS,20,"Wichita County, KS",2074,101,4.869816779
+2020,Midwest,Kansas,KS,20,"Wilson County, KS",8362,898,10.73905764
+2020,Midwest,Kansas,KS,20,"Woodson County, KS",3015,240,7.960199005
+2020,Midwest,Kansas,KS,20,"Wyandotte County, KS",165265,21753,13.1624966
+2020,Midwest,Michigan,MI,26,"Alcona County, MI",10505,1271,12.09900048
+2020,Midwest,Michigan,MI,26,"Alger County, MI",9015,702,7.787021631
+2020,Midwest,Michigan,MI,26,"Allegan County, MI",118927,9098,7.650071052
+2020,Midwest,Michigan,MI,26,"Alpena County, MI",28238,3874,13.71910192
+2020,Midwest,Michigan,MI,26,"Antrim County, MI",23449,1970,8.401211139
+2020,Midwest,Michigan,MI,26,"Arenac County, MI",14953,2002,13.38861767
+2020,Midwest,Michigan,MI,26,"Baraga County, MI",8164,839,10.27682509
+2020,Midwest,Michigan,MI,26,"Barry County, MI",62061,4480,7.218704178
+2020,Midwest,Michigan,MI,26,"Bay County, MI",102387,13191,12.88347153
+2020,Midwest,Michigan,MI,26,"Benzie County, MI",17852,1372,7.685413399
+2020,Midwest,Michigan,MI,26,"Berrien County, MI",153025,20884,13.64744323
+2020,Midwest,Michigan,MI,26,"Branch County, MI",43424,4853,11.17584746
+2020,Midwest,Michigan,MI,26,"Calhoun County, MI",133580,20722,15.51280132
+2020,Midwest,Michigan,MI,26,"Cass County, MI",51584,6192,12.00372208
+2020,Midwest,Michigan,MI,26,"Charlevoix County, MI",26105,1626,6.228691821
+2020,Midwest,Michigan,MI,26,"Cheboygan County, MI",25365,2687,10.59333728
+2020,Midwest,Michigan,MI,26,"Chippewa County, MI",36958,3358,9.085989502
+2020,Midwest,Michigan,MI,26,"Clare County, MI",30771,5712,18.56293263
+2020,Midwest,Michigan,MI,26,"Clinton County, MI",79753,4361,5.46813286
+2020,Midwest,Michigan,MI,26,"Crawford County, MI",13981,1830,13.08919248
+2020,Midwest,Michigan,MI,26,"Delta County, MI",35612,3993,11.21251264
+2020,Midwest,Michigan,MI,26,"Dickinson County, MI",25112,2282,9.087288946
+2020,Midwest,Michigan,MI,26,"Eaton County, MI",110148,8586,7.794966772
+2020,Midwest,Michigan,MI,26,"Emmet County, MI",33342,1909,5.725511367
+2020,Midwest,Michigan,MI,26,"Genesee County, MI",404794,74600,18.42912691
+2020,Midwest,Michigan,MI,26,"Gladwin County, MI",25424,3311,13.02312775
+2020,Midwest,Michigan,MI,26,"Gogebic County, MI",13842,2226,16.08149111
+2020,Midwest,Michigan,MI,26,"Grand Traverse County, MI",93592,5830,6.229164886
+2020,Midwest,Michigan,MI,26,"Gratiot County, MI",40283,4780,11.86604771
+2020,Midwest,Michigan,MI,26,"Hillsdale County, MI",45658,5379,11.78106794
+2020,Midwest,Michigan,MI,26,"Houghton County, MI",35126,2914,8.295849228
+2020,Midwest,Michigan,MI,26,"Huron County, MI",30653,2848,9.291097119
+2020,Midwest,Michigan,MI,26,"Ingham County, MI",290609,36612,12.59837101
+2020,Midwest,Michigan,MI,26,"Ionia County, MI",64553,6056,9.381438508
+2020,Midwest,Michigan,MI,26,"Iosco County, MI",25140,3889,15.46937152
+2020,Midwest,Michigan,MI,26,"Iron County, MI",11066,1476,13.3381529
+2020,Midwest,Michigan,MI,26,"Isabella County, MI",69504,6069,8.731871547
+2020,Midwest,Michigan,MI,26,"Jackson County, MI",156920,18393,11.72125924
+2020,Midwest,Michigan,MI,26,"Kalamazoo County, MI",265988,29202,10.97869077
+2020,Midwest,Michigan,MI,26,"Kalkaska County, MI",18003,2071,11.50363828
+2020,Midwest,Michigan,MI,26,"Kent County, MI",658708,66360,10.07426659
+2020,Midwest,Michigan,MI,26,"Keweenaw County, MI",2119,168,7.928268051
+2020,Midwest,Michigan,MI,26,"Lake County, MI",11587,2545,21.9642703
+2020,Midwest,Michigan,MI,26,"Lapeer County, MI",87635,6880,7.850744566
+2020,Midwest,Michigan,MI,26,"Leelanau County, MI",21743,798,3.670146714
+2020,Midwest,Michigan,MI,26,"Lenawee County, MI",97808,10038,10.26296417
+2020,Midwest,Michigan,MI,26,"Livingston County, MI",192335,7452,3.874489822
+2020,Midwest,Michigan,MI,26,"Luce County, MI",6126,795,12.97747307
+2020,Midwest,Michigan,MI,26,"Mackinac County, MI",10839,739,6.817972138
+2020,Midwest,Michigan,MI,26,"Macomb County, MI",870791,98141,11.27032778
+2020,Midwest,Michigan,MI,26,"Manistee County, MI",24738,2781,11.24181421
+2020,Midwest,Michigan,MI,26,"Marquette County, MI",65834,5404,8.208524471
+2020,Midwest,Michigan,MI,26,"Mason County, MI",29164,3572,12.24797696
+2020,Midwest,Michigan,MI,26,"Mecosta County, MI",43907,4491,10.22843738
+2020,Midwest,Michigan,MI,26,"Menominee County, MI",22608,2233,9.877034678
+2020,Midwest,Michigan,MI,26,"Midland County, MI",83441,7269,8.711544684
+2020,Midwest,Michigan,MI,26,"Missaukee County, MI",15152,1711,11.29223865
+2020,Midwest,Michigan,MI,26,"Monroe County, MI",150568,14076,9.348599968
+2020,Midwest,Michigan,MI,26,"Montcalm County, MI",63476,7632,12.02344193
+2020,Midwest,Michigan,MI,26,"Montmorency County, MI",9337,1154,12.35943022
+2020,Midwest,Michigan,MI,26,"Muskegon County, MI",173883,29596,17.02064032
+2020,Midwest,Michigan,MI,26,"Newaygo County, MI",49348,7119,14.42611656
+2020,Midwest,Michigan,MI,26,"Oakland County, MI",1253459,86132,6.871545061
+2020,Midwest,Michigan,MI,26,"Oceana County, MI",26819,3813,14.21753235
+2020,Midwest,Michigan,MI,26,"Ogemaw County, MI",20923,3476,16.61329637
+2020,Midwest,Michigan,MI,26,"Ontonagon County, MI",5656,531,9.388260255
+2020,Midwest,Michigan,MI,26,"Osceola County, MI",23466,2741,11.68072957
+2020,Midwest,Michigan,MI,26,"Oscoda County, MI",8368,1287,15.38001912
+2020,Midwest,Michigan,MI,26,"Otsego County, MI",24765,2717,10.97112861
+2020,Midwest,Michigan,MI,26,"Ottawa County, MI",294635,13604,4.617238278
+2020,Midwest,Michigan,MI,26,"Presque Isle County, MI",12665,1315,10.38294512
+2020,Midwest,Michigan,MI,26,"Roscommon County, MI",23986,3754,15.6507963
+2020,Midwest,Michigan,MI,26,"Saginaw County, MI",189868,33237,17.50531949
+2020,Midwest,Michigan,MI,26,"St. Clair County, MI",159293,19547,12.27109791
+2020,Midwest,Michigan,MI,26,"St. Joseph County, MI",60848,7180,11.79989482
+2020,Midwest,Michigan,MI,26,"Sanilac County, MI",40747,4808,11.79964169
+2020,Midwest,Michigan,MI,26,"Schoolcraft County, MI",8104,988,12.19151037
+2020,Midwest,Michigan,MI,26,"Shiawassee County, MI",67738,7401,10.92592046
+2020,Midwest,Michigan,MI,26,"Tuscola County, MI",52289,6348,12.1402207
+2020,Midwest,Michigan,MI,26,"Van Buren County, MI",75474,10609,14.05649628
+2020,Midwest,Michigan,MI,26,"Washtenaw County, MI",366473,24376,6.651513208
+2020,Midwest,Michigan,MI,26,"Wayne County, MI",1740623,408499,23.4685512
+2020,Midwest,Michigan,MI,26,"Wexford County, MI",33743,4992,14.79417953
+2020,Midwest,Minnesota,MN,27,"Aitkin County, MN",15848,1241,7.83064109
+2020,Midwest,Minnesota,MN,27,"Anoka County, MN",359921,20496,5.694582978
+2020,Midwest,Minnesota,MN,27,"Becker County, MN",34456,3219,9.342349663
+2020,Midwest,Minnesota,MN,27,"Beltrami County, MN",47442,7732,16.2977952
+2020,Midwest,Minnesota,MN,27,"Benton County, MN",40958,3629,8.860295913
+2020,Midwest,Minnesota,MN,27,"Big Stone County, MN",4923,387,7.861060329
+2020,Midwest,Minnesota,MN,27,"Blue Earth County, MN",68241,5015,7.348954441
+2020,Midwest,Minnesota,MN,27,"Brown County, MN",24846,1387,5.582387507
+2020,Midwest,Minnesota,MN,27,"Carlton County, MN",35769,2470,6.905420895
+2020,Midwest,Minnesota,MN,27,"Carver County, MN",106565,2492,2.338478863
+2020,Midwest,Minnesota,MN,27,"Cass County, MN",29928,4284,14.31435445
+2020,Midwest,Minnesota,MN,27,"Chippewa County, MN",11758,987,8.394284742
+2020,Midwest,Minnesota,MN,27,"Chisago County, MN",56794,2127,3.74511392
+2020,Midwest,Minnesota,MN,27,"Clay County, MN",64690,7320,11.31550471
+2020,Midwest,Minnesota,MN,27,"Clearwater County, MN",9017,918,10.18076966
+2020,Midwest,Minnesota,MN,27,"Cook County, MN",5417,234,4.31973417
+2020,Midwest,Minnesota,MN,27,"Cottonwood County, MN",11242,977,8.690624444
+2020,Midwest,Minnesota,MN,27,"Crow Wing County, MN",65644,4364,6.647980013
+2020,Midwest,Minnesota,MN,27,"Dakota County, MN",431807,20682,4.789639816
+2020,Midwest,Minnesota,MN,27,"Dodge County, MN",20987,1164,5.546290561
+2020,Midwest,Minnesota,MN,27,"Douglas County, MN",38328,2182,5.692965978
+2020,Midwest,Minnesota,MN,27,"Faribault County, MN",13601,1265,9.300786707
+2020,Midwest,Minnesota,MN,27,"Fillmore County, MN",21135,1057,5.001182872
+2020,Midwest,Minnesota,MN,27,"Freeborn County, MN",30364,3200,10.53879594
+2020,Midwest,Minnesota,MN,27,"Goodhue County, MN",46318,2191,4.730342415
+2020,Midwest,Minnesota,MN,27,"Grant County, MN",6026,516,8.562894125
+2020,Midwest,Minnesota,MN,27,"Hennepin County, MN",1268408,121093,9.546849279
+2020,Midwest,Minnesota,MN,27,"Houston County, MN",18632,878,4.712322885
+2020,Midwest,Minnesota,MN,27,"Hubbard County, MN",21783,2020,9.273286508
+2020,Midwest,Minnesota,MN,27,"Isanti County, MN",41429,2374,5.730285549
+2020,Midwest,Minnesota,MN,27,"Itasca County, MN",45268,4576,10.10868605
+2020,Midwest,Minnesota,MN,27,"Jackson County, MN",9768,625,6.398443898
+2020,Midwest,Minnesota,MN,27,"Kanabec County, MN",16416,1369,8.339424951
+2020,Midwest,Minnesota,MN,27,"Kandiyohi County, MN",43130,4715,10.93206585
+2020,Midwest,Minnesota,MN,27,"Kittson County, MN",4214,290,6.881822496
+2020,Midwest,Minnesota,MN,27,"Koochiching County, MN",12059,1217,10.09204743
+2020,Midwest,Minnesota,MN,27,"Lac qui Parle County, MN",6527,467,7.154895051
+2020,Midwest,Minnesota,MN,27,"Lake County, MN",10639,532,5.000469969
+2020,Midwest,Minnesota,MN,27,"Lake of the Woods County, MN",3754,261,6.95258391
+2020,Midwest,Minnesota,MN,27,"Le Sueur County, MN",28741,1202,4.182178769
+2020,Midwest,Minnesota,MN,27,"Lincoln County, MN",5568,269,4.831178161
+2020,Midwest,Minnesota,MN,27,"Lyon County, MN",25271,2503,9.90463377
+2020,Midwest,Minnesota,MN,27,"McLeod County, MN",35710,1852,5.186222347
+2020,Midwest,Minnesota,MN,27,"Mahnomen County, MN",5473,1508,27.55344418
+2020,Midwest,Minnesota,MN,27,"Marshall County, MN",9321,506,5.428602081
+2020,Midwest,Minnesota,MN,27,"Martin County, MN",19484,1801,9.243481831
+2020,Midwest,Minnesota,MN,27,"Meeker County, MN",23341,1439,6.165117176
+2020,Midwest,Minnesota,MN,27,"Mille Lacs County, MN",26146,2189,8.372217548
+2020,Midwest,Minnesota,MN,27,"Morrison County, MN",33187,2132,6.424202248
+2020,Midwest,Minnesota,MN,27,"Mower County, MN",40150,4404,10.96886675
+2020,Midwest,Minnesota,MN,27,"Murray County, MN",8155,520,6.376456162
+2020,Midwest,Minnesota,MN,27,"Nicollet County, MN",34482,2259,6.551244127
+2020,Midwest,Minnesota,MN,27,"Nobles County, MN",21400,1755,8.200934579
+2020,Midwest,Minnesota,MN,27,"Norman County, MN",6338,634,10.00315557
+2020,Midwest,Minnesota,MN,27,"Olmsted County, MN",159298,11822,7.421311002
+2020,Midwest,Minnesota,MN,27,"Otter Tail County, MN",58741,3567,6.072419605
+2020,Midwest,Minnesota,MN,27,"Pennington County, MN",13874,1005,7.243765316
+2020,Midwest,Minnesota,MN,27,"Pine County, MN",29359,2835,9.656323444
+2020,Midwest,Minnesota,MN,27,"Pipestone County, MN",9121,743,8.146036619
+2020,Midwest,Minnesota,MN,27,"Polk County, MN",30900,3721,12.0420712
+2020,Midwest,Minnesota,MN,27,"Pope County, MN",11277,792,7.023144453
+2020,Midwest,Minnesota,MN,27,"Ramsey County, MN",547903,75524,13.78419173
+2020,Midwest,Minnesota,MN,27,"Red Lake County, MN",4046,346,8.551655957
+2020,Midwest,Minnesota,MN,27,"Redwood County, MN",15079,983,6.518999934
+2020,Midwest,Minnesota,MN,27,"Renville County, MN",14403,1194,8.289939596
+2020,Midwest,Minnesota,MN,27,"Rice County, MN",67084,4170,6.216087294
+2020,Midwest,Minnesota,MN,27,"Rock County, MN",9301,562,6.042361036
+2020,Midwest,Minnesota,MN,27,"Roseau County, MN",15117,885,5.854336178
+2020,Midwest,Minnesota,MN,27,"St. Louis County, MN",198538,18942,9.54074283
+2020,Midwest,Minnesota,MN,27,"Scott County, MN",150689,5380,3.570267239
+2020,Midwest,Minnesota,MN,27,"Sherburne County, MN",98811,4541,4.595642186
+2020,Midwest,Minnesota,MN,27,"Sibley County, MN",14715,864,5.871559633
+2020,Midwest,Minnesota,MN,27,"Stearns County, MN",162038,14330,8.843604587
+2020,Midwest,Minnesota,MN,27,"Steele County, MN",36596,3201,8.74685758
+2020,Midwest,Minnesota,MN,27,"Stevens County, MN",9765,598,6.12391193
+2020,Midwest,Minnesota,MN,27,"Swift County, MN",9176,837,9.121621622
+2020,Midwest,Minnesota,MN,27,"Todd County, MN",24732,1602,6.477438137
+2020,Midwest,Minnesota,MN,27,"Traverse County, MN",3218,475,14.76072094
+2020,Midwest,Minnesota,MN,27,"Wabasha County, MN",21642,947,4.375750855
+2020,Midwest,Minnesota,MN,27,"Wadena County, MN",13807,1626,11.77663504
+2020,Midwest,Minnesota,MN,27,"Waseca County, MN",18550,1455,7.843665768
+2020,Midwest,Minnesota,MN,27,"Washington County, MN",265476,9371,3.529885941
+2020,Midwest,Minnesota,MN,27,"Watonwan County, MN",10792,693,6.421423277
+2020,Midwest,Minnesota,MN,27,"Wilkin County, MN",6161,648,10.51777309
+2020,Midwest,Minnesota,MN,27,"Winona County, MN",50485,2941,5.825492721
+2020,Midwest,Minnesota,MN,27,"Wright County, MN",140249,4393,3.132286148
+2020,Midwest,Minnesota,MN,27,"Yellow Medicine County, MN",9580,615,6.419624217
+2020,Midwest,Missouri,MO,29,"Adair County, MO",25399,2204,8.677506988
+2020,Midwest,Missouri,MO,29,"Andrew County, MO",17586,1022,5.811440919
+2020,Midwest,Missouri,MO,29,"Atchison County, MO",5096,397,7.790423862
+2020,Midwest,Missouri,MO,29,"Audrain County, MO",24835,2957,11.90658345
+2020,Midwest,Missouri,MO,29,"Barry County, MO",35818,4831,13.48763192
+2020,Midwest,Missouri,MO,29,"Barton County, MO",11592,1553,13.39717046
+2020,Midwest,Missouri,MO,29,"Bates County, MO",16242,1697,10.44822066
+2020,Midwest,Missouri,MO,29,"Benton County, MO",19627,2421,12.33504866
+2020,Midwest,Missouri,MO,29,"Bollinger County, MO",12111,1739,14.35884733
+2020,Midwest,Missouri,MO,29,"Boone County, MO",182991,15872,8.673650617
+2020,Midwest,Missouri,MO,29,"Buchanan County, MO",86530,12996,15.01906853
+2020,Midwest,Missouri,MO,29,"Butler County, MO",42178,8893,21.08445161
+2020,Midwest,Missouri,MO,29,"Caldwell County, MO",9051,800,8.838802342
+2020,Midwest,Missouri,MO,29,"Callaway County, MO",44887,4086,9.102858289
+2020,Midwest,Missouri,MO,29,"Camden County, MO",46414,4178,9.001594347
+2020,Midwest,Missouri,MO,29,"Cape Girardeau County, MO",79512,8982,11.29640809
+2020,Midwest,Missouri,MO,29,"Carroll County, MO",8554,893,10.43956044
+2020,Midwest,Missouri,MO,29,"Carter County, MO",5991,1149,19.17876815
+2020,Midwest,Missouri,MO,29,"Cass County, MO",106806,7359,6.890062356
+2020,Midwest,Missouri,MO,29,"Cedar County, MO",14322,2021,14.11115766
+2020,Midwest,Missouri,MO,29,"Chariton County, MO",7360,604,8.206521739
+2020,Midwest,Missouri,MO,29,"Christian County, MO",90655,6545,7.219679003
+2020,Midwest,Missouri,MO,29,"Clark County, MO",6830,638,9.34114202
+2020,Midwest,Missouri,MO,29,"Clay County, MO",253463,16978,6.698413575
+2020,Midwest,Missouri,MO,29,"Clinton County, MO",20553,1577,7.672845813
+2020,Midwest,Missouri,MO,29,"Cole County, MO",76191,7408,9.722933155
+2020,Midwest,Missouri,MO,29,"Cooper County, MO",17102,1688,9.870190621
+2020,Midwest,Missouri,MO,29,"Crawford County, MO",23739,3669,15.45557943
+2020,Midwest,Missouri,MO,29,"Dade County, MO",7568,865,11.42970402
+2020,Midwest,Missouri,MO,29,"Dallas County, MO",17219,2321,13.47929613
+2020,Midwest,Missouri,MO,29,"Daviess County, MO",8283,810,9.779065556
+2020,Midwest,Missouri,MO,29,"DeKalb County, MO",10944,706,6.451023392
+2020,Midwest,Missouri,MO,29,"Dent County, MO",15481,2351,15.18635747
+2020,Midwest,Missouri,MO,29,"Douglas County, MO",13344,1974,14.79316547
+2020,Midwest,Missouri,MO,29,"Dunklin County, MO",28878,7990,27.66812106
+2020,Midwest,Missouri,MO,29,"Franklin County, MO",104469,9643,9.230489427
+2020,Midwest,Missouri,MO,29,"Gasconade County, MO",14566,1236,8.485514211
+2020,Midwest,Missouri,MO,29,"Gentry County, MO",6484,544,8.389882788
+2020,Midwest,Missouri,MO,29,"Greene County, MO",294997,35138,11.91130757
+2020,Midwest,Missouri,MO,29,"Grundy County, MO",9595,1271,13.24648254
+2020,Midwest,Missouri,MO,29,"Harrison County, MO",8321,1024,12.3062132
+2020,Midwest,Missouri,MO,29,"Henry County, MO",22076,3119,14.1284653
+2020,Midwest,Missouri,MO,29,"Hickory County, MO",9586,1097,11.44377217
+2020,Midwest,Missouri,MO,29,"Holt County, MO",4232,385,9.097353497
+2020,Midwest,Missouri,MO,29,"Howard County, MO",10001,894,8.939106089
+2020,Midwest,Missouri,MO,29,"Howell County, MO",40262,7439,18.47647906
+2020,Midwest,Missouri,MO,29,"Iron County, MO",10098,1786,17.68667063
+2020,Midwest,Missouri,MO,29,"Jackson County, MO",705925,100310,14.20972483
+2020,Midwest,Missouri,MO,29,"Jasper County, MO",121648,17427,14.32575957
+2020,Midwest,Missouri,MO,29,"Jefferson County, MO",226543,19478,8.597926222
+2020,Midwest,Missouri,MO,29,"Johnson County, MO",54219,3592,6.624983862
+2020,Midwest,Missouri,MO,29,"Knox County, MO",3940,355,9.010152284
+2020,Midwest,Missouri,MO,29,"Laclede County, MO",35895,5685,15.83786043
+2020,Midwest,Missouri,MO,29,"Lafayette County, MO",33006,3317,10.04968794
+2020,Midwest,Missouri,MO,29,"Lawrence County, MO",38175,5195,13.60838245
+2020,Midwest,Missouri,MO,29,"Lewis County, MO",9810,807,8.226299694
+2020,Midwest,Missouri,MO,29,"Lincoln County, MO",60119,5682,9.451255011
+2020,Midwest,Missouri,MO,29,"Linn County, MO",11830,1291,10.91293322
+2020,Midwest,Missouri,MO,29,"Livingston County, MO",14413,1545,10.71948935
+2020,Midwest,Missouri,MO,29,"McDonald County, MO",22900,3162,13.80786026
+2020,Midwest,Missouri,MO,29,"Macon County, MO",15095,1418,9.39383902
+2020,Midwest,Missouri,MO,29,"Madison County, MO",12113,2201,18.17056055
+2020,Midwest,Missouri,MO,29,"Maries County, MO",8795,687,7.811256396
+2020,Midwest,Missouri,MO,29,"Marion County, MO",28423,3875,13.63332512
+2020,Midwest,Missouri,MO,29,"Mercer County, MO",3558,246,6.913996627
+2020,Midwest,Missouri,MO,29,"Miller County, MO",25791,3199,12.40355163
+2020,Midwest,Missouri,MO,29,"Mississippi County, MO",12691,2972,23.41817036
+2020,Midwest,Missouri,MO,29,"Moniteau County, MO",15585,1184,7.597048444
+2020,Midwest,Missouri,MO,29,"Monroe County, MO",8672,778,8.971402214
+2020,Midwest,Missouri,MO,29,"Montgomery County, MO",11294,1242,10.99698955
+2020,Midwest,Missouri,MO,29,"Morgan County, MO",20716,2818,13.60301216
+2020,Midwest,Missouri,MO,29,"New Madrid County, MO",16693,3415,20.45767687
+2020,Midwest,Missouri,MO,29,"Newton County, MO",58451,6765,11.57379686
+2020,Midwest,Missouri,MO,29,"Nodaway County, MO",21743,1176,5.408637263
+2020,Midwest,Missouri,MO,29,"Oregon County, MO",10411,2190,21.03544328
+2020,Midwest,Missouri,MO,29,"Osage County, MO",13535,656,4.846693757
+2020,Midwest,Missouri,MO,29,"Ozark County, MO",9083,1408,15.50148629
+2020,Midwest,Missouri,MO,29,"Pemiscot County, MO",15600,5147,32.99358974
+2020,Midwest,Missouri,MO,29,"Perry County, MO",19194,1711,8.914244035
+2020,Midwest,Missouri,MO,29,"Pettis County, MO",42490,5877,13.83148976
+2020,Midwest,Missouri,MO,29,"Phelps County, MO",44414,4918,11.07308506
+2020,Midwest,Missouri,MO,29,"Pike County, MO",17552,1936,11.03008204
+2020,Midwest,Missouri,MO,29,"Platte County, MO",106532,4587,4.305748507
+2020,Midwest,Missouri,MO,29,"Polk County, MO",32490,4094,12.60080025
+2020,Midwest,Missouri,MO,29,"Pulaski County, MO",52709,4934,9.360830219
+2020,Midwest,Missouri,MO,29,"Putnam County, MO",4688,417,8.895051195
+2020,Midwest,Missouri,MO,29,"Ralls County, MO",10299,748,7.262841053
+2020,Midwest,Missouri,MO,29,"Randolph County, MO",24409,3329,13.63841206
+2020,Midwest,Missouri,MO,29,"Ray County, MO",22915,2097,9.151210997
+2020,Midwest,Missouri,MO,29,"Reynolds County, MO",6198,1259,20.31300419
+2020,Midwest,Missouri,MO,29,"Ripley County, MO",13300,3059,23
+2020,Midwest,Missouri,MO,29,"St. Charles County, MO",406204,16498,4.061506041
+2020,Midwest,Missouri,MO,29,"St. Clair County, MO",9689,1252,12.92187016
+2020,Midwest,Missouri,MO,29,"Ste. Genevieve County, MO",17924,1447,8.072974782
+2020,Midwest,Missouri,MO,29,"St. Francois County, MO",66485,10525,15.83063849
+2020,Midwest,Missouri,MO,29,"St. Louis County, MO",994020,108174,10.88247721
+2020,Midwest,Missouri,MO,29,"Saline County, MO",22858,2873,12.56890367
+2020,Midwest,Missouri,MO,29,"Schuyler County, MO",4534,369,8.138509043
+2020,Midwest,Missouri,MO,29,"Scotland County, MO",4871,288,5.912543626
+2020,Midwest,Missouri,MO,29,"Scott County, MO",38288,7643,19.96186795
+2020,Midwest,Missouri,MO,29,"Shannon County, MO",8203,1631,19.88296965
+2020,Midwest,Missouri,MO,29,"Shelby County, MO",5919,667,11.2687954
+2020,Midwest,Missouri,MO,29,"Stoddard County, MO",29001,4621,15.93393331
+2020,Midwest,Missouri,MO,29,"Stone County, MO",32465,3257,10.03234252
+2020,Midwest,Missouri,MO,29,"Sullivan County, MO",6033,651,10.79065142
+2020,Midwest,Missouri,MO,29,"Taney County, MO",56104,8373,14.92406959
+2020,Midwest,Missouri,MO,29,"Texas County, MO",25112,3342,13.30837846
+2020,Midwest,Missouri,MO,29,"Vernon County, MO",20388,2914,14.29272121
+2020,Midwest,Missouri,MO,29,"Warren County, MO",36594,3353,9.162704268
+2020,Midwest,Missouri,MO,29,"Washington County, MO",24604,4806,19.5334092
+2020,Midwest,Missouri,MO,29,"Wayne County, MO",12769,2370,18.5605764
+2020,Midwest,Missouri,MO,29,"Webster County, MO",39859,4179,10.48445771
+2020,Midwest,Missouri,MO,29,"Worth County, MO",1953,175,8.960573477
+2020,Midwest,Missouri,MO,29,"Wright County, MO",18325,3488,19.03410641
+2020,Midwest,Missouri,MO,29,"St. Louis city, MO",297645,70823,23.79445312
+2020,Midwest,Nebraska,NE,31,"Adams County, NE",31321,2793,8.917339804
+2020,Midwest,Nebraska,NE,31,"Antelope County, NE",6264,354,5.651340996
+2020,Midwest,Nebraska,NE,31,"Arthur County, NE",466,6,1.287553648
+2020,Midwest,Nebraska,NE,31,"Banner County, NE",786,17,2.162849873
+2020,Midwest,Nebraska,NE,31,"Blaine County, NE",457,19,4.157549234
+2020,Midwest,Nebraska,NE,31,"Boone County, NE",5096,259,5.082417582
+2020,Midwest,Nebraska,NE,31,"Box Butte County, NE",10696,1198,11.20044877
+2020,Midwest,Nebraska,NE,31,"Boyd County, NE",1860,94,5.053763441
+2020,Midwest,Nebraska,NE,31,"Brown County, NE",2981,174,5.836967461
+2020,Midwest,Nebraska,NE,31,"Buffalo County, NE",50114,2980,5.946442112
+2020,Midwest,Nebraska,NE,31,"Burt County, NE",6477,519,8.012968967
+2020,Midwest,Nebraska,NE,31,"Butler County, NE",7960,381,4.786432161
+2020,Midwest,Nebraska,NE,31,"Cass County, NE",26232,1223,4.662244587
+2020,Midwest,Nebraska,NE,31,"Cedar County, NE",8414,317,3.767530307
+2020,Midwest,Nebraska,NE,31,"Chase County, NE",3840,197,5.130208333
+2020,Midwest,Nebraska,NE,31,"Cherry County, NE",5781,296,5.120221415
+2020,Midwest,Nebraska,NE,31,"Cheyenne County, NE",9111,892,9.790363297
+2020,Midwest,Nebraska,NE,31,"Clay County, NE",6216,446,7.175032175
+2020,Midwest,Nebraska,NE,31,"Colfax County, NE",10587,626,5.912912062
+2020,Midwest,Nebraska,NE,31,"Cuming County, NE",8798,469,5.33075699
+2020,Midwest,Nebraska,NE,31,"Custer County, NE",10626,641,6.032373424
+2020,Midwest,Nebraska,NE,31,"Dakota County, NE",20070,2357,11.74389636
+2020,Midwest,Nebraska,NE,31,"Dawes County, NE",8361,653,7.810070566
+2020,Midwest,Nebraska,NE,31,"Dawson County, NE",23510,2118,9.008932369
+2020,Midwest,Nebraska,NE,31,"Deuel County, NE",1793,153,8.533184607
+2020,Midwest,Nebraska,NE,31,"Dixon County, NE",5596,141,2.519656898
+2020,Midwest,Nebraska,NE,31,"Dodge County, NE",36222,3246,8.961404671
+2020,Midwest,Nebraska,NE,31,"Douglas County, NE",574332,58948,10.26374989
+2020,Midwest,Nebraska,NE,31,"Dundy County, NE",1671,116,6.941950928
+2020,Midwest,Nebraska,NE,31,"Fillmore County, NE",5519,361,6.541040043
+2020,Midwest,Nebraska,NE,31,"Franklin County, NE",2940,236,8.027210884
+2020,Midwest,Nebraska,NE,31,"Frontier County, NE",2587,151,5.836876691
+2020,Midwest,Nebraska,NE,31,"Furnas County, NE",4653,457,9.82162046
+2020,Midwest,Nebraska,NE,31,"Gage County, NE",21431,1939,9.047641267
+2020,Midwest,Nebraska,NE,31,"Garden County, NE",1847,208,11.26150514
+2020,Midwest,Nebraska,NE,31,"Garfield County, NE",1956,76,3.885480573
+2020,Midwest,Nebraska,NE,31,"Gosper County, NE",1986,98,4.934541793
+2020,Midwest,Nebraska,NE,31,"Grant County, NE",630,36,5.714285714
+2020,Midwest,Nebraska,NE,31,"Greeley County, NE",2319,107,4.614057784
+2020,Midwest,Nebraska,NE,31,"Hall County, NE",61028,5778,9.467785279
+2020,Midwest,Nebraska,NE,31,"Hamilton County, NE",9237,427,4.622713002
+2020,Midwest,Nebraska,NE,31,"Harlan County, NE",3311,141,4.258532166
+2020,Midwest,Nebraska,NE,31,"Hayes County, NE",916,31,3.384279476
+2020,Midwest,Nebraska,NE,31,"Hitchcock County, NE",2773,233,8.402452218
+2020,Midwest,Nebraska,NE,31,"Holt County, NE",9956,566,5.685014062
+2020,Midwest,Nebraska,NE,31,"Hooker County, NE",647,11,1.70015456
+2020,Midwest,Nebraska,NE,31,"Howard County, NE",6488,303,4.670160296
+2020,Midwest,Nebraska,NE,31,"Jefferson County, NE",7099,643,9.057613748
+2020,Midwest,Nebraska,NE,31,"Johnson County, NE",5057,325,6.426735219
+2020,Midwest,Nebraska,NE,31,"Kearney County, NE",6652,283,4.254359591
+2020,Midwest,Nebraska,NE,31,"Keith County, NE",7983,622,7.791557059
+2020,Midwest,Nebraska,NE,31,"Keya Paha County, NE",759,9,1.185770751
+2020,Midwest,Nebraska,NE,31,"Kimball County, NE",3495,298,8.526466381
+2020,Midwest,Nebraska,NE,31,"Knox County, NE",8304,630,7.586705202
+2020,Midwest,Nebraska,NE,31,"Lancaster County, NE",320650,25387,7.917355372
+2020,Midwest,Nebraska,NE,31,"Lincoln County, NE",34347,3206,9.334148543
+2020,Midwest,Nebraska,NE,31,"Logan County, NE",747,25,3.346720214
+2020,Midwest,Nebraska,NE,31,"Loup County, NE",650,28,4.307692308
+2020,Midwest,Nebraska,NE,31,"McPherson County, NE",474,10,2.109704641
+2020,Midwest,Nebraska,NE,31,"Madison County, NE",34813,2681,7.701146124
+2020,Midwest,Nebraska,NE,31,"Merrick County, NE",7809,447,5.724164426
+2020,Midwest,Nebraska,NE,31,"Morrill County, NE",4625,509,11.00540541
+2020,Midwest,Nebraska,NE,31,"Nance County, NE",3532,187,5.294450736
+2020,Midwest,Nebraska,NE,31,"Nemaha County, NE",7044,568,8.063600227
+2020,Midwest,Nebraska,NE,31,"Nuckolls County, NE",4134,251,6.071601355
+2020,Midwest,Nebraska,NE,31,"Otoe County, NE",15965,1162,7.278421547
+2020,Midwest,Nebraska,NE,31,"Pawnee County, NE",2601,207,7.958477509
+2020,Midwest,Nebraska,NE,31,"Perkins County, NE",2867,92,3.208929194
+2020,Midwest,Nebraska,NE,31,"Phelps County, NE",9006,544,6.040417499
+2020,Midwest,Nebraska,NE,31,"Pierce County, NE",7184,430,5.985523385
+2020,Midwest,Nebraska,NE,31,"Platte County, NE",33364,1873,5.613835272
+2020,Midwest,Nebraska,NE,31,"Polk County, NE",5201,243,4.672178427
+2020,Midwest,Nebraska,NE,31,"Red Willow County, NE",10627,777,7.311564882
+2020,Midwest,Nebraska,NE,31,"Richardson County, NE",7791,829,10.64048261
+2020,Midwest,Nebraska,NE,31,"Rock County, NE",1377,66,4.793028322
+2020,Midwest,Nebraska,NE,31,"Saline County, NE",13987,1053,7.528419246
+2020,Midwest,Nebraska,NE,31,"Sarpy County, NE",188856,7965,4.217499047
+2020,Midwest,Nebraska,NE,31,"Saunders County, NE",21927,888,4.049801614
+2020,Midwest,Nebraska,NE,31,"Scotts Bluff County, NE",35299,4676,13.24683419
+2020,Midwest,Nebraska,NE,31,"Seward County, NE",17186,573,3.334109159
+2020,Midwest,Nebraska,NE,31,"Sheridan County, NE",5150,457,8.873786408
+2020,Midwest,Nebraska,NE,31,"Sherman County, NE",2986,176,5.894172806
+2020,Midwest,Nebraska,NE,31,"Sioux County, NE",1200,20,1.666666667
+2020,Midwest,Nebraska,NE,31,"Stanton County, NE",5880,146,2.482993197
+2020,Midwest,Nebraska,NE,31,"Thayer County, NE",4887,322,6.588909351
+2020,Midwest,Nebraska,NE,31,"Thomas County, NE",739,48,6.49526387
+2020,Midwest,Nebraska,NE,31,"Thurston County, NE",7220,1929,26.71745152
+2020,Midwest,Nebraska,NE,31,"Valley County, NE",4103,314,7.652936875
+2020,Midwest,Nebraska,NE,31,"Washington County, NE",20901,657,3.143390268
+2020,Midwest,Nebraska,NE,31,"Wayne County, NE",9492,463,4.877791825
+2020,Midwest,Nebraska,NE,31,"Webster County, NE",3419,298,8.71599883
+2020,Midwest,Nebraska,NE,31,"Wheeler County, NE",790,20,2.53164557
+2020,Midwest,Nebraska,NE,31,"York County, NE",13511,911,6.742654134
+2020,Midwest,North Dakota,ND,38,"Adams County, ND",2188,128,5.850091408
+2020,Midwest,North Dakota,ND,38,"Barnes County, ND",10402,692,6.652566814
+2020,Midwest,North Dakota,ND,38,"Benson County, ND",6762,2116,31.29251701
+2020,Midwest,North Dakota,ND,38,"Billings County, ND",890,37,4.157303371
+2020,Midwest,North Dakota,ND,38,"Bottineau County, ND",6287,400,6.362334977
+2020,Midwest,North Dakota,ND,38,"Bowman County, ND",2986,125,4.186202277
+2020,Midwest,North Dakota,ND,38,"Burke County, ND",2118,58,2.738432483
+2020,Midwest,North Dakota,ND,38,"Burleigh County, ND",96212,4257,4.424604
+2020,Midwest,North Dakota,ND,38,"Cass County, ND",183904,10529,5.725269706
+2020,Midwest,North Dakota,ND,38,"Cavalier County, ND",3713,72,1.939132777
+2020,Midwest,North Dakota,ND,38,"Dickey County, ND",4705,221,4.697130712
+2020,Midwest,North Dakota,ND,38,"Divide County, ND",2277,92,4.04040404
+2020,Midwest,North Dakota,ND,38,"Dunn County, ND",4465,204,4.568868981
+2020,Midwest,North Dakota,ND,38,"Eddy County, ND",2179,142,6.516750803
+2020,Midwest,North Dakota,ND,38,"Emmons County, ND",3187,198,6.212739253
+2020,Midwest,North Dakota,ND,38,"Foster County, ND",3165,178,5.624012638
+2020,Midwest,North Dakota,ND,38,"Golden Valley County, ND",1737,67,3.857225101
+2020,Midwest,North Dakota,ND,38,"Grand Forks County, ND",69481,4235,6.095191491
+2020,Midwest,North Dakota,ND,38,"Grant County, ND",2215,200,9.029345372
+2020,Midwest,North Dakota,ND,38,"Griggs County, ND",2207,160,7.249660172
+2020,Midwest,North Dakota,ND,38,"Hettinger County, ND",2438,156,6.398687449
+2020,Midwest,North Dakota,ND,38,"Kidder County, ND",2458,142,5.777054516
+2020,Midwest,North Dakota,ND,38,"LaMoure County, ND",4033,111,2.752293578
+2020,Midwest,North Dakota,ND,38,"Logan County, ND",1880,112,5.957446809
+2020,Midwest,North Dakota,ND,38,"McHenry County, ND",5695,335,5.882352941
+2020,Midwest,North Dakota,ND,38,"McIntosh County, ND",2440,137,5.614754098
+2020,Midwest,North Dakota,ND,38,"McKenzie County, ND",15242,419,2.748983073
+2020,Midwest,North Dakota,ND,38,"McLean County, ND",9416,696,7.391673747
+2020,Midwest,North Dakota,ND,38,"Mercer County, ND",8174,289,3.535600685
+2020,Midwest,North Dakota,ND,38,"Morton County, ND",31503,1719,5.456623179
+2020,Midwest,North Dakota,ND,38,"Mountrail County, ND",10502,349,3.323176538
+2020,Midwest,North Dakota,ND,38,"Nelson County, ND",2789,166,5.951954105
+2020,Midwest,North Dakota,ND,38,"Oliver County, ND",1926,27,1.401869159
+2020,Midwest,North Dakota,ND,38,"Pembina County, ND",6658,328,4.926404326
+2020,Midwest,North Dakota,ND,38,"Pierce County, ND",3928,268,6.822810591
+2020,Midwest,North Dakota,ND,38,"Ramsey County, ND",11388,1085,9.527572884
+2020,Midwest,North Dakota,ND,38,"Ransom County, ND",5173,365,7.055867002
+2020,Midwest,North Dakota,ND,38,"Renville County, ND",2283,81,3.547963206
+2020,Midwest,North Dakota,ND,38,"Richland County, ND",16156,1023,6.332012874
+2020,Midwest,North Dakota,ND,38,"Rolette County, ND",14165,4790,33.81574303
+2020,Midwest,North Dakota,ND,38,"Sargent County, ND",3913,202,5.162279581
+2020,Midwest,North Dakota,ND,38,"Sheridan County, ND",1275,131,10.2745098
+2020,Midwest,North Dakota,ND,38,"Sioux County, ND",4173,1547,37.07165109
+2020,Midwest,North Dakota,ND,38,"Slope County, ND",747,37,4.953145917
+2020,Midwest,North Dakota,ND,38,"Stark County, ND",32107,2006,6.247858722
+2020,Midwest,North Dakota,ND,38,"Steele County, ND",1890,79,4.17989418
+2020,Midwest,North Dakota,ND,38,"Stutsman County, ND",20498,1308,6.381110352
+2020,Midwest,North Dakota,ND,38,"Towner County, ND",2108,134,6.356736243
+2020,Midwest,North Dakota,ND,38,"Traill County, ND",7959,460,5.779620555
+2020,Midwest,North Dakota,ND,38,"Walsh County, ND",10437,774,7.415924116
+2020,Midwest,North Dakota,ND,38,"Ward County, ND",68466,4151,6.062863319
+2020,Midwest,North Dakota,ND,38,"Wells County, ND",3709,417,11.24292262
+2020,Midwest,North Dakota,ND,38,"Williams County, ND",38700,1417,3.661498708
+2020,Midwest,Ohio,OH,39,"Adams County, OH",27531,5479,19.90120228
+2020,Midwest,Ohio,OH,39,"Allen County, OH",101980,13777,13.50951167
+2020,Midwest,Ohio,OH,39,"Ashland County, OH",53362,4023,7.539072748
+2020,Midwest,Ohio,OH,39,"Ashtabula County, OH",96513,17371,17.99861159
+2020,Midwest,Ohio,OH,39,"Athens County, OH",65481,9195,14.04224126
+2020,Midwest,Ohio,OH,39,"Auglaize County, OH",45680,2706,5.923817863
+2020,Midwest,Ohio,OH,39,"Belmont County, OH",65932,7985,12.11096281
+2020,Midwest,Ohio,OH,39,"Brown County, OH",43414,5719,13.17316995
+2020,Midwest,Ohio,OH,39,"Butler County, OH",385648,40904,10.6065635
+2020,Midwest,Ohio,OH,39,"Carroll County, OH",26897,2919,10.85251143
+2020,Midwest,Ohio,OH,39,"Champaign County, OH",38960,3880,9.958932238
+2020,Midwest,Ohio,OH,39,"Clark County, OH",133593,23438,17.54433241
+2020,Midwest,Ohio,OH,39,"Clermont County, OH",207449,13802,6.65320151
+2020,Midwest,Ohio,OH,39,"Clinton County, OH",41921,5438,12.9720188
+2020,Midwest,Ohio,OH,39,"Columbiana County, OH",101118,14576,14.41484207
+2020,Midwest,Ohio,OH,39,"Coshocton County, OH",36449,5632,15.45172707
+2020,Midwest,Ohio,OH,39,"Crawford County, OH",41338,6229,15.06846001
+2020,Midwest,Ohio,OH,39,"Cuyahoga County, OH",1227883,216158,17.60412026
+2020,Midwest,Ohio,OH,39,"Darke County, OH",51205,4326,8.448393712
+2020,Midwest,Ohio,OH,39,"Defiance County, OH",37778,3650,9.661707872
+2020,Midwest,Ohio,OH,39,"Delaware County, OH",213554,5725,2.680820776
+2020,Midwest,Ohio,OH,39,"Erie County, OH",73719,8976,12.17596549
+2020,Midwest,Ohio,OH,39,"Fairfield County, OH",159709,15220,9.529832383
+2020,Midwest,Ohio,OH,39,"Fayette County, OH",28579,4193,14.67161202
+2020,Midwest,Ohio,OH,39,"Franklin County, OH",1324624,171189,12.9235919
+2020,Midwest,Ohio,OH,39,"Fulton County, OH",41889,2845,6.791759173
+2020,Midwest,Ohio,OH,39,"Gallia County, OH",29802,6682,22.42131401
+2020,Midwest,Ohio,OH,39,"Geauga County, OH",93271,2670,2.862626111
+2020,Midwest,Ohio,OH,39,"Greene County, OH",170122,13258,7.79323074
+2020,Midwest,Ohio,OH,39,"Guernsey County, OH",38779,5729,14.77345986
+2020,Midwest,Ohio,OH,39,"Hamilton County, OH",817985,116971,14.29989547
+2020,Midwest,Ohio,OH,39,"Hancock County, OH",75407,5764,7.643852693
+2020,Midwest,Ohio,OH,39,"Hardin County, OH",31469,3264,10.37211224
+2020,Midwest,Ohio,OH,39,"Harrison County, OH",15014,2164,14.41321433
+2020,Midwest,Ohio,OH,39,"Henry County, OH",26904,1496,5.560511448
+2020,Midwest,Ohio,OH,39,"Highland County, OH",43304,6517,15.04941807
+2020,Midwest,Ohio,OH,39,"Hocking County, OH",28095,4815,17.13828083
+2020,Midwest,Ohio,OH,39,"Holmes County, OH",44004,1082,2.458867376
+2020,Midwest,Ohio,OH,39,"Huron County, OH",57979,7804,13.46004588
+2020,Midwest,Ohio,OH,39,"Jackson County, OH",32493,6445,19.83504139
+2020,Midwest,Ohio,OH,39,"Jefferson County, OH",64939,13256,20.41300297
+2020,Midwest,Ohio,OH,39,"Knox County, OH",62423,5781,9.261009564
+2020,Midwest,Ohio,OH,39,"Lake County, OH",229569,16383,7.136416502
+2020,Midwest,Ohio,OH,39,"Lawrence County, OH",59091,12756,21.58704371
+2020,Midwest,Ohio,OH,39,"Licking County, OH",178100,17721,9.950028074
+2020,Midwest,Ohio,OH,39,"Logan County, OH",45326,4783,10.55244231
+2020,Midwest,Ohio,OH,39,"Lorain County, OH",312172,36491,11.68938918
+2020,Midwest,Ohio,OH,39,"Lucas County, OH",428294,75956,17.73454683
+2020,Midwest,Ohio,OH,39,"Madison County, OH",44559,4200,9.425705245
+2020,Midwest,Ohio,OH,39,"Mahoning County, OH",226075,48056,21.25666261
+2020,Midwest,Ohio,OH,39,"Marion County, OH",64820,11412,17.60567726
+2020,Midwest,Ohio,OH,39,"Medina County, OH",180912,9014,4.982532944
+2020,Midwest,Ohio,OH,39,"Meigs County, OH",22678,4773,21.04682953
+2020,Midwest,Ohio,OH,39,"Mercer County, OH",41274,1698,4.113970054
+2020,Midwest,Ohio,OH,39,"Miami County, OH",107516,8755,8.142974069
+2020,Midwest,Ohio,OH,39,"Monroe County, OH",13586,1726,12.70425438
+2020,Midwest,Ohio,OH,39,"Montgomery County, OH",531610,79475,14.94986927
+2020,Midwest,Ohio,OH,39,"Morgan County, OH",14305,2140,14.95980426
+2020,Midwest,Ohio,OH,39,"Morrow County, OH",35411,2990,8.443703934
+2020,Midwest,Ohio,OH,39,"Muskingum County, OH",86020,15731,18.28760753
+2020,Midwest,Ohio,OH,39,"Noble County, OH",14364,1392,9.690893901
+2020,Midwest,Ohio,OH,39,"Ottawa County, OH",40253,3181,7.902516583
+2020,Midwest,Ohio,OH,39,"Paulding County, OH",18648,1855,9.947447447
+2020,Midwest,Ohio,OH,39,"Perry County, OH",36215,6015,16.60913986
+2020,Midwest,Ohio,OH,39,"Pickaway County, OH",58658,6387,10.88854035
+2020,Midwest,Ohio,OH,39,"Pike County, OH",27695,7021,25.35114642
+2020,Midwest,Ohio,OH,39,"Portage County, OH",162583,13952,8.581463007
+2020,Midwest,Ohio,OH,39,"Preble County, OH",40836,3849,9.425506906
+2020,Midwest,Ohio,OH,39,"Putnam County, OH",33654,1833,5.446603673
+2020,Midwest,Ohio,OH,39,"Richland County, OH",120891,18300,15.1376033
+2020,Midwest,Ohio,OH,39,"Ross County, OH",76420,13874,18.15493326
+2020,Midwest,Ohio,OH,39,"Sandusky County, OH",58351,5596,9.590238385
+2020,Midwest,Ohio,OH,39,"Scioto County, OH",74347,18739,25.20478298
+2020,Midwest,Ohio,OH,39,"Seneca County, OH",54938,6365,11.58578762
+2020,Midwest,Ohio,OH,39,"Shelby County, OH",48337,3631,7.511843929
+2020,Midwest,Ohio,OH,39,"Stark County, OH",369772,48648,13.15621518
+2020,Midwest,Ohio,OH,39,"Summit County, OH",538866,78419,14.55259749
+2020,Midwest,Ohio,OH,39,"Trumbull County, OH",196800,30626,15.56199187
+2020,Midwest,Ohio,OH,39,"Tuscarawas County, OH",91776,9875,10.75989365
+2020,Midwest,Ohio,OH,39,"Union County, OH",60021,2429,4.046916912
+2020,Midwest,Ohio,OH,39,"Van Wert County, OH",28159,2297,8.157249902
+2020,Midwest,Ohio,OH,39,"Vinton County, OH",12972,3010,23.20382362
+2020,Midwest,Ohio,OH,39,"Warren County, OH",238412,9322,3.910038085
+2020,Midwest,Ohio,OH,39,"Washington County, OH",59652,7509,12.58801046
+2020,Midwest,Ohio,OH,39,"Wayne County, OH",115694,9318,8.054004529
+2020,Midwest,Ohio,OH,39,"Williams County, OH",36565,3491,9.547381376
+2020,Midwest,Ohio,OH,39,"Wood County, OH",131113,6732,5.1345023
+2020,Midwest,Ohio,OH,39,"Wyandot County, OH",21711,1684,7.756436829
+2020,Midwest,South Dakota,SD,46,"Aurora County, SD",2730,74,2.710622711
+2020,Midwest,South Dakota,SD,46,"Beadle County, SD",18513,2382,12.86663426
+2020,Midwest,South Dakota,SD,46,"Bennett County, SD",3399,1221,35.9223301
+2020,Midwest,South Dakota,SD,46,"Bon Homme County, SD",6848,278,4.059579439
+2020,Midwest,South Dakota,SD,46,"Brookings County, SD",35603,1275,3.581158891
+2020,Midwest,South Dakota,SD,46,"Brown County, SD",38738,2662,6.871805462
+2020,Midwest,South Dakota,SD,46,"Brule County, SD",5254,380,7.232584697
+2020,Midwest,South Dakota,SD,46,"Buffalo County, SD",1956,768,39.26380368
+2020,Midwest,South Dakota,SD,46,"Butte County, SD",10538,1103,10.46688176
+2020,Midwest,South Dakota,SD,46,"Campbell County, SD",1380,44,3.188405797
+2020,Midwest,South Dakota,SD,46,"Charles Mix County, SD",9262,1473,15.90369251
+2020,Midwest,South Dakota,SD,46,"Clark County, SD",3802,96,2.524986849
+2020,Midwest,South Dakota,SD,46,"Clay County, SD",14246,1079,7.574055875
+2020,Midwest,South Dakota,SD,46,"Codington County, SD",28186,1949,6.914780387
+2020,Midwest,South Dakota,SD,46,"Corson County, SD",4031,1474,36.56660878
+2020,Midwest,South Dakota,SD,46,"Custer County, SD",9017,348,3.859376733
+2020,Midwest,South Dakota,SD,46,"Davison County, SD",19812,1620,8.176862508
+2020,Midwest,South Dakota,SD,46,"Day County, SD",5345,412,7.708138447
+2020,Midwest,South Dakota,SD,46,"Deuel County, SD",4346,134,3.083294984
+2020,Midwest,South Dakota,SD,46,"Dewey County, SD",5789,1675,28.93418552
+2020,Midwest,South Dakota,SD,46,"Douglas County, SD",2906,86,2.959394357
+2020,Midwest,South Dakota,SD,46,"Edmunds County, SD",3817,83,2.174482578
+2020,Midwest,South Dakota,SD,46,"Fall River County, SD",6708,527,7.856290996
+2020,Midwest,South Dakota,SD,46,"Faulk County, SD",2306,87,3.772766696
+2020,Midwest,South Dakota,SD,46,"Grant County, SD",7000,349,4.985714286
+2020,Midwest,South Dakota,SD,46,"Gregory County, SD",4219,303,7.181796634
+2020,Midwest,South Dakota,SD,46,"Haakon County, SD",1861,55,2.955400322
+2020,Midwest,South Dakota,SD,46,"Hamlin County, SD",6234,203,3.256336221
+2020,Midwest,South Dakota,SD,46,"Hand County, SD",3127,79,2.526383115
+2020,Midwest,South Dakota,SD,46,"Hanson County, SD",3489,78,2.235597592
+2020,Midwest,South Dakota,SD,46,"Harding County, SD",1311,19,1.449275362
+2020,Midwest,South Dakota,SD,46,"Hughes County, SD",17336,1426,8.225657591
+2020,Midwest,South Dakota,SD,46,"Hutchinson County, SD",7282,309,4.243339742
+2020,Midwest,South Dakota,SD,46,"Hyde County, SD",1281,42,3.278688525
+2020,Midwest,South Dakota,SD,46,"Jackson County, SD",3321,856,25.77536886
+2020,Midwest,South Dakota,SD,46,"Jerauld County, SD",1985,48,2.41813602
+2020,Midwest,South Dakota,SD,46,"Jones County, SD",938,49,5.223880597
+2020,Midwest,South Dakota,SD,46,"Kingsbury County, SD",4987,161,3.228393824
+2020,Midwest,South Dakota,SD,46,"Lake County, SD",12488,548,4.388212684
+2020,Midwest,South Dakota,SD,46,"Lawrence County, SD",26221,1588,6.056214485
+2020,Midwest,South Dakota,SD,46,"Lincoln County, SD",63019,1425,2.261222806
+2020,Midwest,South Dakota,SD,46,"Lyman County, SD",3797,634,16.69739268
+2020,Midwest,South Dakota,SD,46,"McCook County, SD",5520,269,4.873188406
+2020,Midwest,South Dakota,SD,46,"McPherson County, SD",2363,135,5.713076598
+2020,Midwest,South Dakota,SD,46,"Marshall County, SD",4884,184,3.767403767
+2020,Midwest,South Dakota,SD,46,"Meade County, SD",28588,1211,4.236043095
+2020,Midwest,South Dakota,SD,46,"Mellette County, SD",2089,597,28.57826711
+2020,Midwest,South Dakota,SD,46,"Miner County, SD",2202,112,5.086285195
+2020,Midwest,South Dakota,SD,46,"Minnehaha County, SD",196659,15188,7.723012931
+2020,Midwest,South Dakota,SD,46,"Moody County, SD",6525,273,4.183908046
+2020,Midwest,South Dakota,SD,46,"Oglala Lakota County, SD",14070,6469,45.97725657
+2020,Midwest,South Dakota,SD,46,"Pennington County, SD",115926,10718,9.245553198
+2020,Midwest,South Dakota,SD,46,"Perkins County, SD",2832,128,4.519774011
+2020,Midwest,South Dakota,SD,46,"Potter County, SD",2163,75,3.46740638
+2020,Midwest,South Dakota,SD,46,"Roberts County, SD",10331,1464,14.17094183
+2020,Midwest,South Dakota,SD,46,"Sanborn County, SD",2322,101,4.349698536
+2020,Midwest,South Dakota,SD,46,"Shannon County, SD",,,
+2020,Midwest,South Dakota,SD,46,"Spink County, SD",6319,249,3.940496914
+2020,Midwest,South Dakota,SD,46,"Stanley County, SD",3121,121,3.876962512
+2020,Midwest,South Dakota,SD,46,"Sully County, SD",1391,18,1.29403307
+2020,Midwest,South Dakota,SD,46,"Todd County, SD",10313,4559,44.20634151
+2020,Midwest,South Dakota,SD,46,"Tripp County, SD",5377,679,12.6278594
+2020,Midwest,South Dakota,SD,46,"Turner County, SD",8368,446,5.329827916
+2020,Midwest,South Dakota,SD,46,"Union County, SD",16192,527,3.254693676
+2020,Midwest,South Dakota,SD,46,"Walworth County, SD",5336,478,8.95802099
+2020,Midwest,South Dakota,SD,46,"Yankton County, SD",22742,1652,7.264092868
+2020,Midwest,South Dakota,SD,46,"Ziebach County, SD",2656,961,36.18222892
+2020,Midwest,Wisconsin,WI,55,"Adams County, WI",20498,3361,16.39672163
+2020,Midwest,Wisconsin,WI,55,"Ashland County, WI",15415,2900,18.81284463
+2020,Midwest,Wisconsin,WI,55,"Barron County, WI",45090,6108,13.54624085
+2020,Midwest,Wisconsin,WI,55,"Bayfield County, WI",15242,1723,11.30429078
+2020,Midwest,Wisconsin,WI,55,"Brown County, WI",264610,28902,10.9224897
+2020,Midwest,Wisconsin,WI,55,"Buffalo County, WI",13033,1087,8.340366761
+2020,Midwest,Wisconsin,WI,55,"Burnett County, WI",15557,2296,14.75862956
+2020,Midwest,Wisconsin,WI,55,"Calumet County, WI",50209,2474,4.927403454
+2020,Midwest,Wisconsin,WI,55,"Chippewa County, WI",64737,6633,10.24607257
+2020,Midwest,Wisconsin,WI,55,"Clark County, WI",34720,3029,8.724078341
+2020,Midwest,Wisconsin,WI,55,"Columbia County, WI",57668,5134,8.902684331
+2020,Midwest,Wisconsin,WI,55,"Crawford County, WI",16021,1927,12.0279633
+2020,Midwest,Wisconsin,WI,55,"Dane County, WI",552536,48511,8.779699422
+2020,Midwest,Wisconsin,WI,55,"Dodge County, WI",87336,7955,9.108500504
+2020,Midwest,Wisconsin,WI,55,"Door County, WI",27889,2095,7.511922263
+2020,Midwest,Wisconsin,WI,55,"Douglas County, WI",43702,5727,13.1046634
+2020,Midwest,Wisconsin,WI,55,"Dunn County, WI",45452,4369,9.612338291
+2020,Midwest,Wisconsin,WI,55,"Eau Claire County, WI",105260,11143,10.58616759
+2020,Midwest,Wisconsin,WI,55,"Florence County, WI",4298,557,12.95951605
+2020,Midwest,Wisconsin,WI,55,"Fond du Lac County, WI",102902,9711,9.437134361
+2020,Midwest,Wisconsin,WI,55,"Forest County, WI",8960,1466,16.36160714
+2020,Midwest,Wisconsin,WI,55,"Grant County, WI",51021,4584,8.984535779
+2020,Midwest,Wisconsin,WI,55,"Green County, WI",36603,2932,8.010272382
+2020,Midwest,Wisconsin,WI,55,"Green Lake County, WI",18908,2094,11.07467739
+2020,Midwest,Wisconsin,WI,55,"Iowa County, WI",23640,2042,8.637901861
+2020,Midwest,Wisconsin,WI,55,"Iron County, WI",5698,820,14.39101439
+2020,Midwest,Wisconsin,WI,55,"Jackson County, WI",20630,2308,11.18759089
+2020,Midwest,Wisconsin,WI,55,"Jefferson County, WI",85038,7455,8.766669019
+2020,Midwest,Wisconsin,WI,55,"Juneau County, WI",26908,4329,16.08815222
+2020,Midwest,Wisconsin,WI,55,"Kenosha County, WI",169671,23786,14.01889539
+2020,Midwest,Wisconsin,WI,55,"Kewaunee County, WI",20386,1420,6.965564603
+2020,Midwest,Wisconsin,WI,55,"La Crosse County, WI",118502,11093,9.361023443
+2020,Midwest,Wisconsin,WI,55,"Lafayette County, WI",16646,1489,8.945091914
+2020,Midwest,Wisconsin,WI,55,"Langlade County, WI",19119,3311,17.31785135
+2020,Midwest,Wisconsin,WI,55,"Lincoln County, WI",27566,3025,10.97366321
+2020,Midwest,Wisconsin,WI,55,"Manitowoc County, WI",78757,7733,9.818809757
+2020,Midwest,Wisconsin,WI,55,"Marathon County, WI",135593,12612,9.301365115
+2020,Midwest,Wisconsin,WI,55,"Marinette County, WI",40262,5080,12.61735632
+2020,Midwest,Wisconsin,WI,55,"Marquette County, WI",15585,1950,12.5120308
+2020,Midwest,Wisconsin,WI,55,"Menominee County, WI",4546,1998,43.95072591
+2020,Midwest,Wisconsin,WI,55,"Milwaukee County, WI",945016,266064,28.15444395
+2020,Midwest,Wisconsin,WI,55,"Monroe County, WI",46582,5204,11.17169722
+2020,Midwest,Wisconsin,WI,55,"Oconto County, WI",38383,3462,9.01961806
+2020,Midwest,Wisconsin,WI,55,"Oneida County, WI",35751,3734,10.44446309
+2020,Midwest,Wisconsin,WI,55,"Outagamie County, WI",188766,13337,7.065361347
+2020,Midwest,Wisconsin,WI,55,"Ozaukee County, WI",90043,3344,3.713781193
+2020,Midwest,Wisconsin,WI,55,"Pepin County, WI",7271,629,8.650804566
+2020,Midwest,Wisconsin,WI,55,"Pierce County, WI",42700,2313,5.416861827
+2020,Midwest,Wisconsin,WI,55,"Polk County, WI",43794,4392,10.02877106
+2020,Midwest,Wisconsin,WI,55,"Portage County, WI",71032,5811,8.180819912
+2020,Midwest,Wisconsin,WI,55,"Price County, WI",13245,1864,14.07323518
+2020,Midwest,Wisconsin,WI,55,"Racine County, WI",195802,32086,16.38696234
+2020,Midwest,Wisconsin,WI,55,"Richland County, WI",17258,2498,14.47444663
+2020,Midwest,Wisconsin,WI,55,"Rock County, WI",163084,25972,15.92553531
+2020,Midwest,Wisconsin,WI,55,"Rusk County, WI",14022,2383,16.99472258
+2020,Midwest,Wisconsin,WI,55,"St. Croix County, WI",91838,4505,4.905376859
+2020,Midwest,Wisconsin,WI,55,"Sauk County, WI",64449,7512,11.65572778
+2020,Midwest,Wisconsin,WI,55,"Sawyer County, WI",16700,2944,17.62874251
+2020,Midwest,Wisconsin,WI,55,"Shawano County, WI",40786,4642,11.38135635
+2020,Midwest,Wisconsin,WI,55,"Sheboygan County, WI",115240,12251,10.63085734
+2020,Midwest,Wisconsin,WI,55,"Taylor County, WI",20318,1853,9.119992125
+2020,Midwest,Wisconsin,WI,55,"Trempealeau County, WI",29681,2596,8.74633604
+2020,Midwest,Wisconsin,WI,55,"Vernon County, WI",30861,2814,9.118304656
+2020,Midwest,Wisconsin,WI,55,"Vilas County, WI",22356,3237,14.47933441
+2020,Midwest,Wisconsin,WI,55,"Walworth County, WI",103953,9526,9.163756698
+2020,Midwest,Wisconsin,WI,55,"Washburn County, WI",15712,2174,13.83655804
+2020,Midwest,Wisconsin,WI,55,"Washington County, WI",136445,7139,5.23214482
+2020,Midwest,Wisconsin,WI,55,"Waukesha County, WI",406172,17190,4.232197197
+2020,Midwest,Wisconsin,WI,55,"Waupaca County, WI",50664,5027,9.922232749
+2020,Midwest,Wisconsin,WI,55,"Waushara County, WI",24326,2746,11.28833347
+2020,Midwest,Wisconsin,WI,55,"Winnebago County, WI",171631,16925,9.861272148
+2020,Midwest,Wisconsin,WI,55,"Wood County, WI",72560,9574,13.19459757

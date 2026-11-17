@@ -1,0 +1,19 @@
+{% comment %}
+  Usage:
+    include code-example.html with file="pie_chart.py" and an optional title.
+  The file lives in _includes/code/.
+  If a Python file contains Liquid-like braces, wrap its contents in a Liquid raw block.
+  Jekyll will leave the braces alone and will not add the raw tags to the displayed code.
+{% endcomment %}
+{% assign code_example_path = include.file | prepend: "code/" %}
+{% capture code_example_source %}{% include {{ code_example_path }} %}{% endcapture %}
+<details class="code-example">
+  <summary class="code-example-toggle">{{ include.title | default: "Show Python code" }}</summary>
+  <div class="code-example-panel">
+    <div class="code-example-toolbar">
+      <button type="button" class="code-example-copy" hidden>Copy code</button>
+      <span class="code-example-status" aria-live="polite" aria-atomic="true"></span>
+    </div>
+    <pre class="code-example-pre" role="region" tabindex="0" aria-label="{{ include.title | default: 'Python code' }}"><code class="language-python">{{ code_example_source | escape }}</code></pre>
+  </div>
+</details>

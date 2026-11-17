@@ -1,0 +1,9 @@
+# U.S. Census Bureau, Post-Secondary Employment Outcomes (PSEO) Flows, release R2023Q4
+# Source file: https://lehd.ces.census.gov/data/pseo/R2023Q4/va/pseof_va.csv.gz
+# Selection: institution 00374500 (University of Virginia), degree_level 07 (master's),
+# cip_level 2, CIP 14/45/27, grad_cohort 0000, grad_cohort_years 5, agg_level_pseo 40,
+# geo_level N, geography 00 (nation), ind_level A, industry 00 (all industries), year-1 outcomes.
+release,institution,institution_name,degree_level,degree_label,cip_level,cipcode,cip_label,grad_cohort,grad_cohort_years,agg_level_pseo,geo_level,geography,ind_level,industry,y1_grads_emp,y1_grads_nme,status_y1_grads_emp,status_y1_grads_nme
+R2023Q4,00374500,University of Virginia,07,Master's,2,14,Engineering,0000,5,40,N,00,A,00,768,508,1,1
+R2023Q4,00374500,University of Virginia,07,Master's,2,45,Social Sciences,0000,5,40,N,00,A,00,84,326,1,1
+R2023Q4,00374500,University of Virginia,07,Master's,2,27,Mathematics and Statistics,0000,5,40,N,00,A,00,122,108,1,1

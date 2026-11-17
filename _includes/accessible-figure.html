@@ -17,35 +17,41 @@ the source line, and the data table stay together.
   note           Optional note under the first table.
   table_caption_2, headers_2, rows_2
                  Optional second table, for a breakdown of one row.
-  id             Optional id for the figure.
+  id             Optional id for the figure. Also used to name the table areas.
 
 Example rows value:
   Car, truck, or van|2,429,541|76.4%||Worked from home|435,692|13.7%
 {% endcomment %}
 {%- assign source_line = include.source | default: "Source: U.S. Census Bureau" -%}
 {%- assign summary_label = include.summary | default: "Show the data table" -%}
+{%- assign figure_key = include.id | default: include.table_caption | default: include.caption | slugify -%}
 {%- assign figure_src = include.src -%}
 {%- unless figure_src contains "://" -%}
   {%- assign figure_src = figure_src | relative_url -%}
 {%- endunless -%}
 <style>
-  .accessible-figure { margin: 1.75rem 0 2rem; padding: 1rem 0 0.25rem; border-top: 4px solid #137e55; border-bottom: 1px solid #e5e5e5; max-width: 100%; }
+  .accessible-figure { margin: 1.75rem 0 2rem; padding: 1rem 0 0.25rem; border-top: 4px solid var(--dv-green, #0f6e45); border-bottom: 1px solid #e5e5e5; max-width: 100%; }
   .accessible-figure-caption { margin: 0 0 0.75rem; color: #1b1b1b; font-size: 1.15rem; font-weight: 700; line-height: 1.4; }
   .accessible-figure img { display: block; max-width: 100%; height: auto; margin: 0.25rem 0 0.75rem; }
   .accessible-figure-source, .accessible-figure-note { margin: 0.75rem 0; color: #1b1b1b; line-height: 1.5; }
-  .accessible-figure a { color: #1e6bb8; text-decoration: underline; }
-  .accessible-figure summary { color: #1e6bb8; font-weight: 700; cursor: pointer; padding: 0.75rem 0.15rem; }
-  .accessible-figure summary:focus, .accessible-figure a:focus { outline: 3px solid #1e6bb8; outline-offset: 3px; }
-  .accessible-figure table { width: 100%; border-collapse: collapse; margin: 0.25rem 0 0.75rem; }
-  .accessible-figure caption { caption-side: top; text-align: left; color: #1b1b1b; font-weight: 700; padding: 0.35rem 0 0.6rem; }
-  .accessible-figure th, .accessible-figure td { border: 1px solid #c5cdd2; padding: 0.55rem 0.75rem; color: #1b1b1b; vertical-align: top; text-align: left; }
+  .accessible-figure a { color: var(--dv-blue, #1e6bb8); text-decoration: underline; }
+  .accessible-figure summary { color: var(--dv-blue, #1e6bb8); font-weight: 700; cursor: pointer; padding: 0.75rem 0.15rem; }
+  .accessible-figure summary:focus, .accessible-figure a:focus { outline: 3px solid var(--dv-focus, #1e6bb8); outline-offset: 3px; }
+  /* The table area scrolls sideways when the table is wider than the screen.
+     tabindex="0" lets keyboard users reach it and scroll with the arrow keys. */
+  .accessible-figure-table { max-width: 100%; overflow-x: auto; margin: 0.25rem 0 0.75rem; -webkit-overflow-scrolling: touch; }
+  .accessible-figure-table:focus, .accessible-figure-table:focus-visible { outline: 3px solid var(--dv-focus, #1e6bb8); outline-offset: -3px; }
+  .accessible-figure-table table { display: table; width: 100%; min-width: 100%; border-collapse: separate; border-spacing: 0; margin: 0; overflow: visible; }
+  /* The caption stays in place and wraps to the screen width while the table scrolls. */
+  .accessible-figure caption { caption-side: top; text-align: left; color: #1b1b1b; font-weight: 700; padding: 0.35rem 0 0.6rem; position: sticky; left: 0; max-width: calc(100vw - 2rem); }
+  .accessible-figure th, .accessible-figure td { border: 1px solid #c5cdd2; border-width: 0 1px 1px 0; padding: 0.55rem 0.75rem; color: #1b1b1b; vertical-align: top; text-align: left; background: #fff; }
+  .accessible-figure tr > :first-child { border-left-width: 1px; }
+  .accessible-figure thead tr:first-child > * { border-top-width: 1px; }
   .accessible-figure thead th { background: #f4f7f6; font-weight: 700; }
-  .accessible-figure td { text-align: right; }
-  @media (max-width: 800px) {
-    .accessible-figure table { table-layout: fixed; width: 100%; }
-    .accessible-figure th, .accessible-figure td { white-space: normal; overflow-wrap: anywhere; }
-    .accessible-figure tbody th { width: 40%; }
-  }
+  .accessible-figure td { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }
+  /* Keep the row names in view while the numbers scroll. */
+  .accessible-figure tr > :first-child { position: sticky; left: 0; z-index: 1; }
+  .accessible-figure tbody th { min-width: 8rem; }
 </style>
 <figure class="accessible-figure"{% if include.id %} id="{{ include.id | escape }}"{% endif %}>
   <figcaption class="accessible-figure-caption">{{ include.caption | escape }}</figcaption>
@@ -54,8 +60,9 @@ Example rows value:
   {% if include.headers and include.rows %}
   <details>
     <summary>{{ summary_label | escape }}</summary>
+    <div class="accessible-figure-table" role="region" tabindex="0" aria-labelledby="{{ figure_key }}-table-caption">
     <table>
-      <caption>{{ include.table_caption | escape }}</caption>
+      <caption id="{{ figure_key }}-table-caption">{{ include.table_caption | escape }}</caption>
       <thead>
         <tr>
           {% assign header_cells = include.headers | split: "|" %}
@@ -80,12 +87,14 @@ Example rows value:
         {% endfor %}
       </tbody>
     </table>
+    </div>
     {% if include.note %}
     <p class="accessible-figure-note">{{ include.note | escape }}</p>
     {% endif %}
     {% if include.headers_2 and include.rows_2 %}
+    <div class="accessible-figure-table" role="region" tabindex="0" aria-labelledby="{{ figure_key }}-table-caption-2">
     <table>
-      <caption>{{ include.table_caption_2 | escape }}</caption>
+      <caption id="{{ figure_key }}-table-caption-2">{{ include.table_caption_2 | escape }}</caption>
       <thead>
         <tr>
           {% assign header_cells_2 = include.headers_2 | split: "|" %}
@@ -110,6 +119,7 @@ Example rows value:
         {% endfor %}
       </tbody>
     </table>
+    </div>
     {% endif %}
   </details>
   {% endif %}

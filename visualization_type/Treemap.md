@@ -23,7 +23,7 @@ Treemaps can represent data with a tree-like hierarchical relationship, such as 
 Use a treemap when:
 
 * The data has broad groups that split into smaller subgroups.
-* You want to show how each part contributes to the whole and to its group.
+* The goal is to show how each part contributes to the whole and to its group.
 * There are too many categories for a pie or donut chart.
 
 ## When to Use an Alternative
@@ -85,7 +85,36 @@ This chart is a good example of the following:
 
 ## Developer Implementation
 
-A reproducible Python example using U.S. Census Bureau data will be added in a later update.
+### Reproduce the Midwest SNAP participation example
+
+The script draws the Midwest county treemap in Example 1 from the Census Bureau's official 2020 SAIPE SNAP treemap file. It follows the Example 1 layout: a wide treemap with a labeled strip for each state, the largest states and counties at the lower right, and the legend across the top. Rectangle size is the number of SNAP participants. Color is the participation rate, using the same five bins as the tool: less than 10 percent, 10 to 20, 20 to 30, 30 to 40, and more than 40 percent. Shannon County, South Dakota, is omitted from the treemap because the official file has no population or SNAP counts for that county name.
+
+No margin of error is shown. The SNAP participant counts are administrative records, not survey estimates: the Census Bureau obtains them from the U.S. Department of Agriculture's Food and Nutrition Service or from state offices, and controls each county's July count to the state's 12-month average, as described in [SAIPE: SNAP Benefits Recipients](https://www.census.gov/programs-surveys/saipe/guidance/model-input-data/snap.html).
+
+<a href="{{ '/examples/family_d/make_saipe_treemap.py' | relative_url }}">Download the Python script</a>. It needs Python 3 and the matplotlib package. No API key is required. The program uses the saved table `examples/family_d/saipe_snap_2020_midwest.csv` so it can run offline. If that file is missing, or if the `--refresh` flag is used, it downloads `snap.2020.json` from the Census SAIPE treemap tool and keeps the Midwest counties.
+
+<pre style="white-space: pre-wrap; overflow: visible;"><code>python3 examples/family_d/make_saipe_treemap.py</code></pre>
+
+
+The script saves [the treemap]({{ '/assets/family-d/saipe-midwest-snap-2020.png' | relative_url }}).
+
+![Treemap of 2020 SNAP participation in 1,055 Midwest counties. Rectangle size is the number of SNAP participants. Color is the participation rate in five bins from less than 10 percent to more than 40 percent. The largest counties are Cook County, Illinois, with 946,451 participants, and Wayne County, Michigan, with 408,499 participants.]({{ '/assets/family-d/saipe-midwest-snap-2020.png' | relative_url }})
+
+The full county table is in the saved CSV. The largest counties in the 2020 file are:
+
+| County | SNAP participants | Participation rate |
+|---|---:|---:|
+| Cook County, IL | 946,451 | 18.5% |
+| Wayne County, MI | 408,499 | 23.5% |
+| Milwaukee County, WI | 266,064 | 28.2% |
+| Cuyahoga County, OH | 216,158 | 17.6% |
+| Franklin County, OH | 171,189 | 12.9% |
+| Marion County, IN | 153,228 | 15.9% |
+| Hennepin County, MN | 121,093 | 9.5% |
+| Hamilton County, OH | 116,971 | 14.3% |
+
+{% include code-example.html file="treemap.py" title="Show Python code for the Midwest SNAP treemap" %}
+
 
 ## Common Errors and Misinterpretations
 
@@ -99,15 +128,89 @@ A reproducible Python example using U.S. Census Bureau data will be added in a l
 
 ## Publication Quality Checklist
 
-- [ ] The visualization fits the analytical question.
-- [ ] Relevant alternatives were considered.
-- [ ] Data source, geography, reference period, and units are documented.
-- [ ] Data transformations and aggregation are appropriate.
-- [ ] Missing values and relevant uncertainty are addressed.
-- [ ] Existing accessibility, scaling, and axes guidance has been followed.
-- [ ] Chart-specific limitations and caveats are explained.
-- [ ] Code examples have been executed and verified.
-- [ ] The visualization has undergone the appropriate review.
+<ul class="checklist-folds">
+  <li>
+    <details>
+      <summary>The visualization fits the analytical question.</summary>
+      <div class="checklist-fold-body">
+        <p>A treemap suits data with broad groups that split into smaller subgroups, showing how each part contributes to the whole and to its group. It also suits data with too many categories for a pie or donut chart.</p>
+        <p><a href="#when-to-use">Read the full section: When to Use</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Relevant alternatives were considered.</summary>
+      <div class="checklist-fold-body">
+        <p>The page compares a treemap with a bar chart, a population pyramid, a pie or donut chart, a line or stacked area chart, and a table. Treemaps are not recommended for data with a natural order, such as age ranges.</p>
+        <p><a href="#choosing-between-alternatives">Read the full section: Choosing Between Alternatives</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Data source, geography, reference period, and units are documented.</summary>
+      <div class="checklist-fold-body">
+        <p>State the measure, units, geographic area, and reference period. The example names its source as the Census Bureau's official 2020 SAIPE SNAP treemap file for Midwest counties. Source line guidance is on the site-wide <a href="source.html">Sources</a> page.</p>
+        <p><a href="#data-requirements-and-statistical-considerations">Read the full section: Data Requirements and Statistical Considerations</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Data transformations and aggregation are appropriate.</summary>
+      <div class="checklist-fold-body">
+        <p>The data must have a clear hierarchy, with each subgroup in exactly one group. Values must be zero or positive, and subgroups must add up to their group total.</p>
+        <p><a href="#data-requirements-and-statistical-considerations">Read the full section: Data Requirements and Statistical Considerations</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Missing values and relevant uncertainty are addressed.</summary>
+      <div class="checklist-fold-body">
+        <p>For survey estimates, report margins of error in a note or data table, and explain how missing, suppressed, or combined categories are handled. The example omits Shannon County, South Dakota, because the official file has no population or SNAP counts for that county name. More on uncertainty is on the site-wide <a href="uncertainty.html">Visualizing Uncertainty</a> page.</p>
+        <p><a href="#data-requirements-and-statistical-considerations">Read the full section: Data Requirements and Statistical Considerations</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Existing accessibility, scaling, and axes guidance has been followed.</summary>
+      <div class="checklist-fold-body">
+        <p>The Accessibility section calls for alt text that states the main takeaway, a data table of rectangle values, direct labels on larger rectangles, text contrast of at least 4.5:1 against each fill, and borders or fill differences of at least 3:1. Full requirements are on the site-wide <a href="508.html">508 Compliance</a> and <a href="color.html">Color</a> pages, and axes guidance is on the site-wide <a href="axes.html">Axes</a> page.</p>
+        <p><a href="#accessibility">Read the full section: Accessibility</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Chart-specific limitations and caveats are explained.</summary>
+      <div class="checklist-fold-body">
+        <p>Rectangle areas are harder to compare than bar lengths, and a rectangle cannot have a negative size. Color should show a different measure than rectangle size, and small rectangles often cannot hold readable labels.</p>
+        <p><a href="#when-to-use-an-alternative">Read the full section: When to Use an Alternative</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Code examples have been executed and verified.</summary>
+      <div class="checklist-fold-body">
+        <p>The Developer Implementation section gives a downloadable Python script, the saved table it uses so it can run offline, and the command that runs it. No API key is required. The page lists the largest counties, and the saved CSV holds the full county table.</p>
+        <p><a href="#developer-implementation">Read the full section: Developer Implementation</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>The visualization has undergone the appropriate review.</summary>
+      <div class="checklist-fold-body">
+        <p>This page does not describe a formal review process. Its Common Errors and Misinterpretations table lists issues to look for, why they matter, and the recommended correction.</p>
+        <p><a href="#common-errors-and-misinterpretations">Read the full section: Common Errors and Misinterpretations</a></p>
+      </div>
+    </details>
+  </li>
+</ul>
 
  
 ## Related Pages

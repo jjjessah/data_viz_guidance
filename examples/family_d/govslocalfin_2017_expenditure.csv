@@ -1,0 +1,67 @@
+# U.S. Census Bureau, 2017 Annual Survey of State and Local Government Finances
+# Census Data API: https://api.census.gov/data/timeseries/govslocalfin
+# Selection: time=2017, GOVTYPE=001 (state and local combined), United States and Alabama
+# Retrieved: 2026-11-14. AMOUNT is reported in thousands of dollars.
+# category is blank for reference totals that are not also a chart group (LF0090, LF0103).
+# LF0199 is both the Utilities group and the utility-expenditure total.
+geography,geo_for,year,govtype,agg_desc,agg_desc_label,amount_thousands,amount_dollars,category,role
+United States,us:*,2017,001,LF0103,Expenditure - Direct Expenditure - Total General Expenditure,3077231058,3077231058000,,total
+United States,us:*,2017,001,LF0090,Expenditure - Total,3671998799,3671998799000,,total
+United States,us:*,2017,001,LF0107,Expenditure - Direct Expenditure - General Expenditure - Education - Total Expenditure,1016295002,1016295002000,Education,category
+United States,us:*,2017,001,LF0120,Expenditure - Direct Expenditure - General Expenditure - Libraries - Total Expenditures,12436952,12436952000,Other,category
+United States,us:*,2017,001,LF0123,Expenditure - Direct Expenditure - General Expenditure - Public Welfare - Total Expenditure,676778863,676778863000,Health & Welfare,category
+United States,us:*,2017,001,LF0129,Expenditure - Direct Expenditure - General Expenditure - Hospitals - Total Expenditure,193228841,193228841000,Health & Welfare,category
+United States,us:*,2017,001,LF0132,Expenditure - Direct Expenditure - General Expenditure - Health - Total Expenditure,100098078,100098078000,Health & Welfare,category
+United States,us:*,2017,001,LF0135,Expenditure - Direct Expenditure - General Expenditure - Social Insurance Administration - Total Expenditure,3999297,3999297000,Health & Welfare,category
+United States,us:*,2017,001,LF0138,Expenditure - Direct Expenditure - General Expenditure - Veterans Services - Total Expenditures,702165,702165000,Health & Welfare,category
+United States,us:*,2017,001,LF0141,Expenditure - Direct Expenditure - General Expenditure - Highways - Total Expenditures,181295483,181295483000,Transportation,category
+United States,us:*,2017,001,LF0165,Expenditure - Direct Expenditure - General Expenditure - Natural Resources - Total Expenditure,32058972,32058972000,Other,category
+United States,us:*,2017,001,LF0144,Expenditure - Direct Expenditure - General Expenditure - Air Transportation (Airports) - Total Expenditures,26059327,26059327000,Transportation,category
+United States,us:*,2017,001,LF0147,Expenditure - Direct Expenditure - General Expenditure - Parking Facilities - Total Expenditure,2111508,2111508000,Transportation,category
+United States,us:*,2017,001,LF0150,Expenditure - Direct Expenditure - General Expenditure - Sea and Inland Port Facilities - Total Expenditure,6400740,6400740000,Transportation,category
+United States,us:*,2017,001,LF0153,Expenditure - Direct Expenditure - General Expenditure - Police Protection - Total Expenditure,113666218,113666218000,Public Safety,category
+United States,us:*,2017,001,LF0156,Expenditure - Direct Expenditure - General Expenditure - Fire Protection - Total Expenditure,50399986,50399986000,Public Safety,category
+United States,us:*,2017,001,LF0159,Expenditure - Direct Expenditure - General Expenditure - Correction - Total Expenditure,79393251,79393251000,Public Safety,category
+United States,us:*,2017,001,LF0162,Expenditure - Direct Expenditure - General Expenditure - Protective Inspection & Regulation - Total Expenditure,14397162,14397162000,Public Safety,category
+United States,us:*,2017,001,LF0168,Expenditure - Direct Expenditure - General Expenditure - Parks and Recreation - Total Expenditure,45481602,45481602000,Parks & Recreation,category
+United States,us:*,2017,001,LF0171,Expenditure - Direct Expenditure - General Expenditure - Housing and Community Development - Total Expenditure,52989139,52989139000,Other,category
+United States,us:*,2017,001,LF0193,Expenditure - Direct Expenditure - General Expenditure - Miscellaneous Commercial Activities - Total Expenditures,4487470,4487470000,Other,category
+United States,us:*,2017,001,LF0174,Expenditure - Direct Expenditure - General Expenditure - Sewerage - Total Expenditure,57225582,57225582000,Other,category
+United States,us:*,2017,001,LF0177,Expenditure - Direct Expenditure - General Expenditure - Solid Waste Management - Total Expenditure,25011984,25011984000,Other,category
+United States,us:*,2017,001,LF0180,Expenditure - Direct Expenditure - General Expenditure - Financial Administration - Total Expenditure,48005312,48005312000,Administration,category
+United States,us:*,2017,001,LF0183,Expenditure - Direct Expenditure - General Expenditure - Judicial and Legal - Total Expenditure,47653915,47653915000,Administration,category
+United States,us:*,2017,001,LF0186,Expenditure - Direct Expenditure - General Expenditure - General Public Buildings - Total Expenditure,14766148,14766148000,Administration,category
+United States,us:*,2017,001,LF0189,Expenditure - Direct Expenditure - General Expenditure - Other Governmental Administration - Total Expenditure,35478961,35478961000,Administration,category
+United States,us:*,2017,001,LF0192,Expenditure - Direct Expenditure - General Expenditure - Interest on General Debt,106065423,106065423000,Other,category
+United States,us:*,2017,001,LF0196,Expenditure - Direct Expenditure - General Expenditure - Other and Unallocable - Total Expenditures,130743677,130743677000,Other,category
+United States,us:*,2017,001,LF0199,Expenditure - Direct Expenditure - Utility Expenditure - Total Expenditure,232150474,232150474000,Utilities,total+category
+Alabama,state:01,2017,001,LF0141,Expenditure - Direct Expenditure - General Expenditure - Highways - Total Expenditures,2486023,2486023000,Transportation,category
+Alabama,state:01,2017,001,LF0144,Expenditure - Direct Expenditure - General Expenditure - Air Transportation (Airports) - Total Expenditures,137606,137606000,Transportation,category
+Alabama,state:01,2017,001,LF0168,Expenditure - Direct Expenditure - General Expenditure - Parks and Recreation - Total Expenditure,546254,546254000,Parks & Recreation,category
+Alabama,state:01,2017,001,LF0103,Expenditure - Direct Expenditure - Total General Expenditure,39959674,39959674000,,total
+Alabama,state:01,2017,001,LF0107,Expenditure - Direct Expenditure - General Expenditure - Education - Total Expenditure,14017829,14017829000,Education,category
+Alabama,state:01,2017,001,LF0129,Expenditure - Direct Expenditure - General Expenditure - Hospitals - Total Expenditure,6316990,6316990000,Health & Welfare,category
+Alabama,state:01,2017,001,LF0090,Expenditure - Total,47181752,47181752000,,total
+Alabama,state:01,2017,001,LF0138,Expenditure - Direct Expenditure - General Expenditure - Veterans Services - Total Expenditures,6108,6108000,Health & Welfare,category
+Alabama,state:01,2017,001,LF0150,Expenditure - Direct Expenditure - General Expenditure - Sea and Inland Port Facilities - Total Expenditure,91218,91218000,Transportation,category
+Alabama,state:01,2017,001,LF0153,Expenditure - Direct Expenditure - General Expenditure - Police Protection - Total Expenditure,1283440,1283440000,Public Safety,category
+Alabama,state:01,2017,001,LF0159,Expenditure - Direct Expenditure - General Expenditure - Correction - Total Expenditure,734305,734305000,Public Safety,category
+Alabama,state:01,2017,001,LF0165,Expenditure - Direct Expenditure - General Expenditure - Natural Resources - Total Expenditure,260274,260274000,Other,category
+Alabama,state:01,2017,001,LF0120,Expenditure - Direct Expenditure - General Expenditure - Libraries - Total Expenditures,94396,94396000,Other,category
+Alabama,state:01,2017,001,LF0123,Expenditure - Direct Expenditure - General Expenditure - Public Welfare - Total Expenditure,7001467,7001467000,Health & Welfare,category
+Alabama,state:01,2017,001,LF0132,Expenditure - Direct Expenditure - General Expenditure - Health - Total Expenditure,840469,840469000,Health & Welfare,category
+Alabama,state:01,2017,001,LF0135,Expenditure - Direct Expenditure - General Expenditure - Social Insurance Administration - Total Expenditure,94177,94177000,Health & Welfare,category
+Alabama,state:01,2017,001,LF0147,Expenditure - Direct Expenditure - General Expenditure - Parking Facilities - Total Expenditure,14738,14738000,Transportation,category
+Alabama,state:01,2017,001,LF0156,Expenditure - Direct Expenditure - General Expenditure - Fire Protection - Total Expenditure,515228,515228000,Public Safety,category
+Alabama,state:01,2017,001,LF0162,Expenditure - Direct Expenditure - General Expenditure - Protective Inspection & Regulation - Total Expenditure,153180,153180000,Public Safety,category
+Alabama,state:01,2017,001,LF0171,Expenditure - Direct Expenditure - General Expenditure - Housing and Community Development - Total Expenditure,562480,562480000,Other,category
+Alabama,state:01,2017,001,LF0174,Expenditure - Direct Expenditure - General Expenditure - Sewerage - Total Expenditure,421108,421108000,Other,category
+Alabama,state:01,2017,001,LF0177,Expenditure - Direct Expenditure - General Expenditure - Solid Waste Management - Total Expenditure,306807,306807000,Other,category
+Alabama,state:01,2017,001,LF0180,Expenditure - Direct Expenditure - General Expenditure - Financial Administration - Total Expenditure,613600,613600000,Administration,category
+Alabama,state:01,2017,001,LF0183,Expenditure - Direct Expenditure - General Expenditure - Judicial and Legal - Total Expenditure,368410,368410000,Administration,category
+Alabama,state:01,2017,001,LF0186,Expenditure - Direct Expenditure - General Expenditure - General Public Buildings - Total Expenditure,107161,107161000,Administration,category
+Alabama,state:01,2017,001,LF0189,Expenditure - Direct Expenditure - General Expenditure - Other Governmental Administration - Total Expenditure,476595,476595000,Administration,category
+Alabama,state:01,2017,001,LF0192,Expenditure - Direct Expenditure - General Expenditure - Interest on General Debt,992775,992775000,Other,category
+Alabama,state:01,2017,001,LF0193,Expenditure - Direct Expenditure - General Expenditure - Miscellaneous Commercial Activities - Total Expenditures,17592,17592000,Other,category
+Alabama,state:01,2017,001,LF0196,Expenditure - Direct Expenditure - General Expenditure - Other and Unallocable - Total Expenditures,1499444,1499444000,Other,category
+Alabama,state:01,2017,001,LF0199,Expenditure - Direct Expenditure - Utility Expenditure - Total Expenditure,3171810,3171810000,Utilities,total+category

@@ -11,7 +11,7 @@ description: "How to use gridlines and map graticules to support data reading wi
 
 Grids provide reference lines that help readers understand values and compare data points. They can improve precision in large charts and make subtle differences easier to see.
 
-In line graphs, bar charts, and similar visualizations, gridlines help readers trace data points to values on the x- or y-axis. Gridlines are optional; consider using them when data points are not directly labeled.
+In line graphs, bar charts, and similar visualizations, gridlines help readers trace data points to values on the x- or y-axis. Gridlines are optional; use them when data points aren't directly labeled.
 
 On maps, reference grids can help readers locate places beyond the geographic boundaries shown, such as county or state lines. Graticules show latitude and longitude. They can provide context on reference maps but are not always needed on thematic maps using Census Bureau data.
 
@@ -24,7 +24,7 @@ In addition to the guidance provided in this section, relevant guidance can also
 ## Essential Requirements
 
 * Use a subdued color, such as gray, that keeps gridlines visible without cluttering the visualization.
-* Render gridlines behind data marks so they do not obscure points, bars, or lines. Gridlines may cross the positions of data marks; the concern is visual layering and readability, not preventing every intersection.
+* Render gridlines behind data marks so they do not obscure points, bars, or lines. Gridlines may cross data marks; the concern is visual layering and readability, not preventing every intersection.
 * Keep gridlines from interfering with labels and other text.
 
 ## Recommended Practices
@@ -77,6 +77,52 @@ This example demonstrates the following practices well:
 * Labels remain clear and readable.
 * Gridlines help readers estimate values and interpret the chart.
 
+## Developer Implementation
+
+### Reproduce the New York commute example
+
+The script draws the bar chart in Example 1 from the 2016 American Community Survey 1-year estimates, Table DP03, for New York state, keeping the six categories and their order from Example 1. It saves two versions. The first keeps thin gray vertical gridlines at every 10 percent, drawn behind the bars, to show how to style gridlines so they stay secondary to the data. The gridline color, #949494, has a 3:1 contrast ratio against the white background, so the gridlines remain usable on charts that depend on them; thin lines keep them visually behind the bars. The second, the recommended version, leaves out the gridlines and the percent axis, as suggested under Example 1, because every bar already has a direct value label. Gridlines are worth keeping when readers need to estimate values that are not labeled, such as in line graphs, scatter plots, dense time series, or small multiples that share an axis.
+
+<a href="{{ '/examples/family_d/make_ny_commute_grid.py' | relative_url }}">Download the Python script</a>. It needs Python 3 and the matplotlib package. The program uses the saved table `examples/family_d/acs_dp03_ny_2016_commute.csv` so it can run offline. It calls the Census Data API only if that file is missing, or if the `--refresh` flag is used. To refresh the table, request a free Census Data API key at https://api.census.gov/data/key_signup.html and set it in the environment. Leave the key out of the program, this page, and the saved table:
+
+<pre style="white-space: pre-wrap; overflow: visible;"><code>export CENSUS_API_KEY=API_KEY_VALUE
+python3 examples/family_d/make_ny_commute_grid.py --refresh</code></pre>
+
+Without `--refresh`, run:
+
+<pre style="white-space: pre-wrap; overflow: visible;"><code>python3 examples/family_d/make_ny_commute_grid.py</code></pre>
+
+The script saves [the version with gridlines]({{ '/assets/family-d/ny-commute-2016-gridlines.png' | relative_url }}) and [the recommended version]({{ '/assets/family-d/ny-commute-2016-recommended.png' | relative_url }}).
+
+#### With gridlines (reproduces Example 1)
+
+![Horizontal bar chart of means of transportation to work in New York using 2016 American Community Survey 1-year estimates. Of 9,291,557 workers 16 years and over, 52.6 percent drove alone and 28.4 percent used public transportation, followed by carpool at 6.5 percent, walked at 6.2 percent, worked at home at 4.3 percent, and other means at 2.0 percent. Thin gray vertical gridlines mark every 10 percent behind the bars, and each bar has a direct value label. The 90 percent margins of error are 0.3 percentage points or less.]({{ '/assets/family-d/ny-commute-2016-gridlines.png' | relative_url }})
+
+*The estimates have 90 percent margins of error of 0.3 percentage points or less, listed in the table below.*
+
+#### Recommended: without gridlines
+
+![The same horizontal bar chart of means of transportation to work in New York in 2016, without gridlines or a percent axis. Each bar has a direct value label: drove alone 52.6 percent, public transportation 28.4 percent, carpool 6.5 percent, walked 6.2 percent, worked at home 4.3 percent, and other means 2.0 percent. The 90 percent margins of error are 0.3 percentage points or less.]({{ '/assets/family-d/ny-commute-2016-recommended.png' | relative_url }})
+
+*The estimates have 90 percent margins of error of 0.3 percentage points or less, listed in the table below.*
+
+The two versions differ only where the script checks `gridlines`: the gridline version adds the 10 percent ticks, the gridlines, and the axis title, and the recommended version removes the percent axis and moves "percent of workers 16 years and over" into the subtitle.
+
+Estimates for workers 16 years and over in New York, 2016. Margins of error are at the 90 percent confidence level.
+
+| Means of transportation | Estimate | Margin of error | Percent | Percent margin of error |
+|---|---:|---:|---:|---:|
+| Drove alone | 4,888,039 | ±27,150 | 52.6% | ±0.3 |
+| Public transportation (excluding taxicab) | 2,636,851 | ±24,680 | 28.4% | ±0.3 |
+| Carpool | 606,605 | ±15,551 | 6.5% | ±0.2 |
+| Walked | 577,983 | ±13,519 | 6.2% | ±0.1 |
+| Worked at home | 400,213 | ±12,682 | 4.3% | ±0.1 |
+| Other means | 181,866 | ±7,655 | 2.0% | ±0.1 |
+| Workers 16 years and over | 9,291,557 | ±26,473 | 100.0% | |
+
+{% include code-example.html file="grids_bar_chart.py" title="Show Python code for the New York commute bar charts" %}
+
+
 ## Common Errors and Misinterpretations
 
 | Issue | Why It Matters | Recommended Correction |
@@ -90,15 +136,89 @@ This example demonstrates the following practices well:
 
 ## Publication Quality Checklist
 
-- [ ] The visualization fits the analytical question.
-- [ ] Relevant alternatives were considered.
-- [ ] Data source, geography, reference period, and units are documented.
-- [ ] Data transformations and aggregation are appropriate.
-- [ ] Missing values and relevant uncertainty are addressed.
-- [ ] Existing accessibility, scaling, and axes guidance has been followed.
-- [ ] Chart-specific limitations and caveats are explained.
-- [ ] Code examples have been executed and verified.
-- [ ] The visualization has undergone the appropriate review.
+<ul class="checklist-folds">
+  <li>
+    <details>
+      <summary>The visualization fits the analytical question.</summary>
+      <div class="checklist-fold-body">
+        <p>Gridlines are optional. Use them when they help readers trace unlabeled data points to axis values, and consider removing them when direct labels already give the values.</p>
+        <p><a href="#recommended-practices">Read the full section: Recommended Practices</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Relevant alternatives were considered.</summary>
+      <div class="checklist-fold-body">
+        <p>The New York example shows two versions of the same chart: one with gridlines, which reproduces Example 1, and a recommended version without them, because every bar already has a direct value label.</p>
+        <p><a href="#recommended-without-gridlines">Read the full section: Recommended: without gridlines</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Data source, geography, reference period, and units are documented.</summary>
+      <div class="checklist-fold-body">
+        <p>The New York example names its source as the 2016 American Community Survey 1-year estimates, Table DP03, for New York state, and its table covers workers 16 years and over. Source line guidance is on the site-wide <a href="source.html">Sources</a> page.</p>
+        <p><a href="#reproduce-the-new-york-commute-example">Read the full section: Reproduce the New York commute example</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Data transformations and aggregation are appropriate.</summary>
+      <div class="checklist-fold-body">
+        <p>This page does not cover data transformation. The New York example keeps the six categories and their order from Example 1, and its table lists each estimate, percent, and margin of error.</p>
+        <p><a href="#reproduce-the-new-york-commute-example">Read the full section: Reproduce the New York commute example</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Missing values and relevant uncertainty are addressed.</summary>
+      <div class="checklist-fold-body">
+        <p>The New York table gives margins of error at the 90 percent confidence level. The Accessibility section says not to rely on gridlines alone when precise values matter, and to use direct labels or a data table. More on uncertainty is on the site-wide <a href="uncertainty.html">Visualizing Uncertainty</a> page.</p>
+        <p><a href="#reproduce-the-new-york-commute-example">Read the full section: Reproduce the New York commute example</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Existing accessibility, scaling, and axes guidance has been followed.</summary>
+      <div class="checklist-fold-body">
+        <p>Axis and tick labels need a contrast of at least 4.5:1, and gridlines that readers must use to read values need at least 3:1 against the background. Full requirements are on the site-wide <a href="508.html">508 Compliance</a>, <a href="color.html">Color</a>, and <a href="axes.html">Axes</a> pages.</p>
+        <p><a href="#accessibility">Read the full section: Accessibility</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Chart-specific limitations and caveats are explained.</summary>
+      <div class="checklist-fold-body">
+        <p>Gridlines should not obscure data marks or compete with the data, and unnecessary gridlines add clutter when direct labels already make values clear. Graticules belong on a thematic map only when they help readers interpret it.</p>
+        <p><a href="#practices-to-avoid">Read the full section: Practices to Avoid</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>Code examples have been executed and verified.</summary>
+      <div class="checklist-fold-body">
+        <p>The Developer Implementation section gives a downloadable Python script that saves both versions, the saved table it uses so it can run offline, and the commands that run it. It names the one setting in the script where the two versions differ.</p>
+        <p><a href="#developer-implementation">Read the full section: Developer Implementation</a></p>
+      </div>
+    </details>
+  </li>
+  <li>
+    <details>
+      <summary>The visualization has undergone the appropriate review.</summary>
+      <div class="checklist-fold-body">
+        <p>This page does not describe a formal review process. Its Common Errors and Misinterpretations table lists issues to look for, why they matter, and the recommended correction.</p>
+        <p><a href="#common-errors-and-misinterpretations">Read the full section: Common Errors and Misinterpretations</a></p>
+      </div>
+    </details>
+  </li>
+</ul>
  
 ## Related Pages
  

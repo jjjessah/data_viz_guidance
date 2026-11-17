@@ -1,0 +1,10 @@
+# Ruby gems for building the site locally with run_checks.py.
+# Install with: bundle install   (run in this folder)
+source "https://rubygems.org"
+
+gem "jekyll", "~> 4.3"
+gem "jekyll-remote-theme"
+gem "jekyll-include-cache"
+gem "jekyll-relative-links", "0.6.1"
+gem "jekyll-seo-tag", "~> 2.0"
+gem "webrick", "~> 1.8"
