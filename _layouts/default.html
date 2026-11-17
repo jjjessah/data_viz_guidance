@@ -1,3 +1,5 @@
+---
+---
 <!DOCTYPE html>
 <html lang="en-US">
   <head>
@@ -653,9 +655,9 @@
       <p class="project-tagline">{{ site.description | default: site.github.project_tagline }}</p>
     </header>
 
-    <div class="slim-bar">
+    <nav class="slim-bar" aria-label="Site home">
       <a class="slim-bar-home" href="{{ site.baseurl }}/"{% if is_home %} aria-current="page"{% endif %}>{{ site.title | default: site.github.repository_name }}</a>
-    </div>
+    </nav>
 
     <div class="page-body">
     <nav class="custom-sidebar" aria-label="Site menu">
@@ -786,6 +788,20 @@
           wrap.appendChild(table);
           wraps.push(wrap);
         });
+        /* Two tables under the same heading would get the same name, so number repeated names. */
+        var seen = {};
+        wraps.forEach(function (wrap) {
+          var label = wrap.getAttribute("data-label");
+          seen[label] = (seen[label] || 0) + 1;
+        });
+        var counter = {};
+        wraps.forEach(function (wrap) {
+          var label = wrap.getAttribute("data-label");
+          if (seen[label] > 1) {
+            counter[label] = (counter[label] || 0) + 1;
+            wrap.setAttribute("data-label", label + ", table " + counter[label] + " of " + seen[label]);
+          }
+        });
         function sync() {
           wraps.forEach(function (wrap) {
             if (wrap.scrollWidth > wrap.clientWidth + 1) {
@@ -849,5 +865,9 @@
         });
       })();
     </script>
+
+    <!-- Download functionality for Python, Jupyter, and other files -->
+    <script src="{{ '/assets/js/download.js' | relative_url }}" defer></script>
+    
   </body>
 </html>

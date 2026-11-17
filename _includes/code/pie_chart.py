@@ -13,7 +13,7 @@ The other sex rows use ethnicity 001, race 00, and veteran status 001.
 
 Set a Census Data API key only in the environment. Do not paste it into this file:
 
-    export CENSUS_API_KEY=your_key_here
+    export CENSUS_API_KEY=API_KEY_VALUE
     python3 examples/family_d/make_ownership_pies.py
 
 If CENSUS_API_KEY is not set, the program still tries the API once. If that
@@ -148,11 +148,15 @@ def _api_request(params, api_key):
         with urllib.request.urlopen(request, timeout=90) as response:
             raw = response.read().decode("utf-8")
     except urllib.error.HTTPError as error:
+        if not api_key:
+            return None  # Without a key, fall back to the saved CSV.
         raise SystemExit(
             f"The Census Data API returned status {error.code}. "
             "Check that CENSUS_API_KEY is valid."
         )
     except urllib.error.URLError:
+        if not api_key:
+            return None  # Without a key, fall back to the saved CSV.
         raise SystemExit("The Census Data API could not be reached.")
     if raw.lstrip().startswith("<"):
         return None
@@ -346,7 +350,7 @@ def draw_chart(places, out_path: Path):
         left=0.02,
         right=0.98,
         top=0.86,
-        bottom=0.07,
+        bottom=0.085,
         wspace=0.08,
         hspace=0.55,
     )
@@ -377,6 +381,17 @@ def draw_chart(places, out_path: Path):
         color="#1b1b1b",
         ha="left",
         va="top",
+    )
+    us_rse = [g["rse"] for p in places if p["label"] == "United States" for g in p["groups"] if g["rse"] is not None]
+    state_rse = [g["rse"] for p in places if p["label"] != "United States" for g in p["groups"] if g["rse"] is not None]
+    fig.text(
+        0.03,
+        0.044,
+        f"Published relative standard errors: {max(us_rse):.1f}% or less for U.S. groups and up to "
+        f"{max(state_rse):.1f}% for state groups. The data table lists them with margins of error.",
+        fontsize=8,
+        color="#1b1b1b",
+        ha="left",
     )
     fig.text(
         0.03,

@@ -10,7 +10,7 @@ API: https://api.census.gov/data/2024/acs/acs5
 To download the live estimates, set a Census Data API key in the environment.
 Do not paste the key into this file:
 
-    export CENSUS_API_KEY=your_key_here
+    export CENSUS_API_KEY=API_KEY_VALUE
     python3 examples/family_d/make_md_commute_chart.py
 
 If CENSUS_API_KEY is not set, the program uses the saved estimates in
@@ -287,11 +287,22 @@ def draw_chart(total, total_margin, slices, out_path: Path):
         pad=14,
     )
 
+    largest_share_margin = max(item["percent_margin"] for item in slices)
+    fig.text(
+        0.01,
+        0.12,
+        f"Share of {total:,} workers age 16 and over (±{total_margin:,.0f}). "
+        "Percents are rounded to one decimal place.",
+        fontsize=11,
+        color="#1b1b1b",
+        ha="left",
+    )
     fig.text(
         0.01,
         0.075,
-        f"Share of {total:,} workers age 16 and over (±{total_margin:,.0f}). "
-        "Percents are rounded to one decimal place.",
+        "90 percent margins of error: "
+        f"±{largest_share_margin:.2f} percentage points or less for each share. "
+        "See the data table.",
         fontsize=11,
         color="#1b1b1b",
         ha="left",
@@ -305,7 +316,7 @@ def draw_chart(total, total_margin, slices, out_path: Path):
         ha="left",
     )
 
-    fig.subplots_adjust(left=0.02, right=0.52, top=0.86, bottom=0.16)
+    fig.subplots_adjust(left=0.02, right=0.52, top=0.86, bottom=0.2)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(out_path, facecolor="#ffffff", bbox_inches="tight", pad_inches=0.35)
     plt.close(fig)

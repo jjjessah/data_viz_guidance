@@ -229,13 +229,15 @@ def draw(rows: list[dict], gridlines: bool, out_path: Path) -> None:
     if not gridlines:
         subtitle += " (percent of workers 16 years and over)"
     fig.text(0.02, 0.905, subtitle, fontsize=12, color=MUTED_TEXT, ha="left")
+    largest_share_margin = max(by_code[code]["percent_moe"] for _, code in CATEGORIES)
     fig.text(
         0.02, 0.025,
         f"Source: U.S. Census Bureau, 2016 American Community Survey 1-Year Estimates, Table DP03.\n"
-        f"New York state, {total:,} workers 16 years and over.",
+        f"New York state, {total:,} workers 16 years and over.\n"
+        f"90 percent margins of error: \u00b1{largest_share_margin:.1f} percentage points or less for each share.",
         fontsize=9, color=MUTED_TEXT, ha="left", va="bottom", linespacing=1.4,
     )
-    fig.subplots_adjust(top=0.85, bottom=0.19 if gridlines else 0.14, left=0.2, right=0.97)
+    fig.subplots_adjust(top=0.85, bottom=0.23 if gridlines else 0.18, left=0.2, right=0.97)
     out_path.parent.mkdir(parents=True, exist_ok=True)
     fig.savefig(out_path, dpi=150, facecolor="white")
     plt.close(fig)

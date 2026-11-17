@@ -96,11 +96,15 @@ The script saves [the version with gridlines]({{ '/assets/family-d/ny-commute-20
 
 #### With gridlines (reproduces Example 1)
 
-![Horizontal bar chart of means of transportation to work in New York using 2016 American Community Survey 1-year estimates. Of 9,291,557 workers 16 years and over, 52.6 percent drove alone and 28.4 percent used public transportation, followed by carpool at 6.5 percent, walked at 6.2 percent, worked at home at 4.3 percent, and other means at 2.0 percent. Thin gray vertical gridlines mark every 10 percent behind the bars, and each bar has a direct value label.]({{ '/assets/family-d/ny-commute-2016-gridlines.png' | relative_url }})
+![Horizontal bar chart of means of transportation to work in New York using 2016 American Community Survey 1-year estimates. Of 9,291,557 workers 16 years and over, 52.6 percent drove alone and 28.4 percent used public transportation, followed by carpool at 6.5 percent, walked at 6.2 percent, worked at home at 4.3 percent, and other means at 2.0 percent. Thin gray vertical gridlines mark every 10 percent behind the bars, and each bar has a direct value label. The 90 percent margins of error are 0.3 percentage points or less.]({{ '/assets/family-d/ny-commute-2016-gridlines.png' | relative_url }})
+
+*The estimates have 90 percent margins of error of 0.3 percentage points or less, listed in the table below.*
 
 #### Recommended: without gridlines
 
-![The same horizontal bar chart of means of transportation to work in New York in 2016, without gridlines or a percent axis. Each bar has a direct value label: drove alone 52.6 percent, public transportation 28.4 percent, carpool 6.5 percent, walked 6.2 percent, worked at home 4.3 percent, and other means 2.0 percent.]({{ '/assets/family-d/ny-commute-2016-recommended.png' | relative_url }})
+![The same horizontal bar chart of means of transportation to work in New York in 2016, without gridlines or a percent axis. Each bar has a direct value label: drove alone 52.6 percent, public transportation 28.4 percent, carpool 6.5 percent, walked 6.2 percent, worked at home 4.3 percent, and other means 2.0 percent. The 90 percent margins of error are 0.3 percentage points or less.]({{ '/assets/family-d/ny-commute-2016-recommended.png' | relative_url }})
+
+*The estimates have 90 percent margins of error of 0.3 percentage points or less, listed in the table below.*
 
 The two versions differ only where the script checks `gridlines`: the gridline version adds the 10 percent ticks, the gridlines, and the axis title, and the recommended version removes the percent axis and moves "percent of workers 16 years and over" into the subtitle.
 

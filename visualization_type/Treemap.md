@@ -23,7 +23,7 @@ Treemaps can represent data with a tree-like hierarchical relationship, such as 
 Use a treemap when:
 
 * The data has broad groups that split into smaller subgroups.
-* You want to show how each part contributes to the whole and to its group.
+* The goal is to show how each part contributes to the whole and to its group.
 * There are too many categories for a pie or donut chart.
 
 ## When to Use an Alternative
@@ -88,6 +88,8 @@ This chart is a good example of the following:
 ### Reproduce the Midwest SNAP participation example
 
 The script draws the Midwest county treemap in Example 1 from the Census Bureau's official 2020 SAIPE SNAP treemap file. It follows the Example 1 layout: a wide treemap with a labeled strip for each state, the largest states and counties at the lower right, and the legend across the top. Rectangle size is the number of SNAP participants. Color is the participation rate, using the same five bins as the tool: less than 10 percent, 10 to 20, 20 to 30, 30 to 40, and more than 40 percent. Shannon County, South Dakota, is omitted from the treemap because the official file has no population or SNAP counts for that county name.
+
+No margin of error is shown. The SNAP participant counts are administrative records, not survey estimates: the Census Bureau obtains them from the U.S. Department of Agriculture's Food and Nutrition Service or from state offices, and controls each county's July count to the state's 12-month average, as described in [SAIPE: SNAP Benefits Recipients](https://www.census.gov/programs-surveys/saipe/guidance/model-input-data/snap.html).
 
 <a href="{{ '/examples/family_d/make_saipe_treemap.py' | relative_url }}">Download the Python script</a>. It needs Python 3 and the matplotlib package. No API key is required. The program uses the saved table `examples/family_d/saipe_snap_2020_midwest.csv` so it can run offline. If that file is missing, or if the `--refresh` flag is used, it downloads `snap.2020.json` from the Census SAIPE treemap tool and keeps the Midwest counties.
 

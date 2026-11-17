@@ -6,12 +6,6 @@ tags: [Distribution]
 description: "When to use pie charts, when to choose alternatives, and how to present part-to-whole Census data clearly."
 ---
 
-<style>
-  .custom-sidebar h3,
-  .main-content h3 { color: #137e55; }
-  .tag-link { background: #137e55; }
-</style>
-
 # Pie Chart
 
 **Also known as:** Circle chart
@@ -97,8 +91,8 @@ The picture description states the result. The caption names the chart. The sour
 {% include accessible-figure.html
    id="md-commute"
    src="assets/family-d/md-means-of-transportation.png"
-   alt="Pie chart of how workers in Maryland got to work in 2020 to 2024. 72.4 percent used a car, truck, or van. 19.3 percent worked from home. 4.2 percent used public transportation. 4.0 percent walked, biked, used a taxi or ride-hailing service, rode a motorcycle, or used another means."
-   caption="How Maryland workers got to work, 2020–2024. Each slice is a share of workers age 16 and over."
+   alt="Pie chart of how workers in Maryland got to work in 2020 to 2024. 72.4 percent used a car, truck, or van. 19.3 percent worked from home. 4.2 percent used public transportation. 4.0 percent walked, biked, used a taxi or ride-hailing service, rode a motorcycle, or used another means. The 90 percent margins of error are 0.24 percentage points or less for each share."
+   caption="How Maryland workers got to work, 2020–2024. Each slice is a share of workers age 16 and over. The estimates have 90 percent margins of error, listed in the data table below."
    source="U.S. Census Bureau, 2020–2024 American Community Survey 5-Year Estimates, Table B08301"
    source_detail="Maryland. Workers 16 years and over."
    source_url="https://data.census.gov/table/ACSDT5Y2024.B08301?g=040XX00US24"
@@ -119,8 +113,8 @@ This chart draws on the Census Bureau's 2021 Nonemployer Statistics by Demograph
 {% include accessible-figure.html
    id="ownership-pies-2021"
    src="assets/family-d/ownership-by-sex-2021.png"
-   alt="A map of small pies, one in each state's place, plus a larger United States pie, for the sex of business owners in 2021. Of all U.S. firms, 38.6 percent are female-owned, 4.2 percent are owned equally by men and women, 54.1 percent are male-owned, and 3.1 percent are unclassifiable. The number under each name is the total number of firms. The Maine pie is omitted because the female-owned count is suppressed."
-   caption="Ownership share of all businesses by sex, 2021. States are arranged like a map, and a larger pie shows the United States."
+   alt="A map of small pies, one in each state's place, plus a larger United States pie, for the sex of business owners in 2021. Of all U.S. firms, 38.6 percent are female-owned, 4.2 percent are owned equally by men and women, 54.1 percent are male-owned, and 3.1 percent are unclassifiable. The number under each name is the total number of firms. The Maine pie is omitted because the female-owned count is suppressed. The U.S. counts have relative standard errors of 0.3 percent or less; state groups range up to 13.7 percent, for equally owned firms in the District of Columbia."
+   caption="Ownership share of all businesses by sex, 2021. States are arranged like a map, and a larger pie shows the United States. Each count has a published relative standard error; the data table lists it with a margin of error calculated from it at about the 90 percent level."
    source_detail="Nonemployer Statistics by Demographics (NES-D): Company Summary, 2021, table AB2100NESD01. Variable FIRMALL, all sectors."
    source_url="https://data.census.gov/table/ABSNESD2021.AB2100NESD01"
    summary="Show the data table"
@@ -134,7 +128,7 @@ This chart draws on the Census Bureau's 2021 Nonemployer Statistics by Demograph
 
 To draw this picture again, from the project folder:
 ```
-export CENSUS_API_KEY=your_key_here
+export CENSUS_API_KEY=API_KEY_VALUE
 python3 examples/family_d/make_ownership_pies.py
 ```
 
@@ -158,10 +152,10 @@ The ownership example's Python instructions appear with that example above. The 
 
 <a href="{{ '/examples/family_d/make_md_commute_chart.py' | relative_url }}">Download the Python script</a>. It saves the Maryland commute chart. It needs Python 3 and the matplotlib package.
 
-To download the live 2020–2024 estimates, request a free Census Data API key at https://api.census.gov/data/key_signup.html and set it in your terminal. Leave the key out of the program, this page, and the saved table:
+To download the live 2020–2024 estimates, request a free Census Data API key at https://api.census.gov/data/key_signup.html and set it in the environment. Leave the key out of the program, this page, and the saved table:
 
 ```
-export CENSUS_API_KEY=your_key_here
+export CENSUS_API_KEY=API_KEY_VALUE
 python3 examples/family_d/make_md_commute_chart.py
 ```
 
