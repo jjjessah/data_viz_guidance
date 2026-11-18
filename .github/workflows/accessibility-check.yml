@@ -1,0 +1,98 @@
+# Runs the accessibility checker in examples/accessibility_check on GitHub's computers.
+# Results appear on the run's Summary page (Actions tab), and the full results,
+# including screenshots, can be downloaded as the "accessibility-results" artifact.
+#
+# axe-core failures are reported but do not fail the run, because some pages
+# outside Family D still have known failures. The run fails only when the
+# checklist link check on the Family D pages fails, or when the site does not
+# build or the checker cannot finish.
+#
+# The checker never reads CENSUS_API_KEY, and this workflow uses no secrets.
+name: Accessibility check
+
+on:
+  push:
+    branches-ignore:
+      - gh-pages
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: accessibility-check-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  check:
+    name: Accessibility check
+    # A pull request from a branch in this same repository is already checked by
+    # its push run, so only pull requests from other forks run again here.
+    if: github.event_name != 'pull_request' || github.event.pull_request.head.repo.full_name != github.repository
+    runs-on: ubuntu-24.04
+    timeout-minutes: 20
+    env:
+      BUNDLE_GEMFILE: ${{ github.workspace }}/examples/accessibility_check/Gemfile
+      CHECKER_CHROME: /usr/bin/google-chrome
+    steps:
+      - name: Get the files from this branch
+        uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+
+      - name: Set up Ruby and the Jekyll gems
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: "3.3"
+          bundler-cache: true
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v7
+        with:
+          node-version: "24"
+
+      - name: Install playwright-core and axe-core outside the repository
+        run: |
+          npm install --no-audit --no-fund --prefix "$RUNNER_TEMP/checker-tools" playwright-core axe-core
+          echo "CHECKER_NODE_MODULES=$RUNNER_TEMP/checker-tools/node_modules" >> "$GITHUB_ENV"
+
+      - name: Run the checker
+        id: check
+        run: |
+          set +e
+          python3 examples/accessibility_check/run_checks.py run --src . \
+            --label "${GITHUB_REF_NAME}" --out "$RUNNER_TEMP/accessibility-results" \
+            --screenshots --fail-on-broken-links
+          code=$?
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          exit 0
+
+      - name: Show the results on the Summary page
+        if: always()
+        run: |
+          summary="$RUNNER_TEMP/accessibility-results/summary.md"
+          if [ -f "$summary" ]; then
+            # GitHub accepts up to 1 MiB of summary text per step.
+            head -c 1000000 "$summary" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "The checker did not finish, so there is no summary. Open the \"Run the checker\" step to see why." >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      - name: Save the results for download
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: accessibility-results
+          path: |
+            ${{ runner.temp }}/accessibility-results/summary.md
+            ${{ runner.temp }}/accessibility-results/results.json
+            ${{ runner.temp }}/accessibility-results/screenshots/
+          if-no-files-found: warn
+          retention-days: 30
+
+      - name: Fail if checklist links are broken or the checker did not finish
+        if: steps.check.outputs.exit_code != '0'
+        run: |
+          echo "::error::The checker found broken checklist links on the Family D pages, or the site did not build. See the Summary page or the \"Run the checker\" step."
+          exit 1
