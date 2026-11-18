@@ -22,8 +22,9 @@ async function checkPage(page, url) {
   return page.evaluate(async (tags) => {
     const r = await axe.run(document, { runOnly: { type: 'tag', values: tags }, resultTypes: ['violations'] });
     const violations = r.violations.map(v => ({
-      id: v.id, impact: v.impact, help: v.help,
-      nodes: v.nodes.map(n => ({ target: n.target.join(' '), html: n.html.slice(0, 160) })),
+      id: v.id, impact: v.impact, help: v.help, description: v.description, helpUrl: v.helpUrl,
+      nodes: v.nodes.map(n => ({ target: n.target.join(' '), html: n.html.slice(0, 160),
+                                 failureSummary: n.failureSummary || '' })),
     }));
     const overflow = Math.max(0, document.documentElement.scrollWidth - window.innerWidth);
     const brokenImages = [...document.querySelectorAll('main img')]
