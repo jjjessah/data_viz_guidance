@@ -2,8 +2,6 @@
 title: "Scale Bar"
 permalink: scalebar.html
 description: "Guidance for designing and implementing accurate scale bars in static and interactive maps."
-tags:
-  - geospatial
 ---
 # Scale Bar
 
