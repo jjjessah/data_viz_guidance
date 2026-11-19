@@ -2,10 +2,10 @@
 layout: default
 title: Dot Distribution Map
 permalink: dotdistributionmap.html
-tags:
-  - distribution
-  - geospatial
 description: "Guidance for designing, interpreting, and implementing dot distribution maps, including a Maryland Census example."
+tags:
+  - Distribution
+  - Geospatial
 ---
 
 # Dot Distribution Map

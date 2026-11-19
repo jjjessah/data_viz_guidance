@@ -3,7 +3,6 @@ layout: default
 title: Agency Logo
 permalink: logo.html
 description: "Guidance for selecting, placing, and implementing official U.S. Census Bureau logo treatments in data visualizations while preserving clear data attribution and statistical transparency."
-tags: [census-branding, accessibility]
 ---
 
 # Agency Logo
