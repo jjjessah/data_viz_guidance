@@ -631,6 +631,105 @@
         background: transparent;
         white-space: pre;
       }
+      /* Page tools panel (right side). Wide screens: a sticky column beside the content.
+         Narrower screens and 200% zoom: it simply stacks below the page content. */
+      .page-tools {
+        box-sizing: border-box;
+        margin: 1.5rem 1rem 0;
+        padding: 16px;
+        background-color: var(--dv-surface);
+        border: 1px solid var(--dv-border);
+        border-radius: 8px;
+        color: var(--dv-text);
+        font-size: 0.95rem;
+      }
+      .page-tools h2 {
+        margin: 1.25rem 0 0.5rem;
+        font-size: 0.95rem;
+        font-weight: 700;
+        line-height: 1.3;
+        color: var(--dv-green);  /* 5.83:1 on #f4f7f6 */
+        text-transform: uppercase;
+        letter-spacing: 0.5px;
+      }
+      .page-tools ul { list-style: none; margin: 0; padding: 0; }
+      .page-tools li { margin-bottom: 6px; line-height: 1.35; }
+      .page-tools a { color: var(--dv-blue); }  /* 5.05:1 on #f4f7f6 */
+      .page-tools a:focus-visible {
+        outline: 3px solid var(--dv-focus);
+        outline-offset: 2px;
+      }
+      .page-tools .page-tools-check {
+        display: block;
+        width: 100%;
+        font-family: inherit;
+        font-size: 1rem;
+        line-height: 1.3;
+        cursor: pointer;
+        box-sizing: border-box;
+        min-height: 44px;
+        padding: 10px 14px;
+        background-color: var(--dv-green);
+        border: 2px solid var(--dv-green-dark);
+        border-radius: 6px;
+        color: #fff;               /* 6.29:1 on #0f6e45 */
+        font-weight: 700;
+        text-align: center;
+        text-decoration: none;
+      }
+      .page-tools .page-tools-check:hover { background-color: var(--dv-green-dark); text-decoration: underline; }
+      .page-tools .page-tools-check:focus-visible {
+        outline: 3px solid var(--dv-focus);
+        outline-offset: 3px;
+      }
+      .page-tools .page-tools-check[disabled] { cursor: progress; }
+      .page-tools .page-tools-check[hidden] { display: none; }
+      .page-tools p a { text-decoration: underline; text-underline-offset: 0.15em; }
+      .page-check-status { margin: 0.5rem 0 0; font-weight: 700; }
+      .page-check-status:empty { display: none; }
+      .page-check-results { margin-top: 0.5rem; overflow-wrap: anywhere; }
+      .page-check-results ul.page-check-counts { margin-bottom: 0.5rem; }
+      .page-check-results ol.page-check-list { list-style: decimal; padding-left: 1.25rem; }
+      .page-check-results ol.page-check-list > li { margin-bottom: 0.75rem; padding-bottom: 0.5rem; border-bottom: 1px solid var(--dv-border); }
+      .page-check-results p { margin: 0.2rem 0; font-size: 0.85rem; }
+      .page-check-results code { font-size: 0.8rem; color: var(--dv-text); background: #fff; padding: 0 2px; }
+      .page-check-actions { display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center; }
+      .page-check-highlight-btn {
+        min-height: 32px;
+        padding: 2px 10px;
+        font-family: inherit;
+        font-size: 0.85rem;
+        color: var(--dv-green-dark);  /* 7.6:1 on white */
+        background: #fff;
+        border: 2px solid var(--dv-green-dark);
+        border-radius: 4px;
+        cursor: pointer;
+      }
+      .page-check-highlight-btn[aria-pressed="true"] { background: var(--dv-green-dark); color: #fff; }
+      .page-check-highlight-btn:focus-visible { outline: 3px solid var(--dv-focus); outline-offset: 2px; }
+      .page-check-highlight { outline: 4px solid #b50909 !important; outline-offset: 2px !important; }  /* 6.9:1 on white */
+      .page-tools-note { margin: 0.5rem 0 0; font-size: 0.85rem; color: var(--dv-text); }
+      .page-content > .site-footer { margin: 2rem 1rem 0; }
+      @media (min-width: 1100px) {
+        .page-content {
+          display: grid;
+          grid-template-columns: minmax(0, 1fr) 15rem;
+          column-gap: 2rem;
+          align-items: start;
+        }
+        .page-content > .tag-bar,
+        .page-content > .site-footer { grid-column: 1 / -1; }
+        .page-content > main.main-content { grid-column: 1; }
+        .page-tools {
+          grid-column: 2;
+          position: sticky;
+          top: calc(var(--slim-bar-height) + 1rem);
+          max-height: calc(100vh - var(--slim-bar-height) - 2rem);
+          overflow-y: auto;
+          margin: 1.75rem 0 0;
+        }
+        .page-content > .site-footer { margin: 2rem 0 0; }
+      }
     </style>
   </head>
   
@@ -752,18 +851,16 @@
   <main id="content" class="main-content" role="main" tabindex="-1">
       
       <!-- Individual Page Tags (Optional: shows tags specific to this page) -->
-      {% if page.tags %}
-        <div class="page-tags" style="margin-bottom: 20px; font-style: italic; font-size: 0.9rem;">
-          Tagged as: {{ page.tags | join: ", " }}
-        </div>
-      {% endif %}
 
       {{ content }}
       
+    </main>
+
+    {% include page-tools.html %}
+
       <footer class="site-footer">
         <span class="site-footer-owner">Site maintained by the Quality Program Staff</span>
       </footer>
-    </main>
     </div>
     </div>
 
@@ -868,6 +965,8 @@
 
     <!-- Download functionality for Python, Jupyter, and other files -->
     <script src="{{ '/assets/js/download.js' | relative_url }}" defer></script>
+    <!-- Page tools panel: "Run accessibility checks on this page" button -->
+    <script src="{{ '/assets/js/page-check.js' | relative_url }}" defer></script>
     
   </body>
 </html>
