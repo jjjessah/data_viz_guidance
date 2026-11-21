@@ -10,6 +10,76 @@
   var AXE_SRI = "sha384-xt1SFg49QaDwsyt0Xfs2XAyBtYPClXl3X2q5OOLeGAUmq9jZTYIMdztpF99WdhiH";
   var AXE_TAGS = ["wcag2a", "wcag2aa", "wcag21a", "wcag21aa"];
   var HOST_ID = "dvg-a11y-check";
+  /* WCAG 2.0 and 2.1 success criteria that axe-core can report: number -> [W3C Understanding page, name].
+     Every address below was checked and opened on the W3C site. */
+  var WCAG_BASE = "https://www.w3.org/WAI/WCAG21/Understanding/";
+  var WCAG_QUICKREF = "https://www.w3.org/WAI/WCAG22/quickref/?versions=2.1";
+  var WCAG_SC = {
+    "1.1.1": ["non-text-content", "Non-text Content"],
+    "1.2.1": ["audio-only-and-video-only-prerecorded", "Audio-only and Video-only (Prerecorded)"],
+    "1.2.2": ["captions-prerecorded", "Captions (Prerecorded)"],
+    "1.2.3": ["audio-description-or-media-alternative-prerecorded", "Audio Description or Media Alternative (Prerecorded)"],
+    "1.2.4": ["captions-live", "Captions (Live)"],
+    "1.2.5": ["audio-description-prerecorded", "Audio Description (Prerecorded)"],
+    "1.3.1": ["info-and-relationships", "Info and Relationships"],
+    "1.3.2": ["meaningful-sequence", "Meaningful Sequence"],
+    "1.3.3": ["sensory-characteristics", "Sensory Characteristics"],
+    "1.3.4": ["orientation", "Orientation"],
+    "1.3.5": ["identify-input-purpose", "Identify Input Purpose"],
+    "1.4.1": ["use-of-color", "Use of Color"],
+    "1.4.2": ["audio-control", "Audio Control"],
+    "1.4.3": ["contrast-minimum", "Contrast (Minimum)"],
+    "1.4.4": ["resize-text", "Resize Text"],
+    "1.4.5": ["images-of-text", "Images of Text"],
+    "1.4.10": ["reflow", "Reflow"],
+    "1.4.11": ["non-text-contrast", "Non-text Contrast"],
+    "1.4.12": ["text-spacing", "Text Spacing"],
+    "1.4.13": ["content-on-hover-or-focus", "Content on Hover or Focus"],
+    "2.1.1": ["keyboard", "Keyboard"],
+    "2.1.2": ["no-keyboard-trap", "No Keyboard Trap"],
+    "2.1.3": ["keyboard-no-exception", "Keyboard (No Exception)"],
+    "2.1.4": ["character-key-shortcuts", "Character Key Shortcuts"],
+    "2.2.1": ["timing-adjustable", "Timing Adjustable"],
+    "2.2.2": ["pause-stop-hide", "Pause, Stop, Hide"],
+    "2.3.1": ["three-flashes-or-below-threshold", "Three Flashes or Below Threshold"],
+    "2.4.1": ["bypass-blocks", "Bypass Blocks"],
+    "2.4.2": ["page-titled", "Page Titled"],
+    "2.4.3": ["focus-order", "Focus Order"],
+    "2.4.4": ["link-purpose-in-context", "Link Purpose (In Context)"],
+    "2.4.5": ["multiple-ways", "Multiple Ways"],
+    "2.4.6": ["headings-and-labels", "Headings and Labels"],
+    "2.4.7": ["focus-visible", "Focus Visible"],
+    "2.5.1": ["pointer-gestures", "Pointer Gestures"],
+    "2.5.2": ["pointer-cancellation", "Pointer Cancellation"],
+    "2.5.3": ["label-in-name", "Label in Name"],
+    "2.5.4": ["motion-actuation", "Motion Actuation"],
+    "3.1.1": ["language-of-page", "Language of Page"],
+    "3.1.2": ["language-of-parts", "Language of Parts"],
+    "3.2.1": ["on-focus", "On Focus"],
+    "3.2.2": ["on-input", "On Input"],
+    "3.2.3": ["consistent-navigation", "Consistent Navigation"],
+    "3.2.4": ["consistent-identification", "Consistent Identification"],
+    "3.3.1": ["error-identification", "Error Identification"],
+    "3.3.2": ["labels-or-instructions", "Labels or Instructions"],
+    "3.3.3": ["error-suggestion", "Error Suggestion"],
+    "3.3.4": ["error-prevention-legal-financial-data", "Error Prevention (Legal, Financial, Data)"],
+    "4.1.1": ["parsing", "Parsing"],
+    "4.1.2": ["name-role-value", "Name, Role, Value"],
+    "4.1.3": ["status-messages", "Status Messages"]
+  };
+  /* axe-core tags such as "wcag143" or "wcag1410" -> links to the matching W3C pages. */
+  function wcagLinks(tags) {
+    var links = [];
+    (tags || []).forEach(function (t) {
+      var m = /^wcag(\d)(\d)(\d+)$/.exec(t);
+      if (!m) return;
+      var num = m[1] + "." + m[2] + "." + m[3];
+      var sc = WCAG_SC[num];
+      if (sc) links.push({ text: "WCAG " + num + ": " + sc[1], href: WCAG_BASE + sc[0] + ".html" });
+    });
+    if (!links.length) links.push({ text: "WCAG quick reference", href: WCAG_QUICKREF });
+    return links;
+  }
 
   var old = document.getElementById(HOST_ID);
   if (old) old.remove();
@@ -84,9 +154,14 @@
         li.appendChild(head);
         var t = v.nodes[0] && v.nodes[0].target;
         if (t) { var p = el("p", null, "First: "); p.appendChild(el("code", null, String(t[t.length - 1]))); li.appendChild(p); }
-        var a = el("a", null, "How to fix (Deque)");
-        a.href = v.helpUrl; a.target = "_blank"; a.rel = "noopener";
-        var pa = el("p"); pa.appendChild(a); li.appendChild(pa);
+        li.appendChild(el("p", null, "W3C guidance (opens in a new tab):"));
+        var refs = el("ul");
+        wcagLinks(v.tags).forEach(function (w) {
+          var a = el("a", null, w.text);
+          a.href = w.href; a.target = "_blank"; a.rel = "noopener";
+          var rli = el("li"); rli.appendChild(a); refs.appendChild(rli);
+        });
+        li.appendChild(refs);
         list.appendChild(li);
       });
       out.appendChild(list);
