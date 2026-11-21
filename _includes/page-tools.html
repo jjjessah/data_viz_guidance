@@ -1,0 +1,31 @@
+{% comment %}
+  Page tools panel, shown on every page after the main content.
+  Wide screens: a sticky column on the right. Narrower screens and 200% zoom: below the content.
+  "On this page" lists the page's level-2 headings (kramdown gives each one an id).
+{% endcomment %}
+<aside class="page-tools" aria-label="Page tools">
+  <a class="page-tools-check" href="{{ '/508.html' | relative_url }}#test-your-pages-accessibility">Test your page&rsquo;s accessibility</a>
+  <p class="page-tools-note">Free tests for any page, with no GitHub needed.</p>
+
+  {% assign h2_parts = content | split: '<h2 id="' %}
+  {% if h2_parts.size > 2 %}
+  <h2 id="page-tools-on-this-page">On this page</h2>
+  <ul>
+    {% for part in h2_parts offset: 1 %}
+      {% assign h2_id = part | split: '"' | first %}
+      {% assign h2_text = part | split: '</h2>' | first | remove_first: h2_id | remove_first: '">' | strip_html | strip %}
+      <li><a href="#{{ h2_id }}">{{ h2_text }}</a></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  {% if page.tags %}
+  <h2 id="page-tools-tags">Tagged as</h2>
+  <ul>
+    {% for tag_name in page.tags %}
+      {% assign tag_slug = tag_name | slugify %}
+      <li><a href="{{ site.baseurl }}/tags/{{ tag_slug }}/">{{ tag_name }}</a></li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+</aside>
